@@ -1,0 +1,1 @@
+This is my git repo for the course MVC at Blekinge Tekniska Högskola. It contains the content of my me-page and object oriented php using the symfony framework.
