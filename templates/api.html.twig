@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Api{% endblock %}
+
+{% block body %}
+    <article class="art-row">
+        <div class="div-col-2">
+            <h1>Currently available API routes</h1>
+            <ul class="about-links">
+            {%for descript, route in routes%}
+            <li><b>{{ route }}</b>: {{ descript }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </article>
+{% endblock %}

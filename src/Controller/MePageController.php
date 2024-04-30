@@ -38,4 +38,41 @@ class MePageController extends AbstractController
 
         return $this->render('lucky_number.html.twig', $data);
     }
+
+    #[Route("/api", name: "api")]
+    public function apiRoutes(): Response
+    {
+        $routes = [
+            'gives you your daily quote' => '/api/quote',
+        ];
+
+        $data = [
+            'routes' => $routes
+        ];
+
+        return $this->render('api.html.twig', $data);
+    }
+
+    #[Route("/api/quote", name: "quote")]
+    public function jsonQuote(): JsonResponse
+    {
+        $quotes = [
+            "We We demand rigidly defined areas of doubt and uncertainty!" => "Douglas Adams, The Hitchhiker’s Guide to the Galaxy ",
+            "Things are only impossible until they're not" => "Captain Jean-Lic Picard, USS Enterprise",
+            "One repays a teacher badly if one always remains nothing but a pupil" => "Friedrich Nietzsche, Thus Spoke Zarathustra"
+        ];
+
+        $quote = array_rand($quotes, 1);
+        $author = $quotes[$quote];
+        
+
+        $response = [
+            'quote' => $quote,
+            'author' => $author,
+            'date' => date("Y/m/d"),
+            'timestamp' => date("H:i:s")
+        ];
+
+        return new JsonResponse($response);
+    }
 }

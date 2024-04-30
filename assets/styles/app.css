@@ -399,6 +399,7 @@ display:flex;
 align-items: center;
 justify-content: center;
 flex-direction: column;
+min-height: 600px;
 /*display: inline;*/
 /*float: left;*/
 /*width: 57.29166667%;
@@ -513,6 +514,11 @@ box-shadow: none;
 margin: 6px;
 }
 /* Byline */
+.byline-wrapper {
+display:flex;
+align-items: center;
+justify-content: center;
+}
 .byline {
 background-color: rgba(51, 51, 51, 0.603);
 display: inline;

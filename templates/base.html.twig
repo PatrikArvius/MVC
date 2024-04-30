@@ -23,6 +23,7 @@
                 <li><a href="{{ path('about') }}">About</a></li>
                 <li><a href="{{ path('report') }}">Reports</a></li>
                 <li><a href="{{ path('lucky_number') }}">Lucky</a></li>
+                <li><a href="{{ path('api') }}">Api</a></li>
             </ul>
         </nav>
         </div>
@@ -31,13 +32,20 @@
     <body>
         <main>
         {% block body %}{% endblock %}
+            <div class="byline-wrapper">
+                <div class="byline">
+                    <img src="img/parv2.jpg" alt="Patrik Arvius" class="byline-image">
+                    <p>
+                    <b>Patrik Arvius</b> lives in Hammarby Sjöstad, Stockholm and studies webbdevelopment at 
+                    Blekinge Tekniska Högskola. In his spare time you'll find him in the 50m pool at Eriksdalsbadet, panting
+                    up Hammarbybacken or maybe in an online game. 
+                    </p>
+                </div>
+            </div>
         </main>
     </body>
-
     <footer>
-        <p>Test footer</p>
+        <p>@Patrik Arvius, 2024, <a href="https://github.com/PatrikArvius/">My github repos</a></p>
+        <a href="https://github.com/PatrikArvius/">My github repos</a>
     </footer>
-    <byline>
-        <p>Test byline</p>
-    </byline>
 </html>
