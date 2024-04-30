@@ -58,6 +58,8 @@ li .rm-submenu-button {
 display: none;
 }
 
+
+
 /**
 * Base style to affect HTML elements on a general scale.
 */
@@ -393,11 +395,37 @@ margin-right: 0.52083333%;
 margin-left: 21.35416667%;
 }
 article {
-display: inline;
-float: left;
-width: 57.29166667%;
+display:flex;
+align-items: center;
+justify-content: center;
+flex-direction: column;
+/*display: inline;*/
+/*float: left;*/
+/*width: 57.29166667%;
 margin-left: 0.52083333%;
-margin-right: 0.52083333%;
+margin-right: 0.52083333%;*/
+}
+article p {
+    text-align: left;
+}
+article.art-row {
+    flex-direction: row;
+    align-items: flex-start;
+}
+div.home {
+    width: 50%;
+}
+div.div-col-1 {
+    flex-direction: column;
+    width: 20%;
+    height: 100%;
+    padding: 24px;
+}
+div.div-col-2 {
+    flex-direction: column;
+    width: 60%;
+    height: 100%;
+    padding: 24px;
 }
 figcaption p {
 text-align: center;
@@ -410,11 +438,20 @@ color: #333333;
 ul {
 list-style-type: none;
 }
+ul.about-links li {
+    display: block;
+    box-shadow: none;
+}
 img,
 embed,
 object,
 video {
 max-width: 100%;
+margin: auto;
+display: block;
+}
+.small-img {
+    width: 30%;
 }
 /**
 * Layout style for general structure of header, navbar, main, footer
@@ -470,7 +507,6 @@ text-decoration: none;
 }
 .my-navbar ul {
 background-color: rgba(51, 51, 51, 0.514);
-border-radius: 5px;
 }
 .my-navbar ul li {
 box-shadow: none;

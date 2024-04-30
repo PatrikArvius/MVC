@@ -1,0 +1,15 @@
+{# templates/lucky_number.html.twig #}
+
+{% extends "base.html.twig" %}
+
+{% block title %}Lucky{% endblock %}
+
+{% block body %}
+    <h1>Your totally amazing lucky number generator</h1>
+    <p>Reload the page to get a new lucky number.</p>
+    <p>This is your current magic number: {{ number }}</p>
+    <figure>
+        <img src="{{ asset('img/aurora.jpg') }}" alt="Picture of the aurora borealis">
+        <figcaption><p>Are you sure your lucky number isn't 42?</p></figcaption>
+    </figure>
+{% endblock %}

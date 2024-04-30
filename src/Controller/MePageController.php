@@ -21,6 +21,12 @@ class MePageController extends AbstractController
         return $this->render('about.html.twig');
     }
 
+    #[Route("/report", name: "report")]
+    public function report(): Response
+    {
+        return $this->render('report.html.twig');
+    }
+
     #[Route("/lucky", name: "lucky_number")]
     public function number(): Response
     {

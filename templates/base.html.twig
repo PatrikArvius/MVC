@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="{{ asset('img/glider.svg') }}">
+        <link rel="icon" href="{{ asset('img/aurora.jpg') }}">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
@@ -21,7 +21,8 @@
             <ul class="my-navbar">
                 <li><a href="{{ path('home') }}">Home</a></li>
                 <li><a href="{{ path('about') }}">About</a></li>
-                <li><a href="{{ path('lucky_number') }}">Lucky number</a></li>
+                <li><a href="{{ path('report') }}">Reports</a></li>
+                <li><a href="{{ path('lucky_number') }}">Lucky</a></li>
             </ul>
         </nav>
         </div>

@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block title %}About{% endblock %}
+
+{% block body %}
+    <article class="art-row">
+        <div class="div-col-1">
+            <h2>Links</h2>
+            <ul class="about-links">
+                <li><a href="https://github.com/dbwebb-se/mvc/">MVC github course repository</a></li>
+                <li><a href="https://github.com/PatrikArvius/MVC">My github repository for the course</a></li>
+            </ul>
+        </div>
+
+        <div class="div-col-2">
+            <h1>About MVC</h1>
+            <p>MVC stands for Model, View and Controller and is a course at Blekinge Tekniska Högskola designed to teach students about those three things within a 
+            framework (in this case Symfony). The course also focuses on using PHP with a object oriented focus aswell as usage of databases with SQL and PHP data objects aswell 
+            as unit testing. Apart from that it also invovles usage of tools suited for webbdevelopment such as Unix/Linux, ssh, ftp/sftp to name a few.</p>
+            <img class="small-img" src="{{ asset('img/phppic.jpg') }}" alt="Picture of a paper person and php code">
+        </div>
+    </article>
+{% endblock %}
