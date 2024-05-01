@@ -57,7 +57,7 @@ class MePageController extends AbstractController
     public function jsonQuote(): JsonResponse
     {
         $quotes = [
-            "We We demand rigidly defined areas of doubt and uncertainty!" => "Douglas Adams, The Hitchhiker’s Guide to the Galaxy ",
+            "We demand rigidly defined areas of doubt and uncertainty!" => "Douglas Adams, The Hitchhiker’s Guide to the Galaxy ",
             "Things are only impossible until they're not" => "Captain Jean-Lic Picard, USS Enterprise",
             "One repays a teacher badly if one always remains nothing but a pupil" => "Friedrich Nietzsche, Thus Spoke Zarathustra"
         ];
@@ -65,7 +65,6 @@ class MePageController extends AbstractController
         $quote = array_rand($quotes, 1);
         $author = $quotes[$quote];
         
-
         $response = [
             'quote' => $quote,
             'author' => $author,
