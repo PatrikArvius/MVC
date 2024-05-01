@@ -5,10 +5,18 @@ This is my git repo for the course MVC at Blekinge Tekniska Högskola. It contai
 
 ## How to clone this repo  
 
-Through your terminal of choice, go to your target directory where you wish to store the files (make sure you have git, use **git --version** to make sure).  
-Type: ``` git clone https://github.com/PatrikArvius/MVC.git ```  
+Through your terminal of choice, go to your target directory where you wish to store the files  
+(make sure you have git, use **git --version** to make sure).  
+Type: 
+```
+git clone https://github.com/PatrikArvius/MVC.git
+```  
 
 ## How to run the webpage on your local machine  
 
 Once you have cloned the repository to the directory of your choice, go to said directory through your terminal.  
-Then type ``` php -S localhost:8888 -t public ´´´ , this will start a local server through PHP and you can now go to localhost:8888 in your browser to see the webpage.  
+Then type:
+```
+php -S localhost:8888 -t public
+´´´
+This will start a local server through PHP and you can now go to localhost:8888 in your browser to see the webpage.  
