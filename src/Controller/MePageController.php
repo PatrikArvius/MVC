@@ -64,7 +64,7 @@ class MePageController extends AbstractController
 
         $quote = array_rand($quotes, 1);
         $author = $quotes[$quote];
-        
+
         $response = [
             'quote' => $quote,
             'author' => $author,
