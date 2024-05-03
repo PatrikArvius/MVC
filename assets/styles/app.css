@@ -11,14 +11,24 @@ display: block;
 min-width: 10em;
 }
 a {
-display: block;
 text-decoration: none;
 white-space: nowrap;
 outline: none;
 }
+a:hover {
+    text-decoration: underline;
+}
+ul.my-navbar a {
+    display: block;
+    text-decoration: none;
+    white-space: nowrap;
+    outline: none;
+}
 ul {
 position: absolute;
 z-index: 9999;
+width: inherit;
+background-color: inherit;
 }
 ul li {
 box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.4);
@@ -29,9 +39,6 @@ left: -9999px;
 /**
 * Menu layout for the desktop variant, usually full width of browser.
 */
-ul {
-background-color: inherit;
-}
 li {
 position: relative;
 }
@@ -397,7 +404,7 @@ margin-left: 21.35416667%;
 article {
 display:flex;
 align-items: center;
-justify-content: center;
+justify-content: start;
 flex-direction: column;
 min-height: 600px;
 /*display: inline;*/
@@ -428,13 +435,17 @@ div.div-col-2 {
     height: 100%;
     padding: 24px;
 }
+div.div-col-3 {
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+}
+div.div-col-3 p {
+    text-align: center;
+}
 figcaption p {
 text-align: center;
 font-style: italic;
-}
-a {
-text-decoration: none;
-color: #333333;
 }
 ul {
 list-style-type: none;
@@ -573,4 +584,12 @@ margin-right: 0.52083333%;
 }
 .site-footer p {
 text-align: center;
+}
+/* Dice related styling */
+.die {
+    font-size: 2em;
+}
+ul.dice {
+    padding-left: 0;
+    text-align: center;
 }
