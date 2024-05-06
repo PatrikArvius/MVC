@@ -1,0 +1,46 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Pig Play{% endblock %}
+
+{% block body %}
+
+<article>
+<div class="div-col-3">
+<h1>Pig game [PLAYING]</h1>
+{{ include('flash.html.twig') }}
+
+{# read and display all flash messages #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+
+<p>You are playing with {{ pigDices }} dices.</p>
+
+<p>Round value: {{ pigRound }}</p>
+<p>Total: {{ pigTotal }}</p>
+
+<form class="diceform" method="post" action="">
+    <input type="submit" name="roll" value="Roll"
+    onClick="this.form.action='{{ path('pig_roll') }}';"
+    >
+    <input type="submit" name="save" value="Save"
+    onClick="this.form.action='{{ path('pig_save') }}';"
+    >
+    <input type="submit" name="restart" value="Restart"
+        onClick="this.form.action='{{ path('pig_start')  }}';this.form.method='get';"
+    >
+</form>
+
+<ul class="dice">
+{% for value in diceValues %}
+    <li>{{ value }}</li>
+{% endfor %}
+</ul>
+</div>
+</article>
+{% endblock %}

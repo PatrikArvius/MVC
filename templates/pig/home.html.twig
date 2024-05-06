@@ -10,5 +10,12 @@
 set of dices to try and reach 100 points. You can read more on 
 the <a href="https://en.wikipedia.org/wiki/Pig_(dice_game)"> 
 basics of the game on Wikipedia</a>.</p>
+
+<p>How many dices do you want to have in your dice hand when playing the game?</p>
+
+<form class="diceform" method="post" action="">
+    <input type="number" name="num_dices" min="1" max="99" value="1">
+    <input type="submit" name="do_it" value="Start playing">
+</form>
 </article>
 {% endblock %}

@@ -393,6 +393,13 @@ margin-left: 21.35416667%;
 form p {
 text-align: left;
 }
+
+form.diceform{
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+}
 fieldset {
 display: inline;
 float: left;
@@ -592,4 +599,29 @@ text-align: center;
 ul.dice {
     padding-left: 0;
     text-align: center;
+    font-size: 2.5em;
+}
+
+ul.dice li {
+    box-shadow: none;
+}
+
+.flash-notice {
+    padding: 0.5em;
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+.flash-notice:before {
+    content: "ⓘ";
+}
+
+.flash-warning {
+    padding: 0.5em;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+.flash-warning:before {
+    content: "⚠";
 }
