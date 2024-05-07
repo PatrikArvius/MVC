@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Session{% endblock %}
+
+{% block body %}
+<article>
+<div class="div-col-3">
+<h1>Session</h1>
+{{ include('flash.html.twig') }}
+
+{# read and display all flash messages #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="flash-{{ label }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endfor %}
+<p>
+<a href="{{ path('session_content') }}">Session</a>
+    ,
+<a href="{{ path('session_delete') }}">Session Delete</a>
+</p>
+<p> 
+    {{ dump(session) }}
+</p>
+
+</div>
+</article>
+{% endblock %}

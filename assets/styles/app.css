@@ -606,6 +606,21 @@ ul.dice li {
     box-shadow: none;
 }
 
+/* Card related styling */
+ul.card {
+    padding-left: 0;
+    text-align: center;
+    font-size: 2.5em;
+}
+
+ul.card li {
+    box-shadow: none;
+}
+.card {
+    font-size: 1.5em;
+}
+
+/* Flash message style */
 .flash-notice {
     padding: 0.5em;
     color: #004085;

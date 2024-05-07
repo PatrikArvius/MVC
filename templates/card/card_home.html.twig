@@ -1,0 +1,29 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block body %}
+<article class="art-row">
+<div class="div-col-1">
+    <h2>Card links</h2>
+    <ul class="about-links">
+    <li><a href="{{ path('session_content') }}">Session</a></li>
+    <li><a href="{{ path('session_delete') }}">Session Delete</a></li>
+    <li><a href="{{ path('card_deck') }}">Show the entire deck (sorted)</a></li>
+    <li><a href="{{ path('card_deck_shuffle') }}">Show the shuffled deck</a></li>
+    <li><a href="{{ path('card_deck_draw') }}">Draw a card</a></li>
+    <li><a href="{{ path('card_deck_draw_num') }}">Draw X amount of cards</a></li>
+    </ul>
+</div>
+<div class="div-col-2">
+<h1>Card game</h1>
+<p> Berätta om strukturen på dina klasser, vilka klasser har du och hur är de relaterade till varandra. Rita ett UML och visa här</p>
+<ul class="card">
+{% for card in cards %}
+    <li class="card">{{ card }}</li>
+{% endfor %}
+</ul>
+
+</div>
+</article>
+{% endblock %}
