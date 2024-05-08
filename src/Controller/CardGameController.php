@@ -66,7 +66,6 @@ class CardGameController extends AbstractController
     ): Response {
         $deck = $session->get('DeckOfCards');
 
-        //$cards = $deck->getString();
         $cards = $deck->getStringSorted();
         $data = [
             'cards' => $cards
@@ -75,11 +74,20 @@ class CardGameController extends AbstractController
         return $this->render('card/deck.html.twig', $data);
     }
 
-    #[Route("/card/deck/shuffle", name: "card_deck_shuffle")]
-    public function shuffle(): Response
-    {
+    #[Route("/card/deck/shuffle", name: "card_deck_shuffle", methods: ['GET'])]
+    public function shuffle(
+        sessionInterface $session
+    ): Response {
+        $deck = $session->get('DeckOfCards');
+        $deck->shuffleDeck();
+        $cards = $deck->getString();
 
-        return $this->render('card/card_home.html.twig');
+        $data = [
+            'cards' => $cards
+        ];
+
+
+        return $this->render('card/shuffle.html.twig', $data);
     }
 
     #[Route("/card/deck/draw", name: "card_deck_draw")]

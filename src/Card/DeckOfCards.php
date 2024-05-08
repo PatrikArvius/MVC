@@ -7,8 +7,10 @@ use App\Card\CardGraphic;
 
 class DeckOfCards
 {
-    private $deck = [];
+    private array $deck = [];
     private int $cardsPerSuit = 13;
+    private bool $sorted = false;
+    private bool $shuffled = false;
     private array $suits = [
         'spades',
         'hearts',
@@ -61,61 +63,82 @@ class DeckOfCards
 
     public function getStringSorted(): array
     {
-        $values = [];
-        $spades = [];
-        $hearts = [];
-        $diamonds = [];
-        $clubs = [];
-
-        //Sort cards into suit arrays
-        foreach ($this->deck as $card) {
-
-            switch ($card->getSuit()) {
-                case "spades":
-                    $spades[] = $card;
-                    break;
-                case "hearts":
-                    $hearts[] = $card;
-                    break;
-                case "diamonds":
-                    $diamonds[] = $card;
-                    break;
-                case "clubs":
-                    $clubs[] = $card;
-                    break;
-            }
-        }
-
-        // Sort the suit arrays by value
-        $spades = $this->sortByValue($spades);
-        $hearts = $this->sortByValue($hearts);
-        $diamonds = $this->sortByValue($diamonds);
-        $clubs = $this->sortByValue($clubs);
-
-        // Merge the sorted arrays into one suit and value sorted array
-        $values = array_merge($spades, $hearts, $diamonds, $clubs);
-
-        //Get string representation of each card from the sorted array
-        $strValues = [];
-        foreach ($values as $card) {
-
-            $strValues[] = $card->getAsString();
-        }
-        return $strValues;
+        $this->sortDeck();
+        return $this->getString();
     }
 
-    public function sortByValue(array $suitedDeck)
+    public function sortDeck(): void
+    {
+        if (!$this->sorted) {
+            $sortedArray = [];
+            $spades = [];
+            $hearts = [];
+            $diamonds = [];
+            $clubs = [];
+
+            //Sort cards into suit arrays
+            foreach ($this->deck as $card) {
+
+                switch ($card->getSuit()) {
+                    case "spades":
+                        $spades[] = $card;
+                        break;
+                    case "hearts":
+                        $hearts[] = $card;
+                        break;
+                    case "diamonds":
+                        $diamonds[] = $card;
+                        break;
+                    case "clubs":
+                        $clubs[] = $card;
+                        break;
+                }
+            }
+
+            // Sort the suit arrays by value
+            $spades = $this->sortByValue($spades);
+            $hearts = $this->sortByValue($hearts);
+            $diamonds = $this->sortByValue($diamonds);
+            $clubs = $this->sortByValue($clubs);
+
+            // Merge the sorted arrays into one suit and value sorted array
+            $sortedArray = array_merge($spades, $hearts, $diamonds, $clubs);
+
+            // Set object deck array as the sorted deck array
+            $this->deck = $sortedArray;
+            $this->sorted = true;
+            $this->shuffled = false;
+        }
+    }
+
+    public function sortByValue(array $suitedDeck): array
     {
 
         $suitedDeck = $suitedDeck;
         $sortedArray = [];
 
-        foreach ($suitedDeck as $card) {
-            $val = $card->getValue();
-            $sortedArray[$val - 1] = $card;
+        // Looping over cardsPerSuit ensures not missing a card value
+        // if a card has been drawn from the deck
+        for ($i = 1; $i <= $this->cardsPerSuit; $i++) {
+            foreach ($suitedDeck as $card) {
+                $val = $card->getValue();
+                if ($val === $i) {
+                    array_push($sortedArray, $card);
+                }
+            }
         }
 
         return $sortedArray;
     }
 
+    public function shuffleDeck(): void
+    {
+        if (!$this->shuffled) {
+            $deck = $this->deck;
+            shuffle($deck);
+            $this->deck = $deck;
+            $this->shuffled = true;
+            $this->sorted = false;
+        }
+    }
 }
