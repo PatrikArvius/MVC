@@ -400,6 +400,14 @@ form.diceform{
     margin-right: 0;
     width: 100%;
 }
+
+form.cardform {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 24px;
+}
 fieldset {
 display: inline;
 float: left;

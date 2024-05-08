@@ -16,24 +16,13 @@
     </ul>
 </div>
 <div class="div-col-2">
-<h1>Card game</h1>
+<h1>Your sorted card deck</h1>
 
-{{ include('flash.html.twig') }}
-
-{# read and display all flash messages #}
-{% for label, messages in app.flashes %}
-    {% for message in messages %}
-        <div class="flash-{{ label }}">
-            {{ message }}
-        </div>
-    {% endfor %}
+<ul class="card">
+{% for card in cards %}
+    <li class="card">{{ card }}</li>
 {% endfor %}
-
-<form class="cardform" method="post" action="">
-    <input type="submit" name="do_it" value="Create a deck of cards">
-</form>
-
-<p> Berätta om strukturen på dina klasser, vilka klasser har du och hur är de relaterade till varandra. Rita ett UML och visa här</p>
+</ul>
 
 </div>
 </article>

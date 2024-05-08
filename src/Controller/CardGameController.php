@@ -39,69 +39,65 @@ class CardGameController extends AbstractController
         return $this->redirectToRoute('session_content');
     }
 
-    #[Route("/card", name: "card_start")]
+    #[Route("/card", name: "card_start", methods: ['GET'])]
     public function home(): Response
     {
-        $deck = new DeckOfCards("graphic");
-
-        $cards = $deck->getStringSorted();
-        //$cards = $deck->getString();
-        $data = [
-            'cards' => $cards
-        ];
-
-        return $this->render('card/card_home.html.twig', $data);
+        return $this->render('card/card_home.html.twig');
     }
 
-    #[Route("/card/deck", name: "card_deck")]
-    public function deck(): Response
+    #[Route("/card", name: "card_post", methods: ['POST'])]
+    public function deckInit(
+        SessionInterface $session
+    ): Response
     {
+        // Creates a deckofcards object based on submitted form in card_start
+        // Saves it to the session
         $deck = new DeckOfCards("graphic");
+        $session->set('DeckOfCards', $deck);
+        
 
-        $cards = $deck->getString();
+        $this->addFlash(
+            'notice',
+            'A deck of cards was created and added to session'
+        );
+
+        return $this->redirectToRoute('card_start');
+    }
+
+    #[Route("/card/deck", name: "card_deck", methods: ['GET'])]
+    public function deck(
+        sessionInterface $session
+    ): Response
+    {
+        $deck = $session->get('DeckOfCards');
+
+        //$cards = $deck->getString();
+        $cards = $deck->getStringSorted();
         $data = [
             'cards' => $cards
         ];
 
-        return $this->render('card/card_home.html.twig', $data);
+        return $this->render('card/deck.html.twig', $data);
     }
 
     #[Route("/card/deck/shuffle", name: "card_deck_shuffle")]
     public function shuffle(): Response
     {
-        $deck = new DeckOfCards("graphic");
-
-        $cards = $deck->getString();
-        $data = [
-            'cards' => $cards
-        ];
-
-        return $this->render('card/card_home.html.twig', $data);
+        
+        return $this->render('card/card_home.html.twig');
     }
 
     #[Route("/card/deck/draw", name: "card_deck_draw")]
     public function draw(): Response
     {
-        $deck = new DeckOfCards("graphic");
-
-        $cards = $deck->getString();
-        $data = [
-            'cards' => $cards
-        ];
-
-        return $this->render('card/card_home.html.twig', $data);
+        
+        return $this->render('card/card_home.html.twig');
     }
 
     #[Route("/card/deck/draw/:number", name: "card_deck_draw_num")]
     public function drawNum(): Response
     {
-        $deck = new DeckOfCards("graphic");
 
-        $cards = $deck->getString();
-        $data = [
-            'cards' => $cards
-        ];
-
-        return $this->render('card/card_home.html.twig', $data);
+        return $this->render('card/card_home.html.twig');
     }
 }
