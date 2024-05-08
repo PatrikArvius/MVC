@@ -28,12 +28,11 @@ class DeckOfCards
         foreach ($this->suits as $suit) {
             if ($cardType === "graphic") {
                 $this->deck[] = new CardGraphic($suit, $value);
-             }
-              else {
-                 $this->deck[] = new Card($suit, $value);
-              }
+            } else {
+                $this->deck[] = new Card($suit, $value);
+            }
         }
-        
+
     }
 
     public function getNumberCards(): int
@@ -60,7 +59,7 @@ class DeckOfCards
         return $values;
     }
 
-    public function getStringSorted(): array 
+    public function getStringSorted(): array
     {
         $values = [];
         $spades = [];
@@ -80,7 +79,7 @@ class DeckOfCards
                     break;
                 case "diamonds":
                     $diamonds[] = $card;
-                    break;     
+                    break;
                 case "clubs":
                     $clubs[] = $card;
                     break;
@@ -105,7 +104,8 @@ class DeckOfCards
         return $strValues;
     }
 
-    public function sortByValue(array $suitedDeck) {
+    public function sortByValue(array $suitedDeck)
+    {
 
         $suitedDeck = $suitedDeck;
         $sortedArray = [];
@@ -117,5 +117,5 @@ class DeckOfCards
 
         return $sortedArray;
     }
-    
+
 }

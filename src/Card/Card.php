@@ -18,7 +18,8 @@ class Card
         return $this->value;
     }
 
-    public function getSuit(): ?string {
+    public function getSuit(): ?string
+    {
         return $this->suit;
     }
 
