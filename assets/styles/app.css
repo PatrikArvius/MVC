@@ -408,6 +408,18 @@ form.cardform {
     width: 100%;
     margin-bottom: 24px;
 }
+
+form.cardform input.slider {
+    display: block;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+input {
+    margin-bottom: 12px;
+}
+
 fieldset {
 display: inline;
 float: left;
@@ -445,6 +457,7 @@ div.div-col-1 {
     padding: 24px;
 }
 div.div-col-2 {
+    display: flex;
     flex-direction: column;
     width: 60%;
     height: 100%;
@@ -616,9 +629,14 @@ ul.dice li {
 
 /* Card related styling */
 ul.card {
+    margin-top: 0;
     padding-left: 0;
     text-align: center;
     font-size: 2.5em;
+    position: relative;
+    z-index: auto;
+    display: block;
+    width: 100%;
 }
 
 ul.card li {

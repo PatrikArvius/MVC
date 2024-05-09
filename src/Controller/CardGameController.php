@@ -121,10 +121,49 @@ class CardGameController extends AbstractController
         return $this->redirectToRoute('card_deck_draw');
     }
 
-    #[Route("/card/deck/draw/:number", name: "card_deck_draw_num")]
-    public function drawNum(): Response
-    {
+    #[Route("/card/deck/draw/{num_cards<\d+>}", name: "card_deck_draw_num", methods: ['GET'])]
+    public function drawNum(
+        int $num_cards,
+        sessionInterface $session
+    ): Response {
+        $deck = $session->get('DeckOfCards');
+        $drawnAsString = [];
+        $maxCardDraw = $deck->getNumberCards();
 
-        return $this->render('card/card_home.html.twig');
+        if ($num_cards > 0 && $num_cards <= $maxCardDraw) {
+            $drawn = $deck->drawCard($num_cards);
+
+            foreach ($drawn as $card) {
+
+                $drawnAsString[] = $card->getAsString();
+            }
+        }
+
+        $cardsLeft = $deck->getNumberCards();
+
+        if ($num_cards > $maxCardDraw) {
+            $this->addFlash(
+                'warning',
+                "You can't draw more cards than what's available in the deck!"
+            );
+        }
+
+        $data = [
+            'numCards' => $cardsLeft,
+            'cards' => $drawnAsString
+        ];
+        return $this->render('card/draw_num.html.twig', $data);
+    }
+
+    #[Route("/card/deck/restart", name: "card_deck_restart", methods: ['POST'])]
+    public function drawNumPost(
+        sessionInterface $session
+    ): Response {
+        $session->clear();
+        $deck = new DeckOfCards("graphic");
+        $deck->shuffleDeck();
+        $session->set('DeckOfCards', $deck);
+
+        return $this->redirectToRoute('card_deck_draw_num', ['num_cards' => 0]);
     }
 }
