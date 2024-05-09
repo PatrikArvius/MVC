@@ -628,6 +628,10 @@ ul.card li {
     font-size: 1.5em;
 }
 
+.cardp {
+    text-align: center;
+}
+
 /* Flash message style */
 .flash-notice {
     padding: 0.5em;

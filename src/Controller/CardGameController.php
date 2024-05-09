@@ -90,11 +90,35 @@ class CardGameController extends AbstractController
         return $this->render('card/shuffle.html.twig', $data);
     }
 
-    #[Route("/card/deck/draw", name: "card_deck_draw")]
-    public function draw(): Response
-    {
+    #[Route("/card/deck/draw", name: "card_deck_draw", methods: ['GET'])]
+    public function draw(
+        sessionInterface $session
+    ): Response {
+        $deck = $session->get('DeckOfCards');
+        $drawn = $deck->drawCard();
+        $drawnAsString = [];
 
-        return $this->render('card/card_home.html.twig');
+        foreach ($drawn as $card) {
+
+            $drawnAsString[] = $card->getAsString();
+        }
+
+        $cardsLeft = $deck->getNumberCards();
+
+        $data = [
+            'numCards' => $cardsLeft,
+            'cards' => $drawnAsString
+        ];
+
+        return $this->render('card/draw.html.twig', $data);
+    }
+
+    #[Route("/card/deck/draw", name: "card_deck_draw_post", methods: ['POST'])]
+    public function drawPost(): Response
+    {
+        // Redirects to card/deck/draw for drawing another card.
+
+        return $this->redirectToRoute('card_deck_draw');
     }
 
     #[Route("/card/deck/draw/:number", name: "card_deck_draw_num")]

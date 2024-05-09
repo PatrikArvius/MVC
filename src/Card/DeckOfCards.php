@@ -141,4 +141,18 @@ class DeckOfCards
             $this->sorted = false;
         }
     }
+
+    public function drawCard(int $num = 1): array
+    {
+        $cards = [];
+
+        if ($this->getNumberCards() >= $num) {
+            for ($i = 1; $i <= $num; $i++) {
+                $card = array_pop($this->deck);
+                array_push($cards, $card);
+            }
+        }
+
+        return $cards;
+    }
 }

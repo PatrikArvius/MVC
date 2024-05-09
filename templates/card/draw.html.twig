@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Card Game{% endblock %}
+
+{% block body %}
+<article class="art-row">
+<div class="div-col-1">
+    <h2>Card links</h2>
+    <ul class="about-links">
+    <li><a href="{{ path('session_content') }}">Session</a></li>
+    <li><a href="{{ path('session_delete') }}">Session Delete</a></li>
+    <li><a href="{{ path('card_deck') }}">Show the entire deck (sorted)</a></li>
+    <li><a href="{{ path('card_deck_shuffle') }}">Show the shuffled deck</a></li>
+    <li><a href="{{ path('card_deck_draw') }}">Draw a card</a></li>
+    <li><a href="{{ path('card_deck_draw_num') }}">Draw X amount of cards</a></li>
+    </ul>
+</div>
+<div class="div-col-2">
+<h1>Your card</h1>
+
+<p class="cardp">The deck has {{ numCards }} cards left.</p>
+
+<form class="cardform" method="post" action="">
+    <input type="submit" name="draw" value="Draw another card"
+    onClick="this.form.action='{{ path('card_deck_draw') }}';"
+    >
+</form>
+
+<ul class="card">
+{% for card in cards %}
+    <li class="card">{{ card }}</li>
+{% endfor %}
+</ul>
+
+</div>
+</article>
+{% endblock %}
