@@ -4,13 +4,38 @@
 
 {% block body %}
     <article>
-        <div>
+        <div class="div-col-2">
             <h1>Currently available API routes</h1>
-            <ul class="about-links">
             {%for descript, route in routes%}
             <li><b>{{ route }}</b>: {{ descript }}</li>
             {% endfor %}
-            </ul>
+            
+            {% if numCards is same as(0) %}
+            <form class="cardform" method="post" action="">
+                <input type="submit" name="restart" value="Shuffle a new deck"
+                onClick="this.form.action='{{ path('api_deck_restart') }}';"
+                >
+            </form>
+
+            {% else %}
+                <p class="cardp"><b>Cards left</b>: {{ numCards }}</p>
+                <form class="cardform" method="post" action="">
+                <input type="submit" name="draw" value="Draw a single card"
+                onClick="this.form.action='{{ path('api_deck_draw') }}';"
+                >
+                </form>
+                
+
+                <form class="cardform" method="post" action="">
+                <input class="slider" type="range" id="num_to_draw" min="1" max="{{ numCards }}" value="1"
+                oninput="this.nextElementSibling.value = this.value"
+                >
+                <input value="1" name="number" id="number">
+                <input type="submit" name="draw" value="Cards to draw"
+                onClick="this.form.action='{{ path('api_card_post_middleware') }}';"
+                >
+                </form>
+            {% endif%}
         </div>
     </article>
 {% endblock %}

@@ -71,6 +71,8 @@ class CardGameController extends AbstractController
             'cards' => $cards
         ];
 
+        $session->set('DeckOfCards', $deck);
+
         return $this->render('card/deck.html.twig', $data);
     }
 
@@ -86,6 +88,7 @@ class CardGameController extends AbstractController
             'cards' => $cards
         ];
 
+        $session->set('DeckOfCards', $deck);
 
         return $this->render('card/shuffle.html.twig', $data);
     }
@@ -109,6 +112,8 @@ class CardGameController extends AbstractController
             'numCards' => $cardsLeft,
             'cards' => $drawnAsString
         ];
+
+        $session->set('DeckOfCards', $deck);
 
         return $this->render('card/draw.html.twig', $data);
     }
@@ -152,6 +157,9 @@ class CardGameController extends AbstractController
             'numCards' => $cardsLeft,
             'cards' => $drawnAsString
         ];
+
+        $session->set('DeckOfCards', $deck);
+
         return $this->render('card/draw_num.html.twig', $data);
     }
 
@@ -165,5 +173,15 @@ class CardGameController extends AbstractController
         $session->set('DeckOfCards', $deck);
 
         return $this->redirectToRoute('card_deck_draw_num', ['num_cards' => 0]);
+    }
+
+    #[Route("/card_post_middleware", name: "card_post_middleware", methods: ['POST'])]
+    public function handlePost(
+        Request $request
+    ): Response {
+        $num = $request->request->get('number');
+        $nextPage = $this->generateUrl('card_deck_draw_num', ['num_cards' => $num]);
+
+        return $this->redirect($nextPage);
     }
 }

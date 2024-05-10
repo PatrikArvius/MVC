@@ -37,6 +37,24 @@ class DeckOfCards
 
     }
 
+    public function getDeck(): array
+    {
+        return $this->deck;
+    }
+
+    public function getSuitAndValue(): array
+    {
+        $values = [];
+
+        foreach ($this->deck as $card) {
+            $value = $card->getValue();
+            $suit = $card->getSuit();
+            $values[] = ['value' => $value, 'suit' => $suit];
+        }
+
+        return $values;
+    }
+
     public function getNumberCards(): int
     {
         return count($this->deck);

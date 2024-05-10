@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -40,14 +41,26 @@ class MePageController extends AbstractController
     }
 
     #[Route("/api", name: "api")]
-    public function apiRoutes(): Response
-    {
+    public function apiRoutes(
+        sessionInterface $session
+    ): Response {
+        $deck = $session->get('DeckOfCards');
+        $numCards = 0;
+        if ($deck) {
+            $numCards = $deck->getNumberCards();
+        }
+
         $routes = [
             'gives you your daily quote' => '/api/quote',
+            'returns JSON with card deck sorted by suit and values' => '/api/deck',
+            'returns JSON of shuffled deck' => '/api/deck/shuffle',
+            'returns JSON of drawn card' => '/api/deck/draw',
+            'returns JSON of a number of drawn cards' => '/api/deck/draw/:number',
         ];
 
         $data = [
-            'routes' => $routes
+            'routes' => $routes,
+            'numCards' => $numCards
         ];
 
         return $this->render('api.html.twig', $data);

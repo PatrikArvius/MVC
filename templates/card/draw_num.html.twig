@@ -31,17 +31,15 @@
 
 <p class="cardp">The deck has {{ numCards }} cards left.</p>
 
-{#
 <form class="cardform" method="post" action="">
     <input class="slider" type="range" id="num_to_draw" min="1" max="{{ numCards }}" value="1"
     oninput="this.nextElementSibling.value = this.value"
     >
     <input value="1" name="number" id="number">
     <input type="submit" name="draw" value="Cards to draw"
-    onClick="this.form.action='{{ path('card_deck_draw_num') }}';"
+    onClick="this.form.action='{{ path('card_post_middleware') }}';"
     >
 </form>
-#}
 
 {% if numCards is same as(0) %}
 <form class="cardform" method="post" action="">
