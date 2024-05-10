@@ -9,6 +9,7 @@
             <ul class="about-links">
                 <li><a href="#kmom01">Kmom 01</a></li>
                 <li><a href="#kmom02">Kmom 02</a></li>
+                <li><a href="#kmom03">Kmom 03</a></li>
             </ul>
         </div>
 
@@ -40,7 +41,30 @@
             att man kan ha flera versioner av dessa saker samtidigt, hur man införskaffar dem samt hur man växlar mellan dom.</p>
 
             <h2 id="kmom02">Kmom 02</h2>
-            <p>Kmom02 text</p>
+            <p><b>Förklara kort de objektorienterade konstruktionerna arv, komposition, interface och trait och hur de används i PHP.</b></p>
+            <p>Arv handlar om att klasser kan ärva funktionalitet utav varandra, just specifick i PHP från en förälder till ett barn och det går inte med multipelt arv. Ett exempel 
+            skulle kunna vara en klass som representerar en bil, en bil har en ratt. Både en volvo och en batmobile är bilar så de kan ärva viss basfunktionalitet från bil-klassen för att 
+            sedan utöka eller modifiera den.</p>
+            <p>Komposition handlar om relationen mellan klasser. En relation där en klass inte kan existera utan en annan är en så kallad komposition</p>
+            <p>Ett interface är som ett kontrakt som en klass kan lova att uppfylla genom att implementera det, all objekt som implementerar samma interface lovar alltså att 
+            tillhandahålla de metoder som interfacet kräver.</p>
+            <p>Trait skulle man kunna säga är som en klass som innehåller funktionalitet som flera andra klasser kan använda sig utav utan att behöva ärva</p>
+            <p><b>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden och dina klasser?</b></p>
+            <p>Uppgiften var rolig, känner mig fortfarande ringrostig sedan oophp men det är klart att gammal erfarenhet hjälper. Jag tycker dock att uppgiften var mer komplex än vad den var 
+            i oophp och det tog mig därför en hel del tid, mycket lärorik tid. Jag är mestadels nöjd och tycker jag klarat uppgiften adekvat, jag stod tidigt vid ett vägskäl kring hur 
+            jag ville representera mina kort och hur de utifrån detta även kan sorteras. Jag valde inte att ge varje kortobjekt någon id-variabel eller liknande för att underlätta sortering 
+            utan det blev en mer tidskrävande lösning som jag ändå känner mig rätt nöjd med även om den säkert kan skrivas snyggare. Det finns garanterat förbättringar att göra, kanske bryta ut 
+            funktionalitet i traits? Sen fick momentet mig att reflektera mycket kring vad som faktiskt är bra kod, hur "verbose" skall man vara när man skriver sin kod? Vart går gränsen där 
+            koncis och effektiv kod blir svårläslig och inte längre är "snygg"?</p>
+            <p><b>Vilka är dina reflektioner så här långt med att jobb i Symfony med applikationskod enligt MVC?</b></p>
+            <p>Det känns rätt trevligt faktiskt, tycker det här momentet verkligen gav en övning att hitta mellan routes, hantera formulär och följa flödet i sin kod och mellan filerna. Däremot 
+            kan det upplevas lite svårt att felsöka ibland när det blir lite diffust vad det är symfony klagar på och man får ta till lite fulingar med echo och print_r.</p>
+            <p><b>Vilken är din TIL för detta kmom?</b></p>
+            <p>Att det kan vara bökigt att sortera objekt när man väljer att sortera dom efter deras properties. Men det som kräver mycket möda känns så mycket bättre när man väl löser det.</p>
+
+            <h2 id="kmom03">Kmom 03</h2>
+            <p><b>kmom03</b></p>
+            <p>kmom03</p>
         </div>
     </article>
 {% endblock %}
