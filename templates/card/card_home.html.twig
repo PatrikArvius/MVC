@@ -33,7 +33,11 @@
     <input type="submit" name="do_it" value="Create a deck of cards">
 </form>
 
-<p> Berätta om strukturen på dina klasser, vilka klasser har du och hur är de relaterade till varandra. Rita ett UML och visa här</p>
+<p> I've created four different classes: DeckOfCards, CardHand, Card and CardGraphic. Card is the base or parent class for all card classes and thus CardGraphic inherits from Card. 
+CardGraphic adds the ability to display its values in a graphical way. CardHand is a class object that can hold an array of Card objects, the same goes for DeckOfCards only that it 
+holds up to 52 of the card objects and it has more methods to manipulate them. From sorting, shuffleing to controlling the very existance of the cards. Card objects cannot live outside of 
+the CardHand or DeckOfCards thus making up a composition in terms of relationship.</p>
+<img class="" src="{{ asset('img/cardUML.png') }}" alt="UML picture">
 
 </div>
 </article>
