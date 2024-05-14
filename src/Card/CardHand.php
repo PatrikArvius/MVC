@@ -6,7 +6,8 @@ use App\Card\Card;
 
 class CardHand
 {
-    private $hand = [];
+    /** @var array<int, Card> $hand */
+    private array $hand = [];
 
     public function add(Card $card): void
     {
@@ -18,6 +19,7 @@ class CardHand
         return count($this->hand);
     }
 
+    /** @return array<int<0, max>, int|null> */
     public function getValues(): array
     {
         $values = [];
@@ -27,6 +29,7 @@ class CardHand
         return $values;
     }
 
+    /** @return array<int<0, max>, string|null> */
     public function getString(): array
     {
         $values = [];

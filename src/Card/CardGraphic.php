@@ -2,8 +2,14 @@
 
 namespace App\Card;
 
+/**
+ * This wil suppress UnusedPrivateField
+ * 
+ * @SuppressWarnings(PHPMD.UnusedPrivateField)
+ */
 class CardGraphic extends Card
 {
+    /** @var array<int, string> $spades */
     private array $spades = [
         '🂡',
         '🂢',
@@ -20,6 +26,7 @@ class CardGraphic extends Card
         '🂮',
     ];
 
+    /** @var array<int, string> $hearts */
     private array $hearts = [
         '🂱',
         '🂲',
@@ -36,6 +43,7 @@ class CardGraphic extends Card
         '🂾',
     ];
 
+    /** @var array<int, string> $diamonds */
     private array $diamonds = [
         '🃁',
         '🃂',
@@ -52,6 +60,7 @@ class CardGraphic extends Card
         '🃎',
     ];
 
+    /** @var array<int, string> $clubs */
     private array $clubs = [
         '🃑',
         '🃒',

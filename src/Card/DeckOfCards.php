@@ -7,10 +7,12 @@ use App\Card\CardGraphic;
 
 class DeckOfCards
 {
+    /** @var array<int, Card> $deck */
     private array $deck = [];
     private int $cardsPerSuit = 13;
     private bool $sorted = false;
     private bool $shuffled = false;
+    /** @var array<int<0, max>, string> $suits */
     private array $suits = [
         'spades',
         'hearts',
@@ -18,30 +20,32 @@ class DeckOfCards
         'clubs'
     ];
 
-    public function __construct($cardType)
+    public function __construct(string $cardType)
     {
         for ($i = 1; $i <= $this->cardsPerSuit; $i++) {
             $this->add($cardType, $i);
         }
     }
 
-    public function add($cardType, $value): void
+    public function add(string $cardType, int $value): void
     {
         foreach ($this->suits as $suit) {
             if ($cardType === "graphic") {
                 $this->deck[] = new CardGraphic($suit, $value);
-            } else {
-                $this->deck[] = new Card($suit, $value);
+                continue;
             }
+            $this->deck[] = new Card($suit, $value);
         }
 
     }
 
+    /** @return array<int, Card> */
     public function getDeck(): array
     {
         return $this->deck;
     }
 
+    /** @return array<int<0, max>, array{value: int, suit: string}> */
     public function getSuitAndValue(): array
     {
         $values = [];
@@ -60,6 +64,7 @@ class DeckOfCards
         return count($this->deck);
     }
 
+    /** @return array<int<0, max>, int> */
     public function getValues(): array
     {
         $values = [];
@@ -69,6 +74,7 @@ class DeckOfCards
         return $values;
     }
 
+    /** @return array<int<0, max>, string> */
     public function getString(): array
     {
         $values = [];
@@ -79,6 +85,7 @@ class DeckOfCards
         return $values;
     }
 
+    /** @return array<int<0, max>, string> */
     public function getStringSorted(): array
     {
         $this->sortDeck();
@@ -129,9 +136,12 @@ class DeckOfCards
         }
     }
 
+    /** 
+     * @param array<int<0, max>, Card> $suitedDeck
+     * @return array<int<0, max>, Card> $sortedArray
+    */
     public function sortByValue(array $suitedDeck): array
     {
-
         $suitedDeck = $suitedDeck;
         $sortedArray = [];
 
@@ -160,6 +170,7 @@ class DeckOfCards
         }
     }
 
+    /** @return array<int<0, max>, Card> $cards */
     public function drawCard(int $num = 1): array
     {
         $cards = [];
@@ -169,6 +180,7 @@ class DeckOfCards
                 $card = array_pop($this->deck);
                 array_push($cards, $card);
             }
+            
         }
 
         return $cards;
