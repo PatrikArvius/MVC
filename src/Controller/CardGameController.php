@@ -153,7 +153,7 @@ class CardGameController extends AbstractController
         $deck->shuffleDeck();
         $session->set('DeckOfCards', $deck);
 
-        return $this->redirectToRoute('card_deck_draw_num', ['num_cards' => 0]);
+        return $this->redirectToRoute('card_deck_draw_num', ['numCards' => 0]);
     }
 
     #[Route("/card_post_middleware", name: "card_post_middleware", methods: ['POST'])]
@@ -161,7 +161,7 @@ class CardGameController extends AbstractController
         Request $request
     ): Response {
         $num = $request->request->get('number');
-        $nextPage = $this->generateUrl('card_deck_draw_num', ['num_cards' => $num]);
+        $nextPage = $this->generateUrl('card_deck_draw_num', ['numCards' => $num]);
 
         return $this->redirect($nextPage);
     }
