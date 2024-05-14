@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Dice\Dice;
 use App\Dice\DiceGraphic;
 use App\Dice\DiceHand;
+use Exception;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -46,6 +47,7 @@ class DiceGameController extends AbstractController
         SessionInterface $session
     ): Response {
         // Logic to play the game
+        /** @var DiceHand */
         $diceHand = $session->get("pig_dicehand");
 
         $data = [
@@ -63,6 +65,7 @@ class DiceGameController extends AbstractController
         SessionInterface $session
     ): Response {
         // Logic to roll the dice
+        /** @var DiceHand */
         $hand = $session->get("pig_dicehand");
         $hand->roll();
 
@@ -109,18 +112,18 @@ class DiceGameController extends AbstractController
         return $this->redirectToRoute('pig_play');
     }
 
-    #[Route("/game/pig/test/roll/{num_dice<\d+>}", name: "test_roll_dice")]
+    #[Route("/game/pig/test/roll/{numDice<\d+>}", name: "test_roll_dice")]
 
-    public function testRollDices(int $num_dice): Response
+    public function testRollDices(int $numDice): Response
     {
-        if ($num_dice && $num_dice > 99) {
-            throw new \Exception("Please roll between 1 and 99 dices");
+        if ($numDice && $numDice > 99) {
+            throw new Exception("Please roll between 1 and 99 dices");
         }
 
         $diceRolls = [];
 
-        if ($num_dice) {
-            for ($i = 1; $i <= $num_dice; $i++) {
+        if ($numDice) {
+            for ($i = 1; $i <= $numDice; $i++) {
                 //$die = new Dice();
                 $die = new DiceGraphic();
                 $die->roll();
@@ -140,16 +143,16 @@ class DiceGameController extends AbstractController
     public function testDiceHand(int $num): Response
     {
         if ($num > 99) {
-            throw new \Exception("Can not roll more than 99 dices!");
+            throw new Exception("Can not roll more than 99 dices!");
         }
 
         $hand = new DiceHand();
         for ($i = 1; $i <= $num; $i++) {
             if ($i % 2 === 1) {
                 $hand->add(new DiceGraphic());
-            } else {
-                $hand->add(new Dice());
+                continue;
             }
+            $hand->add(new Dice());
         }
 
         $hand->roll();

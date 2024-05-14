@@ -14,29 +14,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CardGameController extends AbstractController
 {
-    #[Route("/session", name: "session_content")]
-    public function sessionContent(
-        SessionInterface $session
-    ): Response {
-        $data = ['session' => $session->all()];
-
-        return $this->render('card/session.html.twig', $data);
-    }
-
-    #[Route("/session/delete", name: "session_delete")]
-    public function sessionDelete(
-        SessionInterface $session
-    ): Response {
-        $session->clear();
-
-        $this->addFlash(
-            'notice',
-            'Session has been deleted'
-        );
-
-        return $this->redirectToRoute('session_content');
-    }
-
     #[Route("/card", name: "card_start", methods: ['GET'])]
     public function home(): Response
     {
@@ -64,6 +41,7 @@ class CardGameController extends AbstractController
     public function deck(
         sessionInterface $session
     ): Response {
+        /** @var DeckOfCards */
         $deck = $session->get('DeckOfCards');
 
         $cards = $deck->getStringSorted();
@@ -80,6 +58,7 @@ class CardGameController extends AbstractController
     public function shuffle(
         sessionInterface $session
     ): Response {
+        /** @var DeckOfCards */
         $deck = $session->get('DeckOfCards');
         $deck->shuffleDeck();
         $cards = $deck->getString();
@@ -97,6 +76,7 @@ class CardGameController extends AbstractController
     public function draw(
         sessionInterface $session
     ): Response {
+        /** @var DeckOfCards */
         $deck = $session->get('DeckOfCards');
         $drawn = $deck->drawCard();
         $drawnAsString = [];
@@ -126,17 +106,18 @@ class CardGameController extends AbstractController
         return $this->redirectToRoute('card_deck_draw');
     }
 
-    #[Route("/card/deck/draw/{num_cards<\d+>}", name: "card_deck_draw_num", methods: ['GET'])]
+    #[Route("/card/deck/draw/{numCards<\d+>}", name: "card_deck_draw_num", methods: ['GET'])]
     public function drawNum(
-        int $num_cards,
+        int $numCards,
         sessionInterface $session
     ): Response {
+        /** @var DeckOfCards */
         $deck = $session->get('DeckOfCards');
         $drawnAsString = [];
         $maxCardDraw = $deck->getNumberCards();
 
-        if ($num_cards > 0 && $num_cards <= $maxCardDraw) {
-            $drawn = $deck->drawCard($num_cards);
+        if ($numCards > 0 && $numCards <= $maxCardDraw) {
+            $drawn = $deck->drawCard($numCards);
 
             foreach ($drawn as $card) {
 
@@ -146,7 +127,7 @@ class CardGameController extends AbstractController
 
         $cardsLeft = $deck->getNumberCards();
 
-        if ($num_cards > $maxCardDraw) {
+        if ($numCards > $maxCardDraw) {
             $this->addFlash(
                 'warning',
                 "You can't draw more cards than what's available in the deck!"

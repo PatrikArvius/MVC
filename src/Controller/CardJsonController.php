@@ -13,12 +13,13 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
-class cardJsonController extends AbstractController
+class CardJsonController extends AbstractController
 {
     #[Route("/api/deck", name: "api_deck", methods: ['GET'])]
     public function deckJson(
         SessionInterface $session
     ): JsonResponse {
+        /** @var DeckOfCards */
         $deck = $session->get('DeckOfCards');
         $deck->sortDeck();
         $cards = $deck->getSuitAndValue();
@@ -36,6 +37,7 @@ class cardJsonController extends AbstractController
     public function shuffleDeckJson(
         SessionInterface $session
     ): JsonResponse {
+        /** @var DeckOfCards */
         $deck = $session->get('DeckOfCards');
         $deck->shuffleDeck();
         $cards = $deck->getSuitAndValue();
@@ -53,10 +55,12 @@ class cardJsonController extends AbstractController
     public function drawDeckJson(
         SessionInterface $session
     ): JsonResponse {
+        /** @var DeckOfCards */
         $deck = $session->get('DeckOfCards');
         $drawn = $deck->drawCard();
         $value = $drawn[0]->getValue();
         $suit = $drawn[0]->getSuit();
+        $card = [];
         $card[] = ['value' => $value, 'suit' => $suit];
 
         $cardsLeft = $deck->getNumberCards();
@@ -71,17 +75,18 @@ class cardJsonController extends AbstractController
         return new JsonResponse($data);
     }
 
-    #[Route("/api/deck/draw/{num_cards<\d+>}", name: "api_deck_draw_num", methods: ['POST', 'GET'])]
+    #[Route("/api/deck/draw/{numCards<\d+>}", name: "api_deck_draw_num", methods: ['POST', 'GET'])]
     public function drawMultipleDeckJson(
-        int $num_cards,
+        int $numCards,
         SessionInterface $session
     ): JsonResponse {
+        /** @var DeckOfCards */
         $deck = $session->get('DeckOfCards');
         $cards = [];
         $maxCardDraw = $deck->getNumberCards();
 
-        if ($num_cards > 0 && $num_cards <= $maxCardDraw) {
-            $drawn = $deck->drawCard($num_cards);
+        if ($numCards > 0 && $numCards <= $maxCardDraw) {
+            $drawn = $deck->drawCard($numCards);
 
             foreach ($drawn as $card) {
                 $value = $card->getValue();
@@ -118,7 +123,7 @@ class cardJsonController extends AbstractController
         Request $request
     ): Response {
         $num = $request->request->get('number');
-        $nextPage = $this->generateUrl('api_deck_draw_num', ['num_cards' => $num]);
+        $nextPage = $this->generateUrl('api_deck_draw_num', ['numCards' => $num]);
 
         return $this->redirect($nextPage);
     }

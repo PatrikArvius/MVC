@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Card\DeckOfCards;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -44,9 +45,10 @@ class MePageController extends AbstractController
     public function apiRoutes(
         sessionInterface $session
     ): Response {
+        /** @var DeckOfCards */
         $deck = $session->get('DeckOfCards');
         $numCards = 0;
-        if ($deck) {
+        if (gettype($deck) === "object") {
             $numCards = $deck->getNumberCards();
         }
 
