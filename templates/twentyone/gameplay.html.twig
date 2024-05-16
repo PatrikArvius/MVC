@@ -1,0 +1,19 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Twenty One Game{% endblock %}
+
+{% block body %}
+<article class="art-row">
+<div class="div-col-1">
+    <h2>Links</h2>
+    <ul class="about-links">
+    <li><a href="{{ path('twentyone') }}">Twenty one home</a></li>
+    <li><a href="{{ path('twentyone_doc') }}">Documentation</a></li>
+    </ul>
+</div>
+<div class="div-col-2">
+<h1>Game On</h1>
+
+</div>
+</article>
+{% endblock %}

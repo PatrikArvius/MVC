@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Twenty One{% endblock %}
+
+{% block body %}
+<article class="art-row">
+<div class="div-col-1">
+    <h2>Links</h2>
+    <ul class="about-links">
+    <li><a href="{{ path('twentyone_doc') }}">Documentation</a></li>
+    </ul>
+</div>
+<div class="div-col-2">
+<h1>How to play the game: Twenty One</h1>
+<p>Your goal is to draw cards that total 21, or come closer to 21 than the dealer without going over. 
+The player starts drawing cards, one at a time. If the player hits 21 the player wins, if the player goes above 21 the player loses. At any time the player can decide to stop drawing 
+cards and "stand" thus keeping the current value of the deck, the turn then goes over to the dealer who will try to beat the player. Should the dealer and players hand be equal, 
+the dealer wins. If the dealer goes above 21 or decides to stop at a hand value lower than the players then the player wins.
+Jack counts as 11, Queen as 12, King as 13 and Aces count as 1 or 14, all others count at face value.</p>
+
+<form class="cardform" method="post" action="">
+    <input type="submit" name="do_it" value="Start the game">
+</form>
+</div>
+</article>
+{% endblock %}
