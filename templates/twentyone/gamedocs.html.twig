@@ -12,8 +12,55 @@
 </div>
 <div class="div-col-2">
 <h1>Documentation</h1>
+<h3 class="centered">Flowchart</h3>
+<img src="{{ asset('img/21flow.png') }}" alt="Flowchart">
+<h3 class="centered">Pseudocode</h3>
+<p>The following is some pseudocode to give you a feeling for how the game is implemented.</p>
+<pre>
+<code>
+class TwentyOneBoard {
+    Has a private field dealer object
+    Has a private field player object
+    Has a private field card deck object
+    Has a private field for active player of the game (player or dealer)
 
+    public function __construct($playerObject, $dealerObject, $deckOfCardsObject)
+    {
+        Set the class private field for player object to $playerObject
+        Set the class private field for dealer object to $dealerObject
+        Set the class private field for card deck object to $deckOfCardsObject
+        Set active player to player
+    }
 
+    public function drawCard ($activePlayer) {
+        IF $activePlayer is player THEN
+            Draw card from deck
+            Add card to player hand
+        ELSE 
+            Draw card from deck
+            Add card to dealer hand
+    }
+
+    public function compareHands() {
+        SET playerValue to return value of the players CALL player->cardHand->getHandValue()
+        SET dealerValue to return value of the dealers CALL dealer->cardHand->getHandValue()
+
+        IF dealerValue >= playerValue THEN
+            player loses
+        ELSE
+            player wins
+    }
+}
+</code>
+</pre>
+<h3 class="centered">What classes do I need?</h3>
+<p>My intention is to really focus on dependancy injection for this project so these are the classes I believe will be needed</p>
+<li><b>TwentyOneBoard</b>: A class representing the game board, its purpose is to handle the game logic.</li>
+<li><b>DeckOfCards</b>: A class representing a deck of cards(objects)</li>
+<li><b>Player</b>: A class representing the player, which can hold a hand of cards</li>
+<li><b>Dealer</b>: A class representing the oponent of the game, it can probably inherit from the player class and then add some dealer specific logic.</li>
+<li><b>CardHand</b>: A class representing a hand of cards, can hold card objects</li>
+<li><b>CardGraphic</b>: A class representing a single playing card. With suit, value and graphical representation.</li>
 </div>
 </article>
 {% endblock %}

@@ -650,6 +650,10 @@ ul.card li {
     text-align: center;
 }
 
+.centered {
+    text-align: center;
+}
+
 /* Flash message style */
 .flash-notice {
     padding: 0.5em;
