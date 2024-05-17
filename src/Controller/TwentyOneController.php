@@ -2,7 +2,13 @@
 
 namespace App\Controller;
 
+use App\Card\Card;
+use App\Card\CardGraphic;
+use App\Card\CardHand;
 use App\Card\DeckOfCards;
+use App\TwentyOne\Player;
+use App\TwentyOne\Dealer;
+use App\TwentyOne\TwentyOne;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -34,7 +40,10 @@ class TwentyOneController extends AbstractController
         SessionInterface $session
     ): Response {
         $deck = new DeckOfCards("graphic");
-        $session->set('DeckOfCards', $deck);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
+        $twentyOne = new TwentyOne($player, $dealer, $deck);
+        $session->set('TwentyOne', $twentyOne);
 
         return $this->redirectToRoute('twentyone_play');
     }

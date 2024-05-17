@@ -4,7 +4,7 @@ namespace App\Card;
 
 /**
  * This wil suppress UnusedPrivateField
- * 
+ *
  * @SuppressWarnings(PHPMD.UnusedPrivateField)
  */
 class CardGraphic extends Card

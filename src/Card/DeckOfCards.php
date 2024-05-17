@@ -136,7 +136,7 @@ class DeckOfCards
         }
     }
 
-    /** 
+    /**
      * @param array<int<0, max>, Card> $suitedDeck
      * @return array<int<0, max>, Card> $sortedArray
     */
@@ -180,7 +180,7 @@ class DeckOfCards
                 $card = array_pop($this->deck);
                 array_push($cards, $card);
             }
-            
+
         }
 
         return $cards;
