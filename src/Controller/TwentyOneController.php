@@ -39,6 +39,7 @@ class TwentyOneController extends AbstractController
     public function twentyoneInit(
         SessionInterface $session
     ): Response {
+        $session->clear();
         $deck = new DeckOfCards("graphic");
         $player = new Player(new CardHand());
         $dealer = new Dealer(new CardHand());
@@ -46,5 +47,36 @@ class TwentyOneController extends AbstractController
         $session->set('TwentyOne', $twentyOne);
 
         return $this->redirectToRoute('twentyone_play');
+    }
+
+    #[Route("/twentyone/play", name: "twentyone_game_post", methods: ['GET', 'POST'])]
+    public function twentyoneGame(
+        SessionInterface $session
+    ): Response {
+        /** @var TwentyOne */
+        $twentyOne = $session->get('TwentyOne');
+        $twentyOne->playRound();
+        /** @var Player */
+        $player = $twentyOne->getPlayer();
+        /** @var Dealer */
+        $dealer = $twentyOne->getDealer();
+
+        $playerVal = $twentyOne->getSpecificHandValue('player');
+        $playerAltVal = $twentyOne->getSpecificHandValue('altPlayer');
+        $winner = $twentyOne->getWinner();
+        $standing = $twentyOne->getAllStanding();
+        $playerHand = $player->getString();
+        $dealerHand = $dealer->getString();
+
+        $data = [
+            'playerVal' => $playerVal,
+            'playerAltVal' => $playerAltVal,
+            'winner' => $winner,
+            'standing' => $standing,
+            'playerHand' => $playerHand,
+            'dealerHand' => $dealerHand
+        ];
+
+        return $this->redirectToRoute('twentyone_play', $data);
     }
 }

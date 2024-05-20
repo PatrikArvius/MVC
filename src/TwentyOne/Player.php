@@ -40,6 +40,14 @@ class Player
         return $handValues;
     }
 
+    /** @return array<int<0, max>, string|null> */
+    public function getString(): ?array
+    {
+        $values = $this->hand->getString();
+
+        return $values;
+    }
+
     public function add(Card $card): void
     {
         $this->hand->add($card);

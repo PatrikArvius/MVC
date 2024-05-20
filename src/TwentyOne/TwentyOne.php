@@ -17,6 +17,8 @@ class TwentyOne
     private Dealer $dealer;
     /** @var bool $playerIsActive */
     private $playerIsActive = true;
+    /** @var bool $allStand */
+    private $allStand = false;
 
     private string $winner = "";
     private int $playerHandValue;
@@ -43,6 +45,37 @@ class TwentyOne
         $dealerValues = $this->dealer->getHandValues();
         $this->dealerHandValue = $dealerValues['value'];
         $this->altDealerHandValue = $dealerValues['altValue'];
+    }
+
+    /** @return int|null */
+    public function getSpecificHandValue(string $hand): ?int
+    {
+        $val = null;
+        switch ($hand) {
+            case "player":
+                $val = $this->playerHandValue;
+                break;
+            case "altPlayer":
+                $val = $this->altPlayerHandValue;
+                break;
+            case "dealer":
+                $val = $this->dealerHandValue;
+                break;
+            case "altDealer":
+                $val = $this->altDealerHandValue;
+                break;
+        }
+        return $val;
+    }
+
+    public function getPlayer(): ?object
+    {
+        return $this->player;
+    }
+
+    public function getDealer(): ?object
+    {
+        return $this->dealer;
     }
 
     public function compareHands(): void
@@ -100,30 +133,42 @@ class TwentyOne
             return;
         }
 
+        $this->allStand = true;
         $this->compareHands();
+    }
+
+    public function getAllStanding(): bool
+    {
+        return $this->allStand;
+    }
+
+    public function checkPlayer(): void
+    {
+        if ($this->playerHandValue === 21 || $this->altPlayerHandValue === 21) {
+            $this->setWinner("player");
+        }
+        if ($this->playerHandValue > 21 && $this->altPlayerHandValue > 21) {
+            $this->setWinner("dealer");
+        }
+    }
+
+    public function checkDealer(): void
+    {
+        if ($this->dealerHandValue === 21 || $this->altDealerHandValue === 21) {
+            $this->setWinner("dealer");
+        }
+        if ($this->dealerHandValue > 21 && $this->altDealerHandValue > 21) {
+            $this->setWinner("player");
+        }
     }
 
     public function checkGameEnd(): void
     {
         if ($this->playerIsActive) {
-            if ($this->playerHandValue === 21 || $this->altPlayerHandValue === 21) {
-                $this->setWinner("player");
-                return;
-            }
-            if ($this->playerHandValue > 21 && $this->altPlayerHandValue > 21) {
-                $this->setWinner("dealer");
-                return;
-            }
-        }
-
-        if ($this->dealerHandValue === 21 || $this->altDealerHandValue === 21) {
-            $this->setWinner("dealer");
+            $this->checkPlayer();
             return;
         }
-        if ($this->dealerHandValue > 21 && $this->altDealerHandValue > 21) {
-            $this->setWinner("player");
-            return;
-        }
+        $this->checkDealer();
     }
 
     public function simmulateOpponent(): void
