@@ -416,6 +416,14 @@ form.cardform input.slider {
     margin-right: auto;
 }
 
+form.cardform-tight {
+    text-align: center;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
 input {
     margin-bottom: 12px;
 }
