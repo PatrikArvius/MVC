@@ -71,6 +71,11 @@ class TwentyOne
         $this->winner = "player";
     }
 
+    public function setWinner(string $winner): void
+    {
+        $this->winner = $winner;
+    }
+
     public function getWinner(): ?string
     {
         return $this->winner;
@@ -96,5 +101,47 @@ class TwentyOne
         }
 
         $this->compareHands();
+    }
+
+    public function checkGameEnd(): void
+    {
+        if ($this->playerIsActive) {
+            if ($this->playerHandValue === 21 || $this->altPlayerHandValue === 21) {
+                $this->setWinner("player");
+                return;
+            }
+            if ($this->playerHandValue > 21 && $this->altPlayerHandValue > 21) {
+                $this->setWinner("dealer");
+                return;
+            }
+        }
+
+        if ($this->dealerHandValue === 21 || $this->altDealerHandValue === 21) {
+            $this->setWinner("dealer");
+            return;
+        }
+        if ($this->dealerHandValue > 21 && $this->altDealerHandValue > 21) {
+            $this->setWinner("player");
+            return;
+        }
+    }
+
+    public function simmulateOpponent(): void
+    {
+        if ($this->dealerHandValue <= 17 || $this->altDealerHandValue <= 17) {
+            $this->playRound();
+        }
+        $this->stand();
+    }
+
+    public function playRound(): void
+    {
+        $this->drawCard();
+        $this->setHandValues();
+        $this->checkGameEnd();
+
+        if (!$this->playerIsActive && $this->winner === "") {
+            $this->simmulateOpponent();
+        }
     }
 }
