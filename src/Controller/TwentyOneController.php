@@ -31,10 +31,17 @@ class TwentyOneController extends AbstractController
 
     #[Route("/twentyone/play", name: "twentyone_play", methods: ['POST'])]
     public function gamePlay(
-        SessionInterface $session
+        SessionInterface $session,
+        Request $request
     ): Response {
         /** @var TwentyOne */
         $twentyOne = $session->get('TwentyOne');
+        $stand = $request->request->get('stand');
+
+        if ($stand === "stand") {
+            $twentyOne->stand();
+        }
+
         if (!$twentyOne->getWinner()) {
             $twentyOne->playRound();
         }
@@ -44,6 +51,7 @@ class TwentyOneController extends AbstractController
         /** @var Dealer */
         $dealer = $twentyOne->getDealer();
 
+        $playerHoldsAce = $player->holdsAce();
         $playerVal = $twentyOne->getSpecificHandValue('player');
         $playerAltVal = $twentyOne->getSpecificHandValue('altPlayer');
         $winner = $twentyOne->getWinner();
@@ -52,6 +60,7 @@ class TwentyOneController extends AbstractController
         $dealerHand = $dealer->getString();
 
         $data = [
+            'playerHoldsAce' => $playerHoldsAce,
             'playerVal' => $playerVal,
             'playerAltVal' => $playerAltVal,
             'winner' => $winner,
@@ -74,11 +83,5 @@ class TwentyOneController extends AbstractController
         $session->set('TwentyOne', $twentyOne);
 
         return $this->render('twentyone/gameplay.html.twig');
-    }
-
-    #[Route("/twentyone/play", name: "twentyone_game_post", methods: ['POST'])]
-    public function twentyoneGame(
-    ): Response {
-        return $this->redirectToRoute('twentyone_play');
     }
 }

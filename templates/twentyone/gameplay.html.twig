@@ -25,47 +25,49 @@
     </form>
 
         {% if winner == "player" %}
-            <p class="centered">Congratulations, you won!</p>
+            <p class="cardp">Congratulations, you won!</p>
         {% endif%}
 
         {% if winner == "dealer" %}
-            <p class="centered">Dealer wins!</p>
-            <p class="centered">Better luck next time</p>
+            <p class="cardp">Dealer wins! Better luck next time!</p>
         {% endif%}
 
 {% else %}
     <form class="cardform-tight" method="post" action="">
         <input type="submit" name="restart" value="Draw a card"
-        onClick="this.form.action='{{ path('twentyone_game_post') }}';"
+        onClick="this.form.action='{{ path('twentyone_play') }}';"
         >
     </form>
     <form class="cardform-tight" method="post" action="">
         <input type="hidden" name="stand" value="stand">
         <input type="submit" name="restart" value="Stand"
-        onClick="this.form.action='{{ path('twentyone_game_post') }}';"
+        onClick="this.form.action='{{ path('twentyone_play') }}';"
         >
     </form>
-{% endif%}
+{% endif %}
 
+<p class="cardp"><b>Your score:</b> {{ playerVal }}. {% if playerAltVal <= 21 and playerHoldsAce %} <b>Your alternative score:</b> {{ playerAltVal }} .{% endif %}</p>
+
+<p class="cardp">Your hand</p>
 <ul class="card">
 {% for card in playerHand %}
     <li class="card">{{ card }}</li>
 {% endfor %}
 </ul>
 
+{% if standing %}
+<p class="cardp">Dealers hand</p>
 <ul class="card">
 {% for card in dealerHand %}
     <li class="card">{{ card }}</li>
 {% endfor %}
 </ul>
-
-<p class="cardp">Your current score: {{ playerVal }} .</p>
-<p class="cardp">Your alternative score: {{ playerAltVal }} .</p>
+{% endif %}
 
 {% else %}
 <form class="cardform" method="post" action="">
     <input type="submit" name="restart" value="Draw a card"
-    onClick="this.form.action='{{ path('twentyone_game_post') }}';"
+    onClick="this.form.action='{{ path('twentyone_play') }}';"
     >
 </form>
 {% endif%}

@@ -40,6 +40,20 @@ class Player
         return $handValues;
     }
 
+    public function holdsAce(): bool
+    {
+        $values = $this->hand->getValues();
+        $holdsAce = false;
+
+        foreach ($values as $value) {
+            if ($value === 1) {
+                $holdsAce = true;
+            }
+        }
+
+        return $holdsAce;
+    }
+
     /** @return array<int<0, max>, string|null> */
     public function getString(): ?array
     {

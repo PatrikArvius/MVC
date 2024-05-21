@@ -86,19 +86,20 @@ class TwentyOne
         $playerVal = $this->playerHandValue;
 
         //Sets the best valid player hand value
-        if ($this->altPlayerHandValue < 21 && $this->altPlayerHandValue > $this->playerHandValue) {
+        if ($this->altPlayerHandValue < 21 && ($this->altPlayerHandValue > $this->playerHandValue)) {
             $playerVal = $this->altPlayerHandValue;
         }
 
         $dealerVal = $this->dealerHandValue;
 
         //Sets the best valid dealer hand value
-        if ($this->altDealerHandValue < 21 && $this->altDealerHandValue > $this->dealerHandValue) {
+        if ($this->altDealerHandValue <= 21 && ($this->altDealerHandValue > $this->dealerHandValue)) {
             $dealerVal = $this->altDealerHandValue;
         }
 
-        if ($dealerVal >= $playerVal) {
+        if ($dealerVal <= 21 && ($dealerVal >= $playerVal)) {
             $this->winner = "dealer";
+            return;
         }
 
         $this->winner = "player";
@@ -173,7 +174,7 @@ class TwentyOne
 
     public function simmulateOpponent(): void
     {
-        if ($this->dealerHandValue <= 17 || $this->altDealerHandValue <= 17) {
+        if ($this->dealerHandValue <= 16 || $this->altDealerHandValue <= 16) {
             $this->playRound();
         }
         $this->stand();
