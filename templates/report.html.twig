@@ -10,6 +10,7 @@
                 <li><a href="#kmom01">Kmom 01</a></li>
                 <li><a href="#kmom02">Kmom 02</a></li>
                 <li><a href="#kmom03">Kmom 03</a></li>
+                <li><a href="#kmom04">Kmom 04</a></li>
             </ul>
         </div>
 
@@ -63,8 +64,31 @@
             <p>Att det kan vara bökigt att sortera objekt när man väljer att sortera dom efter deras properties. Men det som kräver mycket möda känns så mycket bättre när man väl löser det.</p>
 
             <h2 id="kmom03">Kmom 03</h2>
-            <p><b>kmom03</b></p>
-            <p>kmom03</p>
+            <p><b>Berätta hur det kändes att modellera ett kortspel med flödesdiagram och psuedokod. Var det något som du tror stödjer dig i din problemlösning och tankearbete för att strukturera koden kring en applikation?</b></p>
+            <p>Det var både mycket givande och lite utmanande. Framför allt så hjälper det en att organisera tankarna och att spåna fram en mer övergriplig och generell lösning som man sedan 
+            kan ha som utgångspunkt och vägledning under kodandet. Utmaningen för mig var nog snarare skrivandet av själva pseudokoden, det blir lite lustigt när det inte finns en 
+            standard för hur det ska skrivas. Den guide som fanns var givande men också något svårläst och dessutom blir det lite halvkonstigt att skriva pseudokod i början av ett arbete som 
+            inte nödvändigtvis representerar utseendet på den slutgiltiga "riktiga" koden. Men likt flödesschemat så är det ett användbart sätt att komma till start genom och ett bra sätt att börja 
+            bygga en mental skiss över hur uppgiften skall lösas.</p>
+            <p><b>Berätta om din implementation från uppgiften. Hur löste du uppgiften, är du nöjd/missnöjd, vilken förbättringspotential ser du i din koden, dina klasser och applikationen som helhet?</b></p>
+            <p>Det finns givetvis alltid förbättringspotential, just med min lösning skulle jag säga att traits fortfarande är någonting jag kan tänka mig vara användbart. Huruvida de gör koden snyggare 
+            eller inte är kanske debatterbart men det finns nog definitivt kod i mina klasser som skulle kunna implementeras via traits. Annars känner jag mig rätt så nöjd över hur jag löste 
+            uppgiften, om än den mest basala versionen av den. Jag hade som intention att fokusera på dependency injection och det tycker jag att jag lyckades rätt så bra med, fast det kan initialt 
+            kännas som att det blir onödigt mycket kod som repeteras eller används men i längden gör det kodbasen mer flexibel att arbeta med vilket är trevligt. Det lärde ju denna uppgiften oss redan 
+            i form utav återanvändandet av kortleken och korten. Däremot lät jag spelet istället för klassen som representerade motståndaren att sköta motståndarens "logik". Det kunde flyttats till 
+            motspelarklassen i enlighet med min ursprungliga plan och är kanske en bättre lösning främst när logiken blir mer komplex eller i form utav dependency injection där beroende på vilken 
+            mostståndare vi har så är det själva motståndaren som sköter sin logik snarare än spelet och spelet kan då anropa motståndarobjektet och få ett svarsbeslut istället för att spelet självt 
+            bestämmer motståndarens logik. Men det kändes enklare för nu att låta spelet sköta logiken, definitivt förbättringspotential där dock.</p>
+            <p><b>Vilken är din känsla för att koda i ett ramverk som Symfony, så här långt in i kursen?</b></p>
+            <p>Det känns trevligt, blir mer och mer varm i kläderna när det kommer till att lägga/hitta saker på rätt plats i strukturen. Sen finns det fortfarande massor med detaljer kvar att lära 
+            kring just symfony.</p>
+            <p><b>Vilken är din TIL för detta kmom?</b></p>
+            <p>Att det verkligen kan hjälpa felsökningen att berätta för sig själv om flödet i koden och vad som bör hända samtidigt som man följer efter i koden som skrivits. Lite som 
+            rubber duck debugging.</p>
+
+            <h2 id="kmom04">Kmom 04</h2>
+            <p><b>kmom04</b></p>
+            <p>kmom04</p>
         </div>
     </article>
 {% endblock %}
