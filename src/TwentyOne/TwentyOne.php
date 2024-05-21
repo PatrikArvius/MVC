@@ -21,10 +21,10 @@ class TwentyOne
     private $allStand = false;
 
     private string $winner = "";
-    private int $playerHandValue;
-    private int $altPlayerHandValue;
-    private int $dealerHandValue;
-    private int $altDealerHandValue;
+    private int $playerHandValue = 0;
+    private int $altPlayerHandValue = 0;
+    private int $dealerHandValue = 0;
+    private int $altDealerHandValue = 0;
 
     public function __construct(Player $player, Dealer $dealer, DeckOfCards $deck)
     {

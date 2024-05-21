@@ -58,6 +58,7 @@ class MePageController extends AbstractController
             'returns JSON of shuffled deck' => '/api/deck/shuffle',
             'returns JSON of drawn card' => '/api/deck/draw',
             'returns JSON of a number of drawn cards' => '/api/deck/draw/:number',
+            'returns JSON of twentyone game standing (if game has been initialized on the twenty one page)' => '/api/twentyone'
         ];
 
         $data = [
