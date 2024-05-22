@@ -6,10 +6,18 @@
     <article>
         <div class="div-col-2">
             <h1>Currently available API routes</h1>
+            {#
             {%for descript, route in routes%}
             <li><b>{{ route }}</b>: {{ descript }}</li>
             {% endfor %}
-            
+            #}
+            <li><b><a href="{{ path('quote') }}">/api/quote</a></b>: gives you your daily quote</li>
+            <li><b><a href="{{ path('api_deck') }}">/api/deck</a></b>: returns JSON with card deck sorted by suit and values</li>
+            <li><b><a href="{{ path('api_deck_shuffle') }}">/api/deck/shuffle</a></b>: returns JSON of shuffled deck</li>
+            <li><b><a href="{{ path('api_deck_draw') }}">/api/deck/draw</a></b>: returns JSON of drawn card</li>
+            <li><b><a href="{{ path('api_deck_draw_num', {numCards: 1}) }}">/api/deck/draw/:number</a></b>: returns JSON of a number of drawn cards</li>
+            <li><b><a href="{{ path('api_twentyone') }}">/api/twentyone</a></b>: returns JSON of twentyone game standing (if game has been initialized on the twenty one page)</li>
+
             {% if numCards is same as(0) %}
             <form class="cardform" method="post" action="">
                 <input type="submit" name="restart" value="Shuffle a new deck"

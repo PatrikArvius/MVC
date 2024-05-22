@@ -52,17 +52,17 @@ class MePageController extends AbstractController
             $numCards = $deck->getNumberCards();
         }
 
-        $routes = [
+        /**$routes = [
             'gives you your daily quote' => '/api/quote',
             'returns JSON with card deck sorted by suit and values' => '/api/deck',
             'returns JSON of shuffled deck' => '/api/deck/shuffle',
             'returns JSON of drawn card' => '/api/deck/draw',
             'returns JSON of a number of drawn cards' => '/api/deck/draw/:number',
             'returns JSON of twentyone game standing (if game has been initialized on the twenty one page)' => '/api/twentyone'
-        ];
+        ];*/
 
         $data = [
-            'routes' => $routes,
+            //'routes' => $routes,
             'numCards' => $numCards
         ];
 
