@@ -13,12 +13,25 @@ class DiceTest extends TestCase
      * Construct object and verify that the object has the expected
      * properties, use no arguments.
      */
-    public function testCreateDice()
+    public function testCreateDice(): void
     {
         $die = new Dice();
         $this->assertInstanceOf("\App\Dice\Dice", $die);
 
+        $die->roll();
+        $res = $die->getValue();
+        $this->assertNotNull($res);
+    }
+
+    /**
+     * Create a Dice object and test that it returns a string.
+     */
+    public function testGetAsString(): void
+    {
+        $die = new Dice();
+        $die->roll();
+
         $res = $die->getAsString();
-        $this->assertNotEmpty($res);
+        $this->assertIsString($res);
     }
 }
