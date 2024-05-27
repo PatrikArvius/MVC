@@ -22,7 +22,8 @@ class CardGraphicTest extends TestCase
     /**
      * Create a CardGraphic object and test that it returns a string.
      */
-    public function testGetAsString(): void {
+    public function testGetAsString(): void
+    {
         $card = new CardGraphic("clubs", 13);
         $res = $card->getAsString();
 

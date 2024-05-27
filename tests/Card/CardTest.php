@@ -22,7 +22,8 @@ class CardTest extends TestCase
     /**
      * Create a Card object and test that it returns correct value.
      */
-    public function testGetCardValue(): void {
+    public function testGetCardValue(): void
+    {
         $card1 = new Card("hearts", 1);
         $card2 = new Card("spades", 12);
 
@@ -36,7 +37,8 @@ class CardTest extends TestCase
     /**
      * Create a Card object and test that it returns correct suit as string.
      */
-    public function testGetCardSuit(): void {
+    public function testGetCardSuit(): void
+    {
         $card1 = new Card("hearts", 1);
         $card2 = new Card("spades", 12);
 
@@ -50,7 +52,8 @@ class CardTest extends TestCase
     /**
      * Create a Card object and test that it returns a string.
      */
-    public function testGetAsString(): void {
+    public function testGetAsString(): void
+    {
         $card = new Card("clubs", 13);
         $res = $card->getAsString();
 
