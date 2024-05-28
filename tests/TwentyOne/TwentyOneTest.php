@@ -14,8 +14,8 @@ class TwentyOneTest extends TestCase
      */
     public function testCreate(): void
     {
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
 
@@ -28,8 +28,8 @@ class TwentyOneTest extends TestCase
     public function testSetHandValues(): void
     {
         $card = new Card("hearts", 1);
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
         $twentyOne->setHandValues();
@@ -56,8 +56,8 @@ class TwentyOneTest extends TestCase
     {
         $card = new Card("clubs", 2);
         $card2 = new Card("hearts", 1);
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
         $dealer->add($card);
@@ -76,8 +76,8 @@ class TwentyOneTest extends TestCase
      */
     public function testGetPlayerAndDealerObjects(): void
     {
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
         $res = $twentyOne->getPlayer();
@@ -94,8 +94,8 @@ class TwentyOneTest extends TestCase
     {
         $card = new Card("clubs", 2);
         $card2 = new Card("hearts", 1);
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
         $twentyOne->compareHands();
@@ -126,8 +126,8 @@ class TwentyOneTest extends TestCase
      */
     public function testSetWinner(): void
     {
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
 
@@ -144,8 +144,8 @@ class TwentyOneTest extends TestCase
      */
     public function testDrawCard(): void
     {
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
 
@@ -173,8 +173,8 @@ class TwentyOneTest extends TestCase
      */
     public function testStand(): void
     {
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
 
@@ -201,8 +201,8 @@ class TwentyOneTest extends TestCase
     public function testCheckPlayer(): void
     {
         $card = new Card("clubs", 21);
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
 
@@ -226,8 +226,8 @@ class TwentyOneTest extends TestCase
     public function testCheckDealer(): void
     {
         $card = new Card("clubs", 21);
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
 
@@ -251,8 +251,8 @@ class TwentyOneTest extends TestCase
     public function testCheckGameEnd(): void
     {
         $card = new Card("clubs", 21);
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
 
@@ -276,8 +276,8 @@ class TwentyOneTest extends TestCase
     public function testOpponentSimmulation(): void
     {
         $card = new Card("clubs", 16);
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
         $dealer->add($card);
@@ -300,8 +300,8 @@ class TwentyOneTest extends TestCase
     public function testPlayRound(): void
     {
         $card = new Card("clubs", 16);
-        $player = new Player(new CardHand);
-        $dealer = new Dealer(new CardHand);
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
         $deck = new DeckOfCards("graphic");
         $twentyOne = new TwentyOne($player, $dealer, $deck);
         $player->add($card);

@@ -6,18 +6,30 @@ use App\Card\DeckOfCards;
 use App\TwentyOne\Player;
 use App\TwentyOne\Dealer;
 
-// This class handles most of the logic in order to play the game 21
+/**
+ * This class handles most of the logic in order to play the game 21
+ */
 class TwentyOne
 {
-    /** @var Player $player */
+    /**
+     * @var Player $player
+     */
     private Player $player;
-    /** @var DeckofCards $deck */
+    /**
+     * @var DeckofCards $deck
+    */
     private DeckOfCards $deck;
-    /** @var Dealer $dealer */
+    /**
+     * @var Dealer $dealer
+     */
     private Dealer $dealer;
-    /** @var bool $playerIsActive */
+    /**
+     * @var bool $playerIsActive
+     */
     private $playerIsActive = true;
-    /** @var bool $allStand */
+    /**
+     * @var bool $allStand
+     */
     private $allStand = false;
 
     private string $winner = "";
@@ -26,6 +38,9 @@ class TwentyOne
     private int $dealerHandValue = 0;
     private int $altDealerHandValue = 0;
 
+    /**
+     * Constructs the game with a player object, dealer object and deckofcards object and shuffles the deck.
+     */
     public function __construct(Player $player, Dealer $dealer, DeckOfCards $deck)
     {
         $this->player = $player;
@@ -34,6 +49,10 @@ class TwentyOne
         $this->deck->shuffleDeck();
     }
 
+    /**
+     * Sets the hand values of the player and dealer, altValue is used for alternate values of Aces
+     * Aces can be worth either 1 or 14
+     */
     public function setHandValues(): void
     {
         if ($this->playerIsActive) {
@@ -47,7 +66,12 @@ class TwentyOne
         $this->altDealerHandValue = $dealerValues['altValue'];
     }
 
-    /** @return int|null */
+    /**
+     * Gets hand value from player or dealer or the alternative handvalue from player or dealer
+     * depending on string provided
+     *
+     * @return int|null
+     */
     public function getSpecificHandValue(string $hand): ?int
     {
         $val = null;
@@ -68,16 +92,31 @@ class TwentyOne
         return $val;
     }
 
+    /**
+     * Method that returns the player object
+     *
+     * @return Player
+     */
     public function getPlayer(): ?object
     {
         return $this->player;
     }
 
+    /**
+     * Method that returns the dealer object
+     *
+     * @return Dealer
+     */
     public function getDealer(): ?object
     {
         return $this->dealer;
     }
 
+    /**
+     * Compares handvalue and alternate hand value for the player and dealer, sets highest valid player hand, sets highest valid dealer hand
+     * then compares respektive highest hands and sets a winner based on the comparison. If dealers best hand is equal to or greater than
+     * players best hand then the dealer wins
+     */
     public function compareHands(): void
     {
         $playerVal = 0;
@@ -105,16 +144,38 @@ class TwentyOne
         $this->winner = "player";
     }
 
+    /**
+     * Sets the winner to provided string parameter
+     *
+     * @param string $winner
+     */
     public function setWinner(string $winner): void
     {
         $this->winner = $winner;
     }
 
+    /**
+     * Method that returns the value of the private variable $winner
+     */
     public function getWinner(): ?string
     {
         return $this->winner;
     }
 
+    /**
+     * Method that returns weather or not the player is active as a boolean
+     *
+     * @return bool
+     * */
+    public function isPlayerActive(): bool
+    {
+        return $this->playerIsActive;
+    }
+
+    /**
+     * Method that draws a card from the deck
+     * based on if the player is active or not, said card is then added to either the player hand or dealer hand
+     */
     public function drawCard(): void
     {
         if ($this->playerIsActive) {
@@ -127,6 +188,11 @@ class TwentyOne
         $this->dealer->add($card[0]);
     }
 
+    /**
+     * Method performing the stand action which sets the playerIsActive variable from true to false if the player was active
+     * sets the variable for all players standing to true if it was called when the player was not active and then compares
+     * dealer and player hands
+     */
     public function stand(): void
     {
         if ($this->playerIsActive) {
@@ -138,11 +204,17 @@ class TwentyOne
         $this->compareHands();
     }
 
+    /**
+     * Method returning boolean representing weather or not player and dealer are both standing
+     */
     public function getAllStanding(): bool
     {
         return $this->allStand;
     }
 
+    /**
+     * Method that checks if the player hand has hit a value of 21 thus winning the game, or a hand value above 21 thus losing the game
+     */
     public function checkPlayer(): void
     {
         if ($this->playerHandValue === 21 || $this->altPlayerHandValue === 21) {
@@ -153,6 +225,9 @@ class TwentyOne
         }
     }
 
+    /**
+     * Method that checks if the dealer hand has hit a value of 21 thus winning the game, or a hand value above 21 thus losing the game
+     */
     public function checkDealer(): void
     {
         if ($this->dealerHandValue === 21 || $this->altDealerHandValue === 21) {
@@ -163,6 +238,9 @@ class TwentyOne
         }
     }
 
+    /**
+     * Method that calls method to check player or dealer depending on if the player is active or not
+     */
     public function checkGameEnd(): void
     {
         if ($this->playerIsActive) {
@@ -172,6 +250,9 @@ class TwentyOne
         $this->checkDealer();
     }
 
+    /**
+     * Method that simmulates the dealer playing the game, dealer plays another round at handvalues of 16 or less and stands at above 16
+     */
     public function simmulateOpponent(): void
     {
         if ($this->dealerHandValue <= 16 || $this->altDealerHandValue <= 16) {
@@ -180,6 +261,10 @@ class TwentyOne
         $this->stand();
     }
 
+    /**
+     * Method for playing a game round by drawing a card, setting the hand values for the players and then checking if either hit 21 or above thus ending the game.
+     * It also checks weather or not the player is active and calls the method to simmulate the opponent if the player is not active
+     */
     public function playRound(): void
     {
         $this->drawCard();
