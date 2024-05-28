@@ -87,8 +87,34 @@
             rubber duck debugging.</p>
 
             <h2 id="kmom04">Kmom 04</h2>
-            <p><b>kmom04</b></p>
-            <p>kmom04</p>
+            <p><b>Berätta hur du upplevde att skriva kod som testar annan kod med PHPUnit och hur du upplever phpunit rent allmänt.</b></p>
+            <p>Jag tycker det är rätt trevligt, framför allt är det ett väldigt bra sätt att just testa sin kod på ett mer strukturerat sätt. Innan användingen av phpunit så 
+            blev det ju snarare så att testningen av koden skedde "live" genom att spela igenom spelet, trycka runt på me-sidan och sen försöka förstå varför saker gick sönder när 
+            dom gick sönder. Phpunit är ju väldigt trevligt just på det sättet att det låter oss testa varje individuell funktion eller metod i förväg och på så sätt något så när 
+            försäkra oss om att de agerar som förväntat. Det beror givetvis på hur välskrivna testen är.</p>
+            <p><b>Hur väl lyckades du med kodtäckningen av din kod, lyckades du nå mer än 90% kodtäckning?</b></p>
+            <p>Jag lyckades nå 100% på alla klasser som är involverade i mitt kortspel, det är ju väldigt svårt att nöja sig när man träffat 90% redan. Sen är kanske inte 100% 
+            målet i sig, och definitivt ingen garanti på att koden är bra eller bra testad men det är såklart kul att se att allt är grönt. Sen hade jag kanske inte siktat på 100% om 
+            det hade tagit extremt mycket tid, vilket i och för sig hade varit en indikation på större problem.</p>
+            <p><b>Upplever du din egen kod som “testbar kod” eller finns det delar i koden som är mer eller mindre testbar och finns det saker som kan göras för att förbättra kodens testbarhet?</b></p>
+            <p>Jag tycker att den kändes förvånandsvärt testbar och jag fick en kännsla av att det är på grund utav att jag valde tidigt att fokusera på dependency injection. Det i kombination 
+            med hur jag hade byggt upp respektive klasser gav en kod som var väldigt flexibel när den skulle testas och innebar till min förvåning att jag inte behövde mocka något även om jag hade 
+            gjort den övningen. Det fanns givetvis detaljer som inte var helt testbara så jag modifierade min kod lite för att göra dem nåbara men på det stora hela kändes det testbart. Något jag tar med 
+            mig är definitivt att mindre metoder och funktioner känns mycket lättare att testa, och att testa adekvat.</p>
+            <p><b>Valde du att skriva om delar av din kod för att förbättra den eller göra den mer testbar, om så berätta lite hur du tänkte.</b></p>
+            <p>Jag skrev om mindre delar som gjorde det möjligt att komma åt vissa medlemsvariabler. Jag tänkte att det var ett okej sätt att lösa testbarheten då alternativet hade varit att skriva 
+            om mycket funktionalitet. Jag tyckte ändå min kod var rätt testbar (kan vara min egen naivitet) så det kändes som rätt vägval. Eftersom jag har en del metoder som inte enbart returnerar 
+            något utan de muterar även vissa medlemsvariabler så behövs vissa metoder som returnerar dessa medlemsvariabler för att kontrollera att de muterats på rätt sätt.</p>
+            <p><b>Fundera över om du anser att testbar kod är något som kan identifiera “snygg och ren kod”.</b></p>
+            <p>Jo men delvis tycker jag nog att det i alla fall är en indikator på snygg kod, nu är det ju delvis ett subjektivt mått så det är svårt att säga bestämt. Om saker som dependency injection 
+            och mindre funktioner/metoder och återanvändbar kod (och därmed flexibel) är att klassa som snygg kod och dessa dessutom underlättare testning så tycker jag väl att man kan säga att där finns 
+            en indikator på snygg kod.</p>
+            <p><b>Vilken är din TIL för detta kmom?</b></p>
+            <p>Att flexibla klasser och dependency injection verkligen kan underlätta testning och att 100% kodtäckning inte är en garant för välskriven och felfri kod.</p>
+
+            <h2 id="kmom05">Kmom 05</h2>
+            <p><b>kmom05</b></p>
+            <p>kmom05</p>
         </div>
     </article>
 {% endblock %}
