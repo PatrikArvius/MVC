@@ -533,87 +533,92 @@ Search.appendIndex(
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne",
             "name": "TwentyOne",
-            "summary": "",
+            "summary": "This\u0020class\u0020handles\u0020most\u0020of\u0020the\u0020logic\u0020in\u0020order\u0020to\u0020play\u0020the\u0020game\u002021",
             "url": "classes/App-TwentyOne-TwentyOne.html"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003A__construct\u0028\u0029",
             "name": "__construct",
-            "summary": "",
+            "summary": "Constructs\u0020the\u0020game\u0020with\u0020a\u0020player\u0020object,\u0020dealer\u0020object\u0020and\u0020deckofcards\u0020object\u0020and\u0020shuffles\u0020the\u0020deck.",
             "url": "classes/App-TwentyOne-TwentyOne.html#method___construct"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AsetHandValues\u0028\u0029",
             "name": "setHandValues",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020hand\u0020values\u0020of\u0020the\u0020player\u0020and\u0020dealer,\u0020altValue\u0020is\u0020used\u0020for\u0020alternate\u0020values\u0020of\u0020Aces\nAces\u0020can\u0020be\u0020worth\u0020either\u00201\u0020or\u002014",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_setHandValues"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AgetSpecificHandValue\u0028\u0029",
             "name": "getSpecificHandValue",
-            "summary": "",
+            "summary": "Gets\u0020hand\u0020value\u0020from\u0020player\u0020or\u0020dealer\u0020or\u0020the\u0020alternative\u0020handvalue\u0020from\u0020player\u0020or\u0020dealer\ndepending\u0020on\u0020string\u0020provided",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_getSpecificHandValue"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AgetPlayer\u0028\u0029",
             "name": "getPlayer",
-            "summary": "",
+            "summary": "Method\u0020that\u0020returns\u0020the\u0020player\u0020object",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_getPlayer"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AgetDealer\u0028\u0029",
             "name": "getDealer",
-            "summary": "",
+            "summary": "Method\u0020that\u0020returns\u0020the\u0020dealer\u0020object",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_getDealer"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AcompareHands\u0028\u0029",
             "name": "compareHands",
-            "summary": "",
+            "summary": "Compares\u0020handvalue\u0020and\u0020alternate\u0020hand\u0020value\u0020for\u0020the\u0020player\u0020and\u0020dealer,\u0020sets\u0020highest\u0020valid\u0020player\u0020hand,\u0020sets\u0020highest\u0020valid\u0020dealer\u0020hand\nthen\u0020compares\u0020respektive\u0020highest\u0020hands\u0020and\u0020sets\u0020a\u0020winner\u0020based\u0020on\u0020the\u0020comparison.\u0020If\u0020dealers\u0020best\u0020hand\u0020is\u0020equal\u0020to\u0020or\u0020greater\u0020than\nplayers\u0020best\u0020hand\u0020then\u0020the\u0020dealer\u0020wins",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_compareHands"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AsetWinner\u0028\u0029",
             "name": "setWinner",
-            "summary": "",
+            "summary": "Sets\u0020the\u0020winner\u0020to\u0020provided\u0020string\u0020parameter",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_setWinner"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AgetWinner\u0028\u0029",
             "name": "getWinner",
-            "summary": "",
+            "summary": "Method\u0020that\u0020returns\u0020the\u0020value\u0020of\u0020the\u0020private\u0020variable\u0020\u0024winner",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_getWinner"
+        },                {
+            "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AisPlayerActive\u0028\u0029",
+            "name": "isPlayerActive",
+            "summary": "Method\u0020that\u0020returns\u0020weather\u0020or\u0020not\u0020the\u0020player\u0020is\u0020active\u0020as\u0020a\u0020boolean",
+            "url": "classes/App-TwentyOne-TwentyOne.html#method_isPlayerActive"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AdrawCard\u0028\u0029",
             "name": "drawCard",
-            "summary": "",
+            "summary": "Method\u0020that\u0020draws\u0020a\u0020card\u0020from\u0020the\u0020deck\nbased\u0020on\u0020if\u0020the\u0020player\u0020is\u0020active\u0020or\u0020not,\u0020said\u0020card\u0020is\u0020then\u0020added\u0020to\u0020either\u0020the\u0020player\u0020hand\u0020or\u0020dealer\u0020hand",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_drawCard"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003Astand\u0028\u0029",
             "name": "stand",
-            "summary": "",
+            "summary": "Method\u0020performing\u0020the\u0020stand\u0020action\u0020which\u0020sets\u0020the\u0020playerIsActive\u0020variable\u0020from\u0020true\u0020to\u0020false\u0020if\u0020the\u0020player\u0020was\u0020active\nsets\u0020the\u0020variable\u0020for\u0020all\u0020players\u0020standing\u0020to\u0020true\u0020if\u0020it\u0020was\u0020called\u0020when\u0020the\u0020player\u0020was\u0020not\u0020active\u0020and\u0020then\u0020compares\ndealer\u0020and\u0020player\u0020hands",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_stand"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AgetAllStanding\u0028\u0029",
             "name": "getAllStanding",
-            "summary": "",
+            "summary": "Method\u0020returning\u0020boolean\u0020representing\u0020weather\u0020or\u0020not\u0020player\u0020and\u0020dealer\u0020are\u0020both\u0020standing",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_getAllStanding"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AcheckPlayer\u0028\u0029",
             "name": "checkPlayer",
-            "summary": "",
+            "summary": "Method\u0020that\u0020checks\u0020if\u0020the\u0020player\u0020hand\u0020has\u0020hit\u0020a\u0020value\u0020of\u002021\u0020thus\u0020winning\u0020the\u0020game,\u0020or\u0020a\u0020hand\u0020value\u0020above\u002021\u0020thus\u0020losing\u0020the\u0020game",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_checkPlayer"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AcheckDealer\u0028\u0029",
             "name": "checkDealer",
-            "summary": "",
+            "summary": "Method\u0020that\u0020checks\u0020if\u0020the\u0020dealer\u0020hand\u0020has\u0020hit\u0020a\u0020value\u0020of\u002021\u0020thus\u0020winning\u0020the\u0020game,\u0020or\u0020a\u0020hand\u0020value\u0020above\u002021\u0020thus\u0020losing\u0020the\u0020game",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_checkDealer"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AcheckGameEnd\u0028\u0029",
             "name": "checkGameEnd",
-            "summary": "",
+            "summary": "Method\u0020that\u0020calls\u0020method\u0020to\u0020check\u0020player\u0020or\u0020dealer\u0020depending\u0020on\u0020if\u0020the\u0020player\u0020is\u0020active\u0020or\u0020not",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_checkGameEnd"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AsimmulateOpponent\u0028\u0029",
             "name": "simmulateOpponent",
-            "summary": "",
+            "summary": "Method\u0020that\u0020simmulates\u0020the\u0020dealer\u0020playing\u0020the\u0020game,\u0020dealer\u0020plays\u0020another\u0020round\u0020at\u0020handvalues\u0020of\u002016\u0020or\u0020less\u0020and\u0020stands\u0020at\u0020above\u002016",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_simmulateOpponent"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003AplayRound\u0028\u0029",
             "name": "playRound",
-            "summary": "",
+            "summary": "Method\u0020for\u0020playing\u0020a\u0020game\u0020round\u0020by\u0020drawing\u0020a\u0020card,\u0020setting\u0020the\u0020hand\u0020values\u0020for\u0020the\u0020players\u0020and\u0020then\u0020checking\u0020if\u0020either\u0020hit\u002021\u0020or\u0020above\u0020thus\u0020ending\u0020the\u0020game.",
             "url": "classes/App-TwentyOne-TwentyOne.html#method_playRound"
         },                {
             "fqsen": "\\App\\TwentyOne\\TwentyOne\u003A\u003A\u0024player",

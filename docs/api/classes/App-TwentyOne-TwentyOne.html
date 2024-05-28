@@ -130,11 +130,12 @@
         <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">10</span>
+    <span class="phpdocumentor-element-found-in__line">12</span>
 
     </aside>
 
-        
+            <p class="phpdocumentor-summary">This class handles most of the logic in order to play the game 21</p>
+
 
 
 
@@ -233,96 +234,126 @@
     <span>
                                 &nbsp;: mixed    </span>
 </dt>
+<dd>Constructs the game with a player object, dealer object and deckofcards object and shuffles the deck.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_checkDealer">checkDealer()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Method that checks if the dealer hand has hit a value of 21 thus winning the game, or a hand value above 21 thus losing the game</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_checkGameEnd">checkGameEnd()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Method that calls method to check player or dealer depending on if the player is active or not</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_checkPlayer">checkPlayer()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Method that checks if the player hand has hit a value of 21 thus winning the game, or a hand value above 21 thus losing the game</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_compareHands">compareHands()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Compares handvalue and alternate hand value for the player and dealer, sets highest valid player hand, sets highest valid dealer hand
+then compares respektive highest hands and sets a winner based on the comparison. If dealers best hand is equal to or greater than
+players best hand then the dealer wins</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_drawCard">drawCard()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Method that draws a card from the deck
+based on if the player is active or not, said card is then added to either the player hand or dealer hand</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_getAllStanding">getAllStanding()</a>
     <span>
                                 &nbsp;: bool    </span>
 </dt>
+<dd>Method returning boolean representing weather or not player and dealer are both standing</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_getDealer">getDealer()</a>
     <span>
-                                &nbsp;: object|null    </span>
+                                &nbsp;: <a href="classes/App-TwentyOne-Dealer.html"><abbr title="\App\TwentyOne\Dealer">Dealer</abbr></a>    </span>
 </dt>
+<dd>Method that returns the dealer object</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_getPlayer">getPlayer()</a>
     <span>
-                                &nbsp;: object|null    </span>
+                                &nbsp;: <a href="classes/App-TwentyOne-Player.html"><abbr title="\App\TwentyOne\Player">Player</abbr></a>    </span>
 </dt>
+<dd>Method that returns the player object</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_getSpecificHandValue">getSpecificHandValue()</a>
     <span>
                                 &nbsp;: int|null    </span>
 </dt>
+<dd>Gets hand value from player or dealer or the alternative handvalue from player or dealer
+depending on string provided</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_getWinner">getWinner()</a>
     <span>
                                 &nbsp;: string|null    </span>
 </dt>
+<dd>Method that returns the value of the private variable $winner</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/App-TwentyOne-TwentyOne.html#method_isPlayerActive">isPlayerActive()</a>
+    <span>
+                                &nbsp;: bool    </span>
+</dt>
+<dd>Method that returns weather or not the player is active as a boolean</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_playRound">playRound()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Method for playing a game round by drawing a card, setting the hand values for the players and then checking if either hit 21 or above thus ending the game.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_setHandValues">setHandValues()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Sets the hand values of the player and dealer, altValue is used for alternate values of Aces
+Aces can be worth either 1 or 14</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_setWinner">setWinner()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Sets the winner to provided string parameter</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_simmulateOpponent">simmulateOpponent()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Method that simmulates the dealer playing the game, dealer plays another round at handvalues of 16 or less and stands at above 16</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/App-TwentyOne-TwentyOne.html#method_stand">stand()</a>
     <span>
                                 &nbsp;: void    </span>
 </dt>
+<dd>Method performing the stand action which sets the playerIsActive variable from true to false if the player was active
+sets the variable for all players standing to true if it was called when the player was not active and then compares
+dealer and player hands</dd>
 
     </dl>
 
@@ -355,7 +386,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">21</span>
+    <span class="phpdocumentor-element-found-in__line">33</span>
 
     </aside>
 
@@ -388,7 +419,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">27</span>
+    <span class="phpdocumentor-element-found-in__line">39</span>
 
     </aside>
 
@@ -421,7 +452,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">25</span>
+    <span class="phpdocumentor-element-found-in__line">37</span>
 
     </aside>
 
@@ -454,7 +485,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">17</span>
+    <span class="phpdocumentor-element-found-in__line">25</span>
 
     </aside>
 
@@ -487,7 +518,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">26</span>
+    <span class="phpdocumentor-element-found-in__line">38</span>
 
     </aside>
 
@@ -520,7 +551,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">15</span>
+    <span class="phpdocumentor-element-found-in__line">21</span>
 
     </aside>
 
@@ -553,7 +584,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">13</span>
+    <span class="phpdocumentor-element-found-in__line">17</span>
 
     </aside>
 
@@ -586,7 +617,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">24</span>
+    <span class="phpdocumentor-element-found-in__line">36</span>
 
     </aside>
 
@@ -619,7 +650,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">19</span>
+    <span class="phpdocumentor-element-found-in__line">29</span>
 
     </aside>
 
@@ -652,7 +683,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">23</span>
+    <span class="phpdocumentor-element-found-in__line">35</span>
 
     </aside>
 
@@ -690,11 +721,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">29</span>
+    <span class="phpdocumentor-element-found-in__line">44</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Constructs the game with a player object, dealer object and deckofcards object and shuffles the deck.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">__construct</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-TwentyOne-Player.html"><abbr title="\App\TwentyOne\Player">Player</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$player</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-TwentyOne-Dealer.html"><abbr title="\App\TwentyOne\Dealer">Dealer</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$dealer</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type"><a href="classes/App-Card-DeckOfCards.html"><abbr title="\App\Card\DeckOfCards">DeckOfCards</abbr></a>&nbsp;</span><span class="phpdocumentor-signature__argument__name">$deck</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
@@ -745,11 +777,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">156</span>
+    <span class="phpdocumentor-element-found-in__line">231</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method that checks if the dealer hand has hit a value of 21 thus winning the game, or a hand value above 21 thus losing the game</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">checkDealer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -776,11 +809,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">166</span>
+    <span class="phpdocumentor-element-found-in__line">244</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method that calls method to check player or dealer depending on if the player is active or not</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">checkGameEnd</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -807,11 +841,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">146</span>
+    <span class="phpdocumentor-element-found-in__line">218</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method that checks if the player hand has hit a value of 21 thus winning the game, or a hand value above 21 thus losing the game</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">checkPlayer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -838,11 +873,14 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">81</span>
+    <span class="phpdocumentor-element-found-in__line">120</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Compares handvalue and alternate hand value for the player and dealer, sets highest valid player hand, sets highest valid dealer hand
+then compares respektive highest hands and sets a winner based on the comparison. If dealers best hand is equal to or greater than
+players best hand then the dealer wins</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">compareHands</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -869,11 +907,13 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">118</span>
+    <span class="phpdocumentor-element-found-in__line">179</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method that draws a card from the deck
+based on if the player is active or not, said card is then added to either the player hand or dealer hand</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">drawCard</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -900,11 +940,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">141</span>
+    <span class="phpdocumentor-element-found-in__line">210</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method returning boolean representing weather or not player and dealer are both standing</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getAllStanding</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
@@ -935,14 +976,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">76</span>
+    <span class="phpdocumentor-element-found-in__line">110</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method that returns the dealer object</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getDealer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object|null</span></code>
+                    <span class="phpdocumentor-signature__name">getDealer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-TwentyOne-Dealer.html"><abbr title="\App\TwentyOne\Dealer">Dealer</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -952,7 +994,7 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">object|null</span>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/App-TwentyOne-Dealer.html"><abbr title="\App\TwentyOne\Dealer">Dealer</abbr></a></span>
             </section>
 
 </article>
@@ -970,14 +1012,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">71</span>
+    <span class="phpdocumentor-element-found-in__line">100</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method that returns the player object</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-                    <span class="phpdocumentor-signature__name">getPlayer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">object|null</span></code>
+                    <span class="phpdocumentor-signature__name">getPlayer</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><a href="classes/App-TwentyOne-Player.html"><abbr title="\App\TwentyOne\Player">Player</abbr></a></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -987,7 +1030,7 @@
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type">object|null</span>
+        <span class="phpdocumentor-signature__response_type"><a href="classes/App-TwentyOne-Player.html"><abbr title="\App\TwentyOne\Player">Player</abbr></a></span>
             </section>
 
 </article>
@@ -1005,11 +1048,13 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">51</span>
+    <span class="phpdocumentor-element-found-in__line">75</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Gets hand value from player or dealer or the alternative handvalue from player or dealer
+depending on string provided</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getSpecificHandValue</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$hand</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">int|null</span></code>
@@ -1050,11 +1095,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">113</span>
+    <span class="phpdocumentor-element-found-in__line">160</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method that returns the value of the private variable $winner</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">getWinner</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string|null</span></code>
@@ -1077,6 +1123,42 @@
             -public
                                                         "
 >
+    <h4 class="phpdocumentor-element__name" id="method_isPlayerActive">
+        isPlayerActive()
+        <a href="classes/App-TwentyOne-TwentyOne.html#method_isPlayerActive" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">170</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Method that returns weather or not the player is active as a boolean</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+                    <span class="phpdocumentor-signature__name">isPlayerActive</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+    
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">bool</span>
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                                        "
+>
     <h4 class="phpdocumentor-element__name" id="method_playRound">
         playRound()
         <a href="classes/App-TwentyOne-TwentyOne.html#method_playRound" class="headerlink"><i class="fas fa-link"></i></a>
@@ -1085,18 +1167,21 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">183</span>
+    <span class="phpdocumentor-element-found-in__line">268</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method for playing a game round by drawing a card, setting the hand values for the players and then checking if either hit 21 or above thus ending the game.</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">playRound</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>It also checks weather or not the player is active and calls the method to simmulate the opponent if the player is not active</p>
+</section>
+
     
     
 
@@ -1116,11 +1201,13 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">37</span>
+    <span class="phpdocumentor-element-found-in__line">56</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Sets the hand values of the player and dealer, altValue is used for alternate values of Aces
+Aces can be worth either 1 or 14</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setHandValues</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -1147,11 +1234,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">108</span>
+    <span class="phpdocumentor-element-found-in__line">152</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Sets the winner to provided string parameter</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">setWinner</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$winner</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -1188,11 +1276,12 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">175</span>
+    <span class="phpdocumentor-element-found-in__line">256</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method that simmulates the dealer playing the game, dealer plays another round at handvalues of 16 or less and stands at above 16</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">simmulateOpponent</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -1219,11 +1308,14 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="src/TwentyOne/TwentyOne.php"><a href="files/src-twentyone-twentyone.html"><abbr title="src/TwentyOne/TwentyOne.php">TwentyOne.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">130</span>
+    <span class="phpdocumentor-element-found-in__line">196</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Method performing the stand action which sets the playerIsActive variable from true to false if the player was active
+sets the variable for all players standing to true if it was called when the player was not active and then compares
+dealer and player hands</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
                     <span class="phpdocumentor-signature__name">stand</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
@@ -1376,6 +1468,7 @@
                                             <li><a href="classes/App-TwentyOne-TwentyOne.html#method_getPlayer">getPlayer()</a></li>
                                             <li><a href="classes/App-TwentyOne-TwentyOne.html#method_getSpecificHandValue">getSpecificHandValue()</a></li>
                                             <li><a href="classes/App-TwentyOne-TwentyOne.html#method_getWinner">getWinner()</a></li>
+                                            <li><a href="classes/App-TwentyOne-TwentyOne.html#method_isPlayerActive">isPlayerActive()</a></li>
                                             <li><a href="classes/App-TwentyOne-TwentyOne.html#method_playRound">playRound()</a></li>
                                             <li><a href="classes/App-TwentyOne-TwentyOne.html#method_setHandValues">setHandValues()</a></li>
                                             <li><a href="classes/App-TwentyOne-TwentyOne.html#method_setWinner">setWinner()</a></li>
