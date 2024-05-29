@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Product View!{% endblock %}
+
+{% block body %}
+    <article>
+        <div class="div-col-3">
+            <ul class="dice">
+            {% for product in products %}
+                <li>{{ product.getName|e }} ({{ product.getId|e }}) {{ product.getValue|e }}</li>
+            {% endfor %}
+            </ul>
+        </div>
+    </article>
+{% endblock %}
