@@ -479,6 +479,33 @@ div.div-col-3 {
 div.div-col-3 p {
     text-align: center;
 }
+
+div.div-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.book {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 12px;
+    width: 200px;
+    height: 400px;
+    overflow: hidden;
+}
+
+.book img {
+    width: 200px;
+    height: 300px;
+    margin: 0px;
+}
+
+.book p {
+    margin: 0px;
+}
+
 figcaption p {
 text-align: center;
 font-style: italic;

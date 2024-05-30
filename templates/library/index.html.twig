@@ -1,0 +1,38 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library{% endblock %}
+
+{% block body %}
+<article class="art-row">
+<div class="div-col-1">
+    <h2>Library links</h2>
+    <ul class="about-links">
+    <li><a href="{{ path('app_library_add') }}">Add a book</a></li>
+    <li><a href="{{ path('app_library') }}">Specific book details</a></li>
+    <li><a href="{{ path('app_library') }}">Show all books</a></li>
+    <li><a href="{{ path('app_library') }}">Update a book</a></li>
+    <li><a href="{{ path('app_library') }}">Delete a book</a></li>
+    <li><a href="{{ path('app_library') }}">Reset Library</a></li>
+    </ul>
+</div>
+<div class="div-col-2">
+<h1>Library</h1>
+
+<p> Welcome to the library! To your left you will find links for all available functionality. 
+Down below you will see a sample of available books, there might be many more depending on the good will of the people using this library. 
+Remember to keep your voice down.</p>
+
+<div class="div-row">
+{% for book in books %}
+    <div class="book">
+    <img src="{{ book.getImage|e }}" alt="{{ book.getTitle|e }}">
+    <p><a>{{ book.getTitle|e }}</a></p>
+    <p>{{ book.getAuthor|e }}</p>
+    <p>ISBN: {{ book.getIsbn|e }}</p>
+    </div>
+{% endfor %}
+</div>
+
+</div>
+</article>
+{% endblock %}

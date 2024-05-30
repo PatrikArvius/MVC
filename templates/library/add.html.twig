@@ -1,0 +1,37 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library{% endblock %}
+
+{% block body %}
+<article class="art-row">
+<div class="div-col-1">
+    <h2>Library links</h2>
+    <ul class="about-links">
+    <li><a href="{{ path('app_library') }}">Add a book</a></li>
+    <li><a href="{{ path('app_library') }}">Specific book details</a></li>
+    <li><a href="{{ path('app_library') }}">Show all books</a></li>
+    <li><a href="{{ path('app_library') }}">Update a book</a></li>
+    <li><a href="{{ path('app_library') }}">Delete a book</a></li>
+    <li><a href="{{ path('app_library') }}">Reset Library</a></li>
+    </ul>
+</div>
+<div class="div-col-2">
+<h1>Add a book</h1>
+
+<form class="cardform" method="post" action="">
+    <label for="title">Title</label>
+    <input type="text" name="title" id="title" required>
+    <label for="author">Author</label>
+    <input type="text" name="author" id="author" required>
+    <label for="isbn">ISBN</label>
+    <input type="number" name="isbn" id="isbn" required>
+    <label for="image">Image URL</label>
+    <input type="text" name="image" id="image" required>
+    <input type="submit" name="add" value="Add book"
+    onClick="this.form.action='{{ path('app_library_add_post') }}';"
+    >
+</form>
+
+</div>
+</article>
+{% endblock %}
