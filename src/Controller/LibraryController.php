@@ -2,13 +2,13 @@
 
 namespace App\Controller;
 
-use App\Entity\Book;
-use App\Repository\BookRepository;
-use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Doctrine\Persistence\ManagerRegistry;
+use App\Repository\BookRepository;
+use App\Entity\Book;
 
 class LibraryController extends AbstractController
 {
@@ -55,7 +55,7 @@ class LibraryController extends AbstractController
         // actually executes the queries (i.e. the INSERT query)
         $entityManager->flush();
 
-        return $this->redirectToRoute('app_library');
+        return $this->redirectToRoute('app_library_show_all');
     }
 
     #[Route('/library/show', name: 'app_library_show_all')]
@@ -70,13 +70,13 @@ class LibraryController extends AbstractController
         return $this->render('library/show.html.twig', $data);
     }
 
-    #[Route('/library/show/one/{isbn}', name: 'app_library_show_one')]
+    #[Route('/library/show/{title}', name: 'app_library_show_one')]
     public function showOneBook(
         BookRepository $bookRepository,
-        int $isbn
+        string $title
     ): Response {
         $book = $bookRepository
-            ->findOneBy(['isbn' => $isbn]);
+            ->findOneBy(['title' => $title]);
         $data = [
             'book' => $book
         ];
@@ -113,7 +113,7 @@ class LibraryController extends AbstractController
         for ($i = 0; $i < count($titles); $i++) {
             $book = new Book();
             $book->setTitle($titles[$i]);
-            $book->setIsbn($isbns[$i]);
+            $book->setIsbn(intval($isbns[$i]));
             $book->setAuthor($authors[$i]);
             $book->setImage($images[$i]);
 

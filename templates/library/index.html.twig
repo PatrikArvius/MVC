@@ -25,7 +25,7 @@ Remember to keep your voice down.</p>
 {% for book in books %}
     <div class="book">
     <img src="{{ book.getImage|e }}" alt="{{ book.getTitle|e }}">
-    <p><a href="{{ path('app_library_show_one', {'isbn': book.getIsbn|e}) }}">{{ book.getTitle|e }}</a></p>
+    <p><a href="{{ path('app_library_show_one', {'title': book.getTitle}) }}">{{ book.getTitle|e }}</a></p>
     <p>{{ book.getAuthor|e }}</p>
     <p>ISBN: {{ book.getIsbn|e }}</p>
     </div>
