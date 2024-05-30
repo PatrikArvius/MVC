@@ -483,6 +483,7 @@ div.div-col-3 p {
 div.div-row {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .book {
