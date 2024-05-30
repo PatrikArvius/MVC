@@ -29,6 +29,21 @@ class BookRepository extends ServiceEntityRepository
         return $res;
     }
 
+    public function deleteBooks(): void
+    {
+        $ids = $this->createQueryBuilder('b')
+                ->select('b.id')
+                ->getQuery()
+                ->getResult();
+
+        $this->createQueryBuilder('b')
+            ->where('b.id in (:ids)')
+            ->setParameter('ids', $ids)
+            ->delete()
+            ->getQuery()
+            ->execute();
+    }
+
     //    /**
     //     * @return Book[] Returns an array of Book objects
     //     */
