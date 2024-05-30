@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Library{% endblock %}
+{% block title %}Library Add{% endblock %}
 
 {% block body %}
 <article class="art-row">
@@ -8,8 +8,7 @@
     <h2>Library links</h2>
     <ul class="about-links">
     <li><a href="{{ path('app_library') }}">Add a book</a></li>
-    <li><a href="{{ path('app_library') }}">Specific book details</a></li>
-    <li><a href="{{ path('app_library') }}">Show all books</a></li>
+    <li><a href="{{ path('app_library_show_all') }}">Show all books</a></li>
     <li><a href="{{ path('app_library') }}">Update a book</a></li>
     <li><a href="{{ path('app_library') }}">Delete a book</a></li>
     <li><a href="{{ path('app_library_reset') }}">Reset Library</a></li>

@@ -20,7 +20,7 @@ class BookRepository extends ServiceEntityRepository
     {
         $res = $this->createQueryBuilder('b')
                 ->orderBy('b.id', 'ASC')
-                ->setMaxResults(5)
+                ->setMaxResults(3)
                 ->getQuery()
                 ->getResult()
             ;

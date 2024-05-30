@@ -58,6 +58,31 @@ class LibraryController extends AbstractController
         return $this->redirectToRoute('app_library');
     }
 
+    #[Route('/library/show', name: 'app_library_show_all')]
+    public function showAllBooks(
+        BookRepository $bookRepository
+    ): Response {
+        $books = $bookRepository->findAll();
+
+        $data = [
+            'books' => $books
+        ];
+        return $this->render('library/show.html.twig', $data);
+    }
+
+    #[Route('/library/show/one/{isbn}', name: 'app_library_show_one')]
+    public function showOneBook(
+        BookRepository $bookRepository,
+        int $isbn
+    ): Response {
+        $book = $bookRepository
+            ->findOneBy(['isbn' => $isbn]);
+        $data = [
+            'book' => $book
+        ];
+        return $this->render('library/show_one.html.twig', $data);
+    }
+
     #[Route('/library/reset', name: 'app_library_reset')]
     public function resetBook(
     ): Response
@@ -74,16 +99,18 @@ class LibraryController extends AbstractController
         $entityManager = $doctrine->getManager();
         $bookRepository->deleteBooks();
 
-        $titles = ["Dune", "Silmarillon", "The Hitchhiker's Guide To The Galaxy"];
-        $isbns = [9781473233959, 9789113084930, 9781399617246];
-        $authors = ["Frank Herbert", "J R R Tolkien", "Douglas Adams"];
+        $titles = ["Dune", "Silmarillon", "The Hitchhiker's Guide To The Galaxy", "Moby Dick", "The Consolations of Philosophy"];
+        $isbns = [9781473233959, 9789113084930, 9781399617246, 9780062085641, 9780679779179];
+        $authors = ["Frank Herbert", "J R R Tolkien", "Douglas Adams", "Herman Melville", "Alain De Botton"];
         $images = [
             "https://bilder.akademibokhandeln.se/images_akb/9781473233959_383/dune", 
             "https://bilder.akademibokhandeln.se/images_akb/9789113084930_383/silmarillion", 
-            "https://bilder.akademibokhandeln.se/images_akb/9781399617246_383/the-hitchhikers-guide-to-the-galaxy"
+            "https://bilder.akademibokhandeln.se/images_akb/9781399617246_383/the-hitchhikers-guide-to-the-galaxy",
+            "https://bilder.akademibokhandeln.se/images_akb/9780062085641_383/moby-dick",
+            "https://bilder.akademibokhandeln.se/images_akb/9780679779179_383/the-consolations-of-philosophy"
                 ];
 
-        for ($i = 0; $i < 3; $i++) {
+        for ($i = 0; $i < count($titles); $i++) {
             $book = new Book();
             $book->setTitle($titles[$i]);
             $book->setIsbn($isbns[$i]);

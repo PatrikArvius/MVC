@@ -486,6 +486,11 @@ div.div-row {
     flex-wrap: wrap;
 }
 
+.book-container {
+    justify-content: center;
+    align-items: center;
+}
+
 .book {
     display: flex;
     flex-direction: column;
