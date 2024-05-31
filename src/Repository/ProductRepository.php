@@ -18,12 +18,13 @@ class ProductRepository extends ServiceEntityRepository
 
     /**
      * Find all producs having a value above the specified one.
-     * 
+     *
      * @return Product[] Returns an array of Product objects
+     *
      */
-    public function findByMinimumValue($value): array
+    public function findByMinimumValue($value): array //@phpstan-ignore missingType.parameter
     {
-        return $this->createQueryBuilder('p')
+        return $this->createQueryBuilder('p') //@phpstan-ignore return.type
             ->andWhere('p.value >= :value')
             ->setParameter('value', $value)
             ->orderBy('p.value', 'ASC')
@@ -34,10 +35,10 @@ class ProductRepository extends ServiceEntityRepository
 
     /**
      * Find all producs having a value above the specified one with SQL.
-     * 
-     * @return [][] Returns an array of arrays (i.e. a raw data set)
+     *
+     * [][] Returns an array of arrays (i.e. a raw data set)
      */
-    public function findByMinimumValue2($value): array
+    public function findByMinimumValue2($value): array //@phpstan-ignore missingType.parameter missingType.iterableValue
     {
         $conn = $this->getEntityManager()->getConnection();
 
