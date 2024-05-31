@@ -1,6 +1,6 @@
 {% extends "base.html.twig" %}
 
-{% block title %}Library Show All{% endblock %}
+{% block title %}Library Delete{% endblock %}
 
 {% block body %}
 <article class="art-row">
@@ -15,19 +15,18 @@
     </ul>
 </div>
 <div class="div-col-2">
-<h1>Library - All books</h1>
-<div class="div-row">
-{% for book in books %}
-    <div class="book">
-    <img src="{{ book.getImage|e }}" alt="{{ book.getTitle|e }}">
-    <p><a href="{{ path('app_library_show_one', {'title': book.getTitle}) }}">{{ book.getTitle|e }}</a></p>
-    <p>{{ book.getAuthor|e }}</p>
-    <p>ISBN: {{ book.getIsbn|e }}</p>
+    <h1>Library - Delete</h1>
+    <div class="div-row">
+        {% for book in books %}
+            <div class="book">
+            <img src="{{ book.getImage|e }}" alt="{{ book.getTitle|e }}">
+            <p>{{ book.getTitle|e }}</p>
+            <p>{{ book.getAuthor|e }}</p>
+            <p>ISBN: {{ book.getIsbn|e }}</p>
+            <a href="{{ path('app_library_delete_one', {'isbn': book.getIsbn}) }}">Delete Me</a>
+            </div>
+        {% endfor %}
     </div>
-{% endfor %}
-
-</div>
-
 </div>
 </article>
 {% endblock %}

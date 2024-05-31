@@ -1,0 +1,45 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Library Update{% endblock %}
+
+{% block body %}
+<article class="art-row">
+<div class="div-col-1">
+    <h2>Library links</h2>
+    <ul class="about-links">
+    <li><a href="{{ path('app_library_add') }}">Add a book</a></li>
+    <li><a href="{{ path('app_library_show_all') }}">Show all books</a></li>
+    <li><a href="{{ path('app_library_update') }}">Update a book</a></li>
+    <li><a href="{{ path('app_library_delete') }}">Delete a book</a></li>
+    <li><a href="{{ path('app_library_reset') }}">Reset Library</a></li>
+    </ul>
+</div>
+<div class="div-col-2 book-container">
+    <h1>Library - Update: {{ book.getTitle}}</h1>
+    <div class="book-large">
+        <img src="{{ book.getImage|e }}" alt="{{ book.getTitle|e }}">
+        <p>{{ book.getTitle|e }}</p>
+        <p>{{ book.getAuthor|e }}</p>
+        <p>ISBN: {{ book.getIsbn|e }}</p>
+        <p>URL: {{ book.getImage }}</p>
+    </div>
+
+    <form class="cardform" method="post" action="">
+    <label for="title">Title:</label>
+    <input type="text" name="title" id="title" value="{{ book.getTitle }}" required>
+    <label for="author">Author:</label>
+    <input type="text" name="author" id="author" value="{{ book.getAuthor }}" required>
+    <label for="isbn">ISBN:</label>
+    <input type="number" name="isbn" id="isbn" value="{{ book.getIsbn }}" required>
+    <label for="image">Image URL:</label>
+    <input type="text" name="image" id="image" value="{{ book.getImage }}" required>
+    <input type="hidden" name="id" id="id" value="{{ book.getId }}">
+    <input type="submit" name="Update" value="Update"
+    onClick="this.form.action='{{ path('app_library_update_post', {'title': book.getTitle}) }}';"
+    >
+    </form>
+<div>
+
+</div>
+</article>
+{% endblock %}
