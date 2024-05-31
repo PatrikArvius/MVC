@@ -109,6 +109,32 @@ class BookRepository extends ServiceEntityRepository
         $entityManager->flush();
     }
 
+    /**
+     * Method that updates a book from the book database
+     * @param array<string, string|int> $data
+     */
+    public function updateBook(ManagerRegistry $doctrine, array $data): void
+    {
+        $data = $data;
+        $id = intval($data['id']);
+        $title = strval($data['title']);
+        $isbn = intval($data['isbn']);
+        $author = strval($data['author']);
+        $image = strval($data['image']);
+
+        $book = $this->findOneBy(['id' => $id]);
+
+        if ($book) {
+            $book->setTitle(strval($title));
+            $book->setIsbn(intval($isbn));
+            $book->setAuthor(strval($author));
+            $book->setImage(strval($image));
+
+            $entityManager = $doctrine->getManager();
+            $entityManager->flush();
+        }
+    }
+
     //    /**
     //     * @return Book[] Returns an array of Book objects
     //     */

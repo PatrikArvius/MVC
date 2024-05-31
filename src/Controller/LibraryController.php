@@ -30,7 +30,7 @@ class LibraryController extends AbstractController
         return $this->render('library/add.html.twig');
     }
 
-    #[Route('/library/add/post', name: 'app_library_add_post', methods:['GET','POST'])]
+    #[Route('/library/add/post', name: 'app_library_add_post', methods:['POST'])]
     public function addBookPost(
         ManagerRegistry $doctrine,
         Request $request,
@@ -82,5 +82,80 @@ class LibraryController extends AbstractController
         $bookRepository->restockBooks($doctrine);
 
         return $this->redirectToRoute('app_library');
+    }
+
+    #[Route('/library/update', name: 'app_library_update')]
+    public function updateBook(
+        BookRepository $bookRepository
+    ): Response {
+        $books = $bookRepository->findAll();
+
+        $data = [
+            'books' => $books
+        ];
+        return $this->render('library/update.html.twig', $data);
+    }
+
+    #[Route('/library/update/{title}', name: 'app_library_update_one')]
+    public function updateOneBook(
+        string $title,
+        BookRepository $bookRepository
+    ): Response {
+        $book = $bookRepository
+            ->findOneBy(['title' => $title]);
+        $data = [
+            'book' => $book
+        ];
+
+        return $this->render('library/update_one.html.twig', $data);
+    }
+
+    #[Route('/library/update/post/{title}', name: 'app_library_update_post', methods: ['POST'])]
+    public function updateBookPost(
+        string $title,
+        ManagerRegistry $doctrine,
+        Request $request,
+        BookRepository $bookRepository
+    ): Response {
+        $book = $bookRepository
+            ->findOneBy(['title' => $title]);
+        $data = $request->request->all();
+        $bookRepository->updateBook($doctrine, $data);
+
+        if (!$book) {
+            return $this->redirectToRoute('app_library_show_all');
+        }
+
+        return $this->redirectToRoute('app_library_show_all');
+    }
+
+    #[Route('/library/delete', name: 'app_library_delete')]
+    public function deleteBook(
+        BookRepository $bookRepository
+    ): Response {
+        $books = $bookRepository->findAll();
+
+        $data = [
+            'books' => $books
+        ];
+        return $this->render('library/delete.html.twig', $data);
+    }
+
+    #[Route('/library/delete/{isbn}', name: 'app_library_delete_one')]
+    public function deleteOneBook(
+        int|float $isbn,
+        BookRepository $bookRepository,
+        ManagerRegistry $doctrine
+    ): Response {
+        $entityManager = $doctrine->getManager();
+        $isbn = intval($isbn);
+        $book = $bookRepository
+            ->findOneBy(['isbn' => $isbn]);
+        if ($book) {
+            $entityManager->remove($book);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_library_delete');
     }
 }
