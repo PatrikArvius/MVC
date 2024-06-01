@@ -37,6 +37,7 @@ class LibraryJsonController extends AbstractController
             ];
             return new JsonResponse($data);
         }
+        // If no books are found redirect to route for resetting the library
         return $this->redirectToRoute('app_library_reset');
     }
 
@@ -67,6 +68,7 @@ class LibraryJsonController extends AbstractController
 
             return new JsonResponse($data);
         }
+        //If no book is found, redirect to route for resetting library
         return $this->redirectToRoute('app_library_reset');
     }
 }
