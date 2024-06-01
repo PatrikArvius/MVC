@@ -17,6 +17,8 @@
             <li><b><a href="{{ path('api_deck_draw') }}">/api/deck/draw</a></b>: returns JSON of drawn card</li>
             <li><b><a href="{{ path('api_deck_draw_num', {numCards: 1}) }}">/api/deck/draw/:number</a></b>: returns JSON of a number of drawn cards</li>
             <li><b><a href="{{ path('api_twentyone') }}">/api/twentyone</a></b>: returns JSON of twentyone game standing (if game has been initialized on the twenty one page)</li>
+            <li><b><a href="{{ path('app_library_all_books_json') }}">/api/library/books</a></b>: returns JSON of all books</li>
+            <li><b><a href="{{ path('app_library_one_book_json', {'isbn': 9781399617246}) }}">/api/library/book/{isbn}</a></b>: returns JSON of a book based on isbn</li>
 
             {% if numCards is same as(0) %}
             <form class="cardform" method="post" action="">
