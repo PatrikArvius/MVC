@@ -11,6 +11,7 @@
                 <li><a href="#kmom02">Kmom 02</a></li>
                 <li><a href="#kmom03">Kmom 03</a></li>
                 <li><a href="#kmom04">Kmom 04</a></li>
+                <li><a href="#kmom05">Kmom 05</a></li>
             </ul>
         </div>
 
@@ -113,8 +114,36 @@
             <p>Att flexibla klasser och dependency injection verkligen kan underlätta testning och att 100% kodtäckning inte är en garant för välskriven och felfri kod.</p>
 
             <h2 id="kmom05">Kmom 05</h2>
-            <p><b>kmom05</b></p>
-            <p>kmom05</p>
+            <p><b>Gick det bra att jobba igenom övningen med Symfony och Doctrine. Något särskilt du tänkte/reagerade på under övningen?</b></p>
+            <p>Både ja och nej skulle jag vilja påstå. Allt som hade med doctrine i sig gick förhållandevis bra och jag tycker guiden var bra samt deras egen dokumentation 
+            däremot så hade jag ett otroligt strul vad gäller själva databaserna. Dels är det massa strul bara att få MySql Workbench att fungera med en databas på WSL Ubuntu då databasen ligger 
+            på WSL medan workbench ligger på windows. Går att skaffa workbench till WSL Ubuntu med men den är inte tänkt att köras genom wsl utan snarare med linux som huvud-os. Efter det så bråkar 
+            samtliga verktyg om samma portar, dvs xampp, mariadb på wsl ubuntu och MySql från workbench så där gäller det att ha koll på vad som är igång eller inte samt vilka portar de körs på. 
+            Detta var samantaget ändå ett lite strul till skillnad från mina försök att köra biblioteksdatabasen på mariadb i mitt WSL Ubuntu och på mariadb på studentservern. Jag fick det för det 
+            mesta att fungera, även om det tog tid, och jag kunde både nå min lokala mariadb samt studentserverns mariadb via workbench och terminalen men av någon anledning så släppte inte min 
+            me-page kopplingen till den tidigare sqlite-databasen utan symfonysidan i sig tycktes fortfarande använda sig utav den datasbasfilen. Jag läste på i timmar och testade olika saker men 
+            jag fick det inte att fungera och var till slut tvungen att fatta beslutet att det är tid som spenderas på fel plats och rätt väg frammåt är att fortsätta med sqlite och kommentera ut 
+            variablerna i .env.local och .env.student.local</p>
+            <p><b>Berätta om din applikation och hur du tänkte när du byggde upp den. Tänkte du något speciellt på användargränssnittet?</b></p>
+            <p>Jag tänkte att jag ville uppnå någon slags blanding mellan hur jag visat upp kortspelen tidigare och hur böcker visas upp på en bokhandel online så det blev lite 
+            "card-inspirerat" på mer än ett sätt. Och jag tycker jag lyckades rätt så skapligt och producerade en ganska trevlig användarupplevelse. Framför allt ville jag att det skulle flyta 
+            på bra och att det skulle finnas skillnader (även små) mellan de olika vyerna så att det var tydligt vad som försiggick. Från en trevlig landningssida som visar upp en liten del av 
+            böckerna till att böckerna endast kan raderas via vyn för det ändamålet. Däremot finns det givetvis brister som skulle bli uppenbara om biblioteket växte i storlek, då kan man t.ex. inte 
+            sitta och enbart scrolla genom böckerna utan även en slags sökfunktion hade varit användbar.</p>
+            <p><b>Gick det bra att jobba med ORM i CRUD eller vad anser du om det, jämför gärna med andra sätt att jobba med databaser?</b></p>
+            <p>Jag tycker det gick bra mestadels, tyckte dock det var lite struligt att få saker att fungera likandant på studentservern som i min lokala miljö men det gick att lösa ganska smärtfritt. 
+            Just när det kommer till själva ORM och CRUD så kändes det bra men det är ju helt klart en hel del magi och även om det känns mycket mer objektorienterat så är det en del nytt att lära 
+            när man inte vet alla smarta funktioner som finns i doctrine. Så stundtals kändes det kanske väl magiskt men å andra sidan behövde jag inte skriva massa råa sql-satser.</p>
+            <p><b>Vad är din uppfattning om ORM så här långt och relatera gärna till andra sätt att jobba med applikationskod mot databaser?</b></p>
+            <p>Tycker som sagt att det är trevligt, och spar en hel del skrivande. Däremot kräver det ju att man är något insatt i själva magin. Man måste givetvis inte vara det och det är väl på ett 
+            sätt också det som är en av fördelarna med det men om och när någonting går fel så kan det vara trevligt att ha någon uppfattning om vad det är som sker. Nu var det ett tag sedan jag satt 
+            med just databaskursen då detta är en kurs jag är omregistrerad på men detta ger mig definitvt lite av kännslan jag fick när vi arbetade med hemsidor i vanilla javascript och sedan med 
+            t.ex. react. Mer magi och mindre verbosity, och fördelarna är att det går snabbare, använder färre rader och man behöver inte riktigt veta och kunna detaljerna som sker i bakgrunden. 
+            Det blev lite lätt konfunderande ibland dock, jag försökte likt tidigare kursmoment hålla min controller smal och mina klasser feta så jag försökte hantera det mesta som skedde gentemot 
+            databasen i repositoryklassen men det var inte alltid helt enkelt att se vad som vär rätt eller bästa sättet att lösa det hela på.</p>
+            <p><b>Vilken är din TIL för detta kmom?</b></p>
+            <p>Att precis som att små commits är användbara så kan det vara fördelaktigt att testa att sakerna fungerar på studentservern lite mer frekvent än att göra det i slutet av ett kursmoment, 
+            i det här fallet besparade det mig mycket huvudbry.</p>
         </div>
     </article>
 {% endblock %}
