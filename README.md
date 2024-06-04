@@ -24,5 +24,5 @@ This will start a local server through PHP and you can now go to localhost:8888 
 ## Scrutinizer badges
 
 [![Build Status](https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/build.png?b=main)](https://scrutinizer-ci.com/g/PatrikArvius/MVC/build-status/main)
-[![Build Status](https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/build.png?b=main)](https://scrutinizer-ci.com/g/PatrikArvius/MVC/build-status/main)
-[![Build Status](https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/build.png?b=main)](https://scrutinizer-ci.com/g/PatrikArvius/MVC/build-status/main)
+[![Code Coverage](https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/PatrikArvius/MVC/?branch=main)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/PatrikArvius/MVC/?branch=main)
