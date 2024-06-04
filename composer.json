@@ -96,7 +96,8 @@
         "lint": [
             "@phpmd",
             "@phpstan"
-        ]
+        ],
+        "phpmetrics": "tools/phpmetrics/vendor/bin/phpmetrics --config=tools/phpmetrics/phpmetrics.json"
     },
     "conflict": {
         "symfony/symfony": "*"

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1717169110">
-  <project timestamp="1717169110">
+<coverage generated="1717495684">
+  <project timestamp="1717495684">
     <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
@@ -438,6 +438,51 @@
       <line num="159" type="stmt" count="0"/>
       <metrics loc="162" ncloc="162" classes="1" methods="12" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="55" coveredstatements="0" elements="67" coveredelements="0"/>
     </file>
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Controller/LibraryJsonController.php">
+      <class name="App\Controller\LibraryJsonController" namespace="global">
+        <metrics complexity="5" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="0" elements="39" coveredelements="0"/>
+      </class>
+      <line num="16" type="method" name="allBooksJson" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="20" type="stmt" count="0"/>
+      <line num="21" type="stmt" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <line num="33" type="stmt" count="0"/>
+      <line num="35" type="stmt" count="0"/>
+      <line num="36" type="stmt" count="0"/>
+      <line num="37" type="stmt" count="0"/>
+      <line num="38" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="44" type="method" name="oneBookJson" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="51" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="56" type="stmt" count="0"/>
+      <line num="57" type="stmt" count="0"/>
+      <line num="58" type="stmt" count="0"/>
+      <line num="59" type="stmt" count="0"/>
+      <line num="60" type="stmt" count="0"/>
+      <line num="62" type="stmt" count="0"/>
+      <line num="63" type="stmt" count="0"/>
+      <line num="64" type="stmt" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="66" type="stmt" count="0"/>
+      <line num="67" type="stmt" count="0"/>
+      <line num="69" type="stmt" count="0"/>
+      <line num="72" type="stmt" count="0"/>
+      <metrics loc="75" ncloc="73" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="37" coveredstatements="0" elements="39" coveredelements="0"/>
+    </file>
     <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Controller/MePageController.php">
       <class name="App\Controller\MePageController" namespace="global">
         <metrics complexity="7" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="0" elements="36" coveredelements="0"/>
@@ -843,10 +888,10 @@
       <line num="25" type="stmt" count="10"/>
       <line num="27" type="stmt" count="10"/>
       <line num="28" type="stmt" count="10"/>
-      <line num="29" type="stmt" count="5"/>
-      <line num="30" type="stmt" count="5"/>
-      <line num="31" type="stmt" count="5"/>
-      <line num="32" type="stmt" count="5"/>
+      <line num="29" type="stmt" count="4"/>
+      <line num="30" type="stmt" count="4"/>
+      <line num="31" type="stmt" count="4"/>
+      <line num="32" type="stmt" count="4"/>
       <line num="35" type="stmt" count="9"/>
       <line num="36" type="stmt" count="9"/>
       <line num="39" type="stmt" count="10"/>
@@ -959,9 +1004,9 @@
       <line num="271" type="stmt" count="2"/>
       <line num="272" type="stmt" count="2"/>
       <line num="274" type="stmt" count="2"/>
-      <line num="275" type="stmt" count="2"/>
+      <line num="275" type="stmt" count="1"/>
       <metrics loc="279" ncloc="190" classes="1" methods="17" coveredmethods="17" conditionals="0" coveredconditionals="0" statements="74" coveredstatements="74" elements="91" coveredelements="91"/>
     </file>
-    <metrics files="24" loc="2237" ncloc="1992" classes="22" methods="134" coveredmethods="50" conditionals="0" coveredconditionals="0" statements="683" coveredstatements="198" elements="817" coveredelements="248"/>
+    <metrics files="25" loc="2312" ncloc="2065" classes="23" methods="136" coveredmethods="50" conditionals="0" coveredconditionals="0" statements="720" coveredstatements="198" elements="856" coveredelements="248"/>
   </project>
 </coverage>
