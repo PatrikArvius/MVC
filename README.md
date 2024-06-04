@@ -20,3 +20,9 @@ Then type:
 php -S localhost:8888 -t public
 ```
 This will start a local server through PHP and you can now go to localhost:8888 in your browser to see the webpage.  
+
+## Scrutinizer badges
+
+[![Build Status](https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/build.png?b=main)](https://scrutinizer-ci.com/g/PatrikArvius/MVC/build-status/main)
+[![Build Status](https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/build.png?b=main)](https://scrutinizer-ci.com/g/PatrikArvius/MVC/build-status/main)
+[![Build Status](https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/build.png?b=main)](https://scrutinizer-ci.com/g/PatrikArvius/MVC/build-status/main)
