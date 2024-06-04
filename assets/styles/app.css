@@ -486,6 +486,10 @@ div.div-row {
     flex-wrap: wrap;
 }
 
+.metrics p {
+    margin-top: 0;
+}
+
 .book-container {
     justify-content: center;
     align-items: center;

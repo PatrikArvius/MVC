@@ -1,0 +1,60 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Metrics{% endblock %}
+
+{% block body %}
+    <article class="art-row">
+        <div class="div-col-1">
+            <h2>Reports</h2>
+            <ul class="about-links">
+                <li><a href="#Introduktion">Introduktion</a></li>
+                <li><a href="#Phpmetrics">Phpmetrics</a></li>
+                <li><a href="#Scrutinizer">Scrutinizer</a></li>
+                <li><a href="#Förbättringar">Förbättringar</a></li>
+                <li><a href="#Resultat">Resultat</a></li>
+                <li><a href="#Diskussion">Diskussion</a></li>
+            </ul>
+        </div>
+
+        <div class="div-col-2 metrics">
+            <h2 id="Introduktion">Introduktion</h2>
+            <p><b>Codestyle</b></p>
+            <p>text</p>
+            <p><b>Coverage</b></p>
+            <p>text</p>
+            <p><b>Complexity</b></p>
+            <p>text</p>
+            <p><b>Cohesion</b></p>
+            <p>text</p>
+            <p><b>Coupling</b></p>
+            <p>text</p>
+            <p><b>CRAP</b></p>
+            <p>text</p>
+            <h2 id="Phpmetrics">Phpmetrics</h2>
+            <p>text</p>
+            <img src="{{ asset('img/phpmetrics.jpg') }}" alt="php metrics">
+            <h2 id="Scrutinizer">Scrutinizer</h2>
+            <p>text</p>
+            <img src="{{ asset('img/scrutinizer.jpg') }}" alt="scrutinizer">
+            <p>text</p>
+                <div class="div-row">
+                    <a href="https://scrutinizer-ci.com/g/PatrikArvius/MVC/">
+                    <img src="https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/quality-score.png?b=main" alt="scrutinizer score">
+                    </a>
+                    <a href="https://scrutinizer-ci.com/g/PatrikArvius/MVC/">
+                    <img src="https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/coverage.png?b=main" alt="scrutinizer coverage">
+                    </a>
+                    <a href="https://scrutinizer-ci.com/g/PatrikArvius/MVC/">
+                    <img src="https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/build.png?b=main" alt="scrutinizer build">
+                    </a>
+                </div>
+            <h2 id="Förbättringar">Förbättringar</h2>
+            <p>text</p>
+            <h2 id="Resultat">Resultat</h2>
+            <img src="{{ asset('img/scrutbefore.jpg') }}" alt="scrutinizer before improvements">
+            <p>text</p>
+            <h2 id="Diskussion">Diskussion</h2>
+            <p>text</p>
+        </div>
+    </article>
+{% endblock %}
