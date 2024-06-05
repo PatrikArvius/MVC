@@ -5,7 +5,7 @@
 {% block body %}
     <article class="art-row">
         <div class="div-col-1">
-            <h2>Reports</h2>
+            <h2>Metrics links</h2>
             <ul class="about-links">
                 <li><a href="#Introduktion">Introduktion</a></li>
                 <li><a href="#Phpmetrics">Phpmetrics</a></li>
@@ -18,25 +18,68 @@
 
         <div class="div-col-2 metrics">
             <h2 id="Introduktion">Introduktion</h2>
+            <p>Under detta och tidigare kursmoment har ett antal verktyg introducerats som alla är på ett eller annat sätt relaterade till begreppet "clean code". Det handlar om allt 
+            ifrån hur vår kod ser ut och vart vi placerar måsvingar och parenteser till hur vi bygger upp klasser, metoder och funktioner och hur dessa används. Till dessa riktlinjer 
+            tillkommer vissa mätvärden vid användandet av de verktyg som kan hjälpa oss, i det här fallet Phpmetrics och Scrutinizer. Några utav dessa mätvärden kan sammanfattas under 
+            vad som kallas de sex C:na och dessa är:</p>
+
             <p><b>Codestyle</b></p>
-            <p>text</p>
+            <p>Är ett bregrepp som representerar hur vi skriver våran kod, oftast handlar det om riktlinjer som vi väljer att följa inom ett specifikt språk eller på en viss arbetsplats för 
+            att koden skall vara lättläslig. Att vi förbinder oss att skriva kod som följer en viss stil innebär inte bara att den blir mer lättläslig för oss själva utan även för andra och om 
+            de personerna i sin tur följer samma kodstil så blir det även lättare för oss att sätta oss in i och läsa deras kod. En kodstil blir med andra ord ett 
+            viktigt verktyg för att kunna arbeta tillsammans.</p>
+
             <p><b>Coverage</b></p>
-            <p>text</p>
+            <p>Är ett mått på hur stora delar, eller procent av kodraderna, som är täckta utav enhetstest. En hög siffra här är dock ingen garant på att koden är bra eller att 
+            den fungerar som den skall, det kan vara lätt att stirra sig blind också. Men högre täckning är generellt en indikation på att det i alla fall finns en intention att 
+            testa kodbasen och det är trots allt bättre än att inte testa alls. Detta mätvärde är dessutom till viss del kopplat till andra mätvärden så som complexity och crap. Ju mer 
+            komplex en klass, metod eller funktion är desto viktigare blir det att den testast ordentligt och där kan kodtäckningen spela större roll. Jag valde t.ex. att täcka mina mer 
+            komplicerade metoder och klasser med fler testfall och att testa dess rader kod på fler sätt. En del av den tiden hade jag kunnat lägga på att testa andra mindre komplexa delar 
+            av min kod och på så vis haft ett större värde på min coverage, men hade koden varit bättre? Hade koden varit mer vältestad och dess funktioner buggfria? Svårt att svara på men det 
+            är värt att ha i beaktning vid ställningstagandet till den siffra som mätvärdet "Coverage" representerar.</p>
+
             <p><b>Complexity</b></p>
-            <p>text</p>
+            <p>Är ett mätvärde som exemplifierar hur komplex koden är, hur många vägar finns det genom koden. Ju fler vägarna är desto svårare blir koden både att läsa och att underhålla. Det blir 
+            dessutom svårare att felsöka och kräver både mer och mer svårskriven testkod för att arbeta mot en komplex klass/metod/funktion. Kallas även cyclomatic complexity.</p>
+
             <p><b>Cohesion</b></p>
-            <p>text</p>
+            <p>Är ett mätvärde som indikerar hur väl saker som hör ihop, faktiskt hör ihop. Tanken är att saker som förändras tillsammans också bör finnas tillsammans på samma plats. 
+            Det blir beroende på dess värde alltså en indikator på en klass som är fokuserad och löser enbart det den bör lösa eller så kan det indikera att en klass gör lite för mycket och 
+            att den med fördel skulle kunna brytas upp i flera klasser som alla gör sin sak. Detta värde kan dyka upp under namnet LCOM(lack of cohesion of methods) och grundläggande är att lägre 
+            värden indikerar mer fokuserade klasser och ett högre värde kan vara en indikation på ett en klass gör mer än den bör. Detta är även relaterad till en annan sådan princip som är användbar 
+            när det kommer till "clean code", nämligen single responsibility principle, dvs en klass/modul/funktion skall bara vara ansvarig för en sak. Fokuserad kod som ansvarar för en sak var är 
+            lättare att läsa och att testa!</p>
+
             <p><b>Coupling</b></p>
-            <p>text</p>
+            <p>Detta är ett mätvärde som beskriver klassers koppling till varandra och kan delas upp i AC(Afferent coupling) och EC(Efferent coupling) där det förstnämnda handlar om utgående 
+            kopplingar, hur många andra klasser påverkas av klassen. EC i sin tur är då inkommande kopplingar, alltså hur många klasser som påverkar just den här klassen. Dessa skillnader kan vi med 
+            enkelhet exemplifiera med de värden som jag har fått på min kodbas. Jag har ju i tidigare moment fokuserat extra mycket på DI (dependency injection), dvs att vi stoppar in de klasser som 
+            en klass använder sig av istället för att klassen i sig skapar dem, detta borde visa sig i mina mätvärden. Och det ser vi på min klass för spelet tjugoett, den klassen har 
+            ett AC på 1 dvs den påverkar en klass. Och ett EC på 3, dvs den påverkas av tre klasser vilket rimligtvis bör vara de tre klasser vi injicerar när vi skapar ett objekt av klassen.</p>
+
             <p><b>CRAP</b></p>
-            <p>text</p>
+            <p>Står för "Change risk anti-patterns och är ett mätvärde som är ett resultat av vår kods komplexitet och dess testning (coverage). Ju mer komplex kod du har och desto mer otestad 
+            den är desto större CRAP-värde kommer koden att få. Värdet i sig ger oss alltså en bild av den risk för problem som existerar till följd av vår kods komplexitet och hur mycket vi testar den. 
+            Med det sagt så är komplex kod inte alltid fel, ibland behövs den. Jag skriver garanterat kod som är mer komplex än den behöver vara men det finns garanterat skäl för komplex kod ibland och då 
+            kan det vara värt att ta i beaktning att den koden således också bör testas väl.</p>
+
             <h2 id="Phpmetrics">Phpmetrics</h2>
-            <p>text</p>
+            <p>Först och främst så innebar ju körningen av phpmetrics att jag direkt får äta en stor bit "humble pie", jag skulle vilja påstå att jag förhåller mig ödmjuk till mina förmågor att skriva 
+            bra kod men att mötas av en vägg av röda bubblor direkt fullkomligen skrek "förbättringspotential". Storleken har att göra med klassens komplexitet och färgen med dess index för hur lätt 
+            den blir att underhålla över tid. Detta index påverkas också av kommentarer i koden och är något jag kommer testa att förbättra.</p>
             <img src="{{ asset('img/phpmetrics.jpg') }}" alt="php metrics">
+            <img src="{{ asset('img/classphpmetrics.jpg') }}" alt="class metrics before">
+            <p>Här ser vi även att TwentyOne och DeckOfCards är mina mest komplexa klasser, de har en del tester som körs mot dem. Hur kommer det se ut om vi kör fler tester och försöker 
+            minska komplexiteten?</p>
+
             <h2 id="Scrutinizer">Scrutinizer</h2>
-            <p>text</p>
+            <p>När det kommer till Scrutinizer så är det lite snällare mot egot, här ser det lite grönare och bättre ut men hur kan vi förbättra även detta? Jag tänker mig att jag definitivt 
+            skall tackla de issues som scrutinizer hittat, dessutom borde kodtäckningen kunna förbättras.</p>
             <img src="{{ asset('img/scrutinizer.jpg') }}" alt="scrutinizer">
-            <p>text</p>
+            <p>Scrutinizer visar även vilka metoder som har sämst "rating", detta kan ge oss en ledtråd att vi ska fokusera närmre på just de metoderna och försöka göra de mindre komplexa.</p>
+            <img src="{{ asset('img/worstbeforescrut.jpg') }}" alt="worst class scrutinizer">
+            <p>Alltid verkar ju frid och fröjd när vi tittar övergripligt på scrutinizer men dyker vi närmre så finns där alltid saker att förbättra, som att göra vissa metoder mindre komplexa, 
+            ändra docblock-kommentarer som scrutinizer inte förstår, ta bort död eller överflödig kod. Allt detta finns fortfarande att göra i en kodbas som scrutinizer i övrigt ger ett högt betyg.</p>
                 <div class="div-row">
                     <a href="https://scrutinizer-ci.com/g/PatrikArvius/MVC/">
                     <img src="https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/quality-score.png?b=main" alt="scrutinizer score">
@@ -48,11 +91,29 @@
                     <img src="https://scrutinizer-ci.com/g/PatrikArvius/MVC/badges/build.png?b=main" alt="scrutinizer build">
                     </a>
                 </div>
+
             <h2 id="Förbättringar">Förbättringar</h2>
-            <p>text</p>
+            <p>Jag har tänkt mig att göra följande förbättringar i min kod, en del i detta är givetvis en önskan om att förbättra koden i sig men det utgör också en grund i att skapa mig en större 
+            förståelse för hur dessa mätverktyg fungerar.</p>
+            <p>1. Öka min coverage, dvs att skriva mer enhetstester och testa större delar av min kodbas. Jag tänker att det torde vara ett relativt enkelt sätt att öka mätvärdena, dessutom 
+            tänker jag försöka att inte enbart skriva tester för otestad kod utan jag vill dessutom skriva fler testfall till kod jag redan testat för att se om det får någon effekt på värdena. Det innebär 
+            förståss potentiellt att själva täckningssiffran kanske inte går upp nämnvärt men det blir intressant att se.</p>
+            <p>2. Fixa issues och violations som phpmetrics rapporterat. En sak som dyker upp i phpmetrics är bland annat att en klass är "probably bugged", går 
+            det att få bort detta med fler tester?</p>
+            <p>3. Scrutinizer och phpstan verkar ha lite olika åsikter när det kommer till docblocks, kan jag skriva om dem så att de båda verktygen blir glada och mina värden går upp? Hur viktigt 
+            är det att lösa just sådana issues? Det får jag återkomma till i diskussionen.</p>
+            <p>4. Minska komplexitet. Kan jag bryta ut delar av metoder eller skriva om saker så att de blir mindre komplexa och på så sätt nå bättre värden?</p>
+            <p>5. Skriva fler kommentarer, ibland hör man att bra kod är så lätt att läsa att det inte behövs några kommentarer men hur ser phpmetrics på det? Jag ska testa att lägga till 
+            fler kommentarer där det känns som att de kan bidra med förtydling så får vi se vilken effekt det får.</p>
             <h2 id="Resultat">Resultat</h2>
+            <p><b>Före:</b></p>
+            <p>Avg LCOM: 1.68, Avg cyclomatic complexity: 4.44, Avg bugs: 0.15, Avg defects: 0.45</p>
+            <img src="{{ asset('img/classphpmetrics.jpg') }}" alt="class metrics before">
             <img src="{{ asset('img/scrutbefore.jpg') }}" alt="scrutinizer before improvements">
             <p>text</p>
+            <p><b>Efter:</b></p>
+            <p>LCOM bör nog rimligtvis inte gå ned särskillt mycket då mina klasser i sig har bra och låga värden utan problemet när det kommer till coupling ligger i mina controllers 
+            och dessa har jag inte valt att fokusera på, men jag tar definitivt med mig att de finns där och har förbättringspotential.</p>
             <h2 id="Diskussion">Diskussion</h2>
             <p>text</p>
         </div>
