@@ -19,7 +19,7 @@ class CardHand
         return count($this->hand);
     }
 
-    /** @return array<int<0, max>, int|null> */
+    /** @return array<int, int|null> */
     public function getValues(): array
     {
         $values = [];
