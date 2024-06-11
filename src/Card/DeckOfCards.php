@@ -12,7 +12,7 @@ class DeckOfCards
     private int $cardsPerSuit = 13;
     private bool $sorted = false;
     private bool $shuffled = false;
-    /** @var array<int<0, max>, string> $suits */
+    /** @var array<int, string> $suits */
     private array $suits = [
         'spades',
         'hearts',
@@ -45,7 +45,7 @@ class DeckOfCards
         return $this->deck;
     }
 
-    /** @return array<int<0, max>, array{value: int, suit: string}> */
+    /** @return array<int, array{value: int, suit: string}> */
     public function getSuitAndValue(): array
     {
         $values = [];
@@ -64,7 +64,7 @@ class DeckOfCards
         return count($this->deck);
     }
 
-    /** @return array<int<0, max>, int> */
+    /** @return array<int, int> */
     public function getValues(): array
     {
         $values = [];
@@ -74,7 +74,7 @@ class DeckOfCards
         return $values;
     }
 
-    /** @return array<int<0, max>, string> */
+    /** @return array<int, string> */
     public function getString(): array
     {
         $values = [];
@@ -85,7 +85,7 @@ class DeckOfCards
         return $values;
     }
 
-    /** @return array<int<0, max>, string> */
+    /** @return array<int, string> */
     public function getStringSorted(): array
     {
         $this->sortDeck();
@@ -137,8 +137,8 @@ class DeckOfCards
     }
 
     /**
-     * @param array<int<0, max>, Card> $suitedDeck
-     * @return array<int<0, max>, Card> $sortedArray
+     * @param array<int, Card> $suitedDeck
+     * @return array<int, Card> $sortedArray
     */
     public function sortByValue(array $suitedDeck): array
     {
@@ -170,7 +170,7 @@ class DeckOfCards
         }
     }
 
-    /** @return array<int<0, max>, Card> $cards */
+    /** @return array<int, Card> $cards */
     public function drawCard(int $num = 1): array
     {
         $cards = [];

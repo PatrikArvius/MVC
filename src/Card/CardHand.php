@@ -29,7 +29,7 @@ class CardHand
         return $values;
     }
 
-    /** @return array<int<0, max>, string|null> */
+    /** @return array<int, string|null> */
     public function getString(): array
     {
         $values = [];

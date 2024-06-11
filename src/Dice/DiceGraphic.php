@@ -4,7 +4,7 @@ namespace App\Dice;
 
 class DiceGraphic extends Dice
 {
-    /** @var array<int<0, max>, string> */
+    /** @var array<int, string> */
     private array $representation = [
         '⚀',
         '⚁',

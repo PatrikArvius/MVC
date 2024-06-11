@@ -99,7 +99,7 @@
             tänker jag försöka att inte enbart skriva tester för otestad kod utan jag vill dessutom skriva fler testfall till kod jag redan testat för att se om det får någon effekt på värdena. Det innebär 
             förstås potentiellt att själva täckningssiffran kanske inte går upp nämnvärt men det blir intressant att se.</p>
             <p>2. Fixa issues och violations som phpmetrics rapporterat. En sak som dyker upp i phpmetrics är bland annat att en klass är "probably bugged", går 
-            det att få bort detta med fler tester?</p>
+            det att få bort detta med fler tester? Jag skulle gissa att en mer gediget testad kod borde få ett lägre värde här.</p>
             <p>3. Scrutinizer och phpstan verkar ha lite olika åsikter när det kommer till docblock kommentarer, kan jag skriva om dem så att de båda verktygen blir glada och mina värden går upp? Hur viktigt 
             är det att lösa just sådana issues? Det får jag återkomma till i diskussionen.</p>
             <p>4. Minska komplexitet. Kan jag bryta ut delar av metoder eller skriva om saker så att de blir mindre komplexa och på så sätt nå bättre värden?</p>
@@ -115,7 +115,30 @@
             <p>LCOM bör nog rimligtvis inte gå ned särskillt mycket då mina klasser i sig har bra och låga värden utan problemet när det kommer till coupling ligger i mina controllers 
             och dessa har jag inte valt att fokusera på, men jag tar definitivt med mig att de finns där och har förbättringspotential.</p>
             <h2 id="Diskussion">Diskussion</h2>
+            <p><b>Resultaten</b></p>
             <p>text</p>
+            <p><b>Kan man aktivt jobba med kodkvalitet och “clean code” på detta sättet?</b></p>
+            <p>Det tycker jag definitivt att man kan göra, däremot är dess fruktbarhet en annan fråga. Hur många verktyg skall man använda sig av? Hur mycket används detta i arbetslivet? 
+            Jag kan tänka mig att det varierar stort beroende på arbetsplats och uppdrag för även om det kan argumenteras att dessa verktyg hjälper oss skriva renare kod som potentiellt är 
+            mer lättunderhållen och till större del är fri från buggar så bör det ju nämnas att detta tar tid. Så jag kan tänka mig att det är något som måste värderas och omvärderas beroende på 
+            situation. Är det alltid bäst att ha en hel pipeline av test suites och valideringsverktyg eller är det ibland mer effektivt att "bara" använda sig utav linters och enhetstester? Ja ibland 
+            finns det troligtvis varken tid eller resurser för mer än så. Nu sitter ju jag här med förmånen att ha ett helt kursmoment dedikerat till detta men det är inget jag tar för givet. En 
+            annan aspekt jag tycker är värd att framhäva är ett begrepp som ofta nämns vilket är "technical debt", dvs en teknisk skuld som så att säga uppkommer genom att vi skriver kod som inte 
+            är optimal, kanske är slarvig eller är komplex eller inte särskillt testad. Skulden uppstår då genom att det är snabbt och effektivt att skriva koden i stunden, förhoppningsvis fungerar 
+            den också som den ska, men vad händer när det går fel och vi inte spenderat tid på att kvalitetssäkra koden? Ja då är det dags att betala tillbaka den skulden. Jag kan tänka mig scenarion där 
+            man i efterhand ångrar att man inte spenderade mer tid på kvalitetssäkring av den kod som skrivs likt att använda sig av dessa verktyg, de blir på ett sätt en försäkring mot framtida problem 
+            och kan ge mycket tillbaka i framtiden.</p>
+            <p><b>Finns det fördelar och kanske nackdelar?</b></p>
+            <p>Likt det jag beskrivit ovan så tycker jag att det både finns fördelar och nackdelar, jag skulle dock vilja påstå att fördelarna överväger nackdelarna. Därmed inte sagt att det 
+            alltid är bäst att göra på ett visst sätt. Denna form utav kvalitetssäkring med olika verktyg är trots deras automatisering ändå rätt så tidskrävande så det får nog räknas till den stora 
+            nackdelen, sedan ska man dessutom förstå vad verktygen säger dig och det kan ibland kännas lättare sagt än gjort. Men som sagt, fördelarna överväger nackdelarna enligt mig. Dessa verktyg 
+            hjälper till att göra koden mer lättbegriplig och lättare att underhålla om man ger dem tid och tar till sig och förstår de synpunkter verktygen ger dig. Samma argument kan föras kring linters 
+            eller kommentarer för den delen. Visst, det tar tid att skriva kommentarer och rätta fel som inte automatiskt rättas av verktyg som csfix men om vi ser till ett längre perspektiv så tror 
+            jag definitivt att det är tid vi tjänar tillbaka med råge i framtiden om vi behöver komma tillbaka till vår kod eller om vi jobbar i ett projekt med andra.</p>
+            <p><b>Ser du andra möjligheter att jobba mot “clean code”?</b></p>
+            <p>text</p>
+            <p><b>Maslow's behovshierarki</b></p>
+            <p>Jag kan inte hålla mig ifrån att nämna Maslow, som gammal sociologistudent, när han tas upp på föreläsningen med Mikael.</p>
         </div>
     </article>
 {% endblock %}

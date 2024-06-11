@@ -54,7 +54,7 @@ class Player
         return $holdsAce;
     }
 
-    /** @return array<int<0, max>, string|null> */
+    /** @return array<int, string|null> */
     public function getString(): ?array
     {
         $values = $this->hand->getString();
