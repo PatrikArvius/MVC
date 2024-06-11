@@ -95,7 +95,6 @@ class DeckOfCards
     public function sortDeck(): void
     {
         if (!$this->sorted) {
-            $sortedArray = [];
             $spades = [];
             $hearts = [];
             $diamonds = [];

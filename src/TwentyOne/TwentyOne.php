@@ -119,9 +119,6 @@ class TwentyOne
      */
     public function compareHands(): void
     {
-        $playerVal = 0;
-        $dealerVal = 0;
-
         $playerVal = $this->playerHandValue;
 
         //Sets the best valid player hand value

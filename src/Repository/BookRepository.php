@@ -31,11 +31,11 @@ class BookRepository extends ServiceEntityRepository
                 ->getQuery()
                 ->getResult()
         ;
-        if (gettype($res) === "array") {
-            shuffle($res);
-            return $res;
+        if (gettype($res) != "array") {
+            return null;
         }
-        return null;
+        shuffle($res);
+        return $res;
     }
 
     /**

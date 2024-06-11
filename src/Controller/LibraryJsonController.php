@@ -20,7 +20,7 @@ class LibraryJsonController extends AbstractController
         $books = $bookRepository->findAll();
         $jsonBooks = [];
 
-        if ($books) {
+        if (!empty($books)) {
             foreach ($books as $book) {
                 $title = $book->getTitle();
                 $author = $book->getAuthor();
@@ -49,9 +49,6 @@ class LibraryJsonController extends AbstractController
         $isbn = intval($isbn);
         $book = $bookRepository
             ->findOneBy(['isbn' => $isbn]);
-        $data = [
-            'book' => $book
-        ];
 
         if ($book) {
             $title = $book->getTitle();
