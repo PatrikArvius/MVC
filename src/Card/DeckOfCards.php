@@ -27,13 +27,21 @@ class DeckOfCards
         }
     }
 
+    /**
+     * Method that adds a card of specified type based on string parameter with specified integer value
+     * 
+     * @param string $cardType
+     * @param int $value
+     */
     public function add(string $cardType, int $value): void
     {
+        // Adds a card for each suit of specified type and with specified value
         foreach ($this->suits as $suit) {
             if ($cardType === "graphic") {
                 $this->deck[] = new CardGraphic($suit, $value);
                 continue;
             }
+            //Defaults to non-graphic card if string parameter doesnt match the if case
             $this->deck[] = new Card($suit, $value);
         }
 
@@ -59,12 +67,17 @@ class DeckOfCards
         return $values;
     }
 
+    /**
+     * Gets the number of card objects in the deck array
+     * 
+     * @return int
+     */
     public function getNumberCards(): int
     {
         return count($this->deck);
     }
 
-    /** @return array<int, int> */
+    /** @return array<int, int|null> */
     public function getValues(): array
     {
         $values = [];
@@ -92,38 +105,20 @@ class DeckOfCards
         return $this->getString();
     }
 
+    /**
+     * Method that sorts the deck of cards, first by putting the cards into arrays based on suit 
+     * and then sorting each suited array by the card value
+     */
     public function sortDeck(): void
     {
         if (!$this->sorted) {
-            $spades = [];
-            $hearts = [];
-            $diamonds = [];
-            $clubs = [];
-
-            //Sort cards into suit arrays
-            foreach ($this->deck as $card) {
-
-                switch ($card->getSuit()) {
-                    case "spades":
-                        $spades[] = $card;
-                        break;
-                    case "hearts":
-                        $hearts[] = $card;
-                        break;
-                    case "diamonds":
-                        $diamonds[] = $card;
-                        break;
-                    case "clubs":
-                        $clubs[] = $card;
-                        break;
-                }
-            }
+            $sortedArray = $this->getSortedBySuit();
 
             // Sort the suit arrays by value
-            $spades = $this->sortByValue($spades);
-            $hearts = $this->sortByValue($hearts);
-            $diamonds = $this->sortByValue($diamonds);
-            $clubs = $this->sortByValue($clubs);
+            $spades = $this->sortByValue($sortedArray[0]);
+            $hearts = $this->sortByValue($sortedArray[1]);
+            $diamonds = $this->sortByValue($sortedArray[2]);
+            $clubs = $this->sortByValue($sortedArray[3]);
 
             // Merge the sorted arrays into one suit and value sorted array
             $sortedArray = array_merge($spades, $hearts, $diamonds, $clubs);
@@ -136,6 +131,43 @@ class DeckOfCards
     }
 
     /**
+     * Method that sorts cards based on suits and returns an array of suited arrays
+     * 
+     * @return array<int, array<int, Card>>
+     */
+    public function getSortedBySuit(): array
+    {
+        $suitSortedArray = [];
+        $spades = [];
+        $hearts = [];
+        $diamonds = [];
+        $clubs = [];
+
+        //Sort cards into suit arrays
+        foreach ($this->deck as $card) {
+
+            switch ($card->getSuit()) {
+                case "spades":
+                    $spades[] = $card;
+                    break;
+                case "hearts":
+                    $hearts[] = $card;
+                    break;
+                case "diamonds":
+                    $diamonds[] = $card;
+                    break;
+                case "clubs":
+                    $clubs[] = $card;
+                    break;
+            }
+        }
+        array_push($suitSortedArray, $spades, $hearts, $diamonds, $clubs);
+        return $suitSortedArray;
+    }
+
+    /**
+     * Method that sorts an array of card objects by their values
+     * 
      * @param array<int, Card> $suitedDeck
      * @return array<int, Card> $sortedArray
     */
@@ -158,6 +190,10 @@ class DeckOfCards
         return $sortedArray;
     }
 
+    /**
+     * Method that checks if the deck has already been shuffled and if not then it shuffles the deck
+     * then it sets variables to refelect the shuffled state of the deck
+     */
     public function shuffleDeck(): void
     {
         if (!$this->shuffled) {
