@@ -57,10 +57,11 @@ class DiceHandTest extends TestCase
         $res = $dicehand->getValues();
         $dicehand->roll();
         $res2 = $dicehand->getValues();
+        $res3 = $dicehand->getValues();
 
         $this->assertEquals(null, $res[0]);
         $this->assertGreaterThan(0, $res2);
-        $this->lessThanOrEqual(6, $res2);
+        $this->lessThan(6, $res3);
     }
 
     /**
