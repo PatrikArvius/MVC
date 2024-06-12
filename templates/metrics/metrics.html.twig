@@ -113,12 +113,21 @@
             <p>text</p>
             <p><b>Efter:</b></p>
             <p>Det faktum att jag löste dokumentationskonflikten mellan phpstan och scrutinizer gav ingen förbättring av koden ävem om det "löste" 14 issues. Det är ändå rimligt att 
-            ett så litet problem inte påverkar betyget på kodbasen nämnvärt, intressant att veta.</p>
+            ett så litet problem inte påverkar betyget på kodbasen nämnvärt, intressant att veta. Inte heller lösningen av andra issues så som "unused code" och "best practice" ökade 
+            poängen i scrutinizer, intressant.</p>
+            <p>Något som däremot hade effekt var att minska komplexiteten i mina metoder där det var möjligt. Jag hittade framför allt två metoder som jag kunde bryta ut och göra lite mindre 
+            vilket i sin tur minskade varje metods komplexitet och gav ett bättre betyg.</p>
+            <p>Att lägga till fler kommentarer verkade inte påverka phpmetrics i någon större utsträckning, jag försökte både kommentera mindre och större klasser mer utförligt, både med docblock 
+            kommentarer och med enklare kommentarer i koden men de verkade inte påverka phpmetrics.</p>
             <p>LCOM bör nog rimligtvis inte gå ned särskillt mycket då mina klasser i sig har bra och låga värden utan problemet när det kommer till coupling ligger i mina controllers 
             och dessa har jag inte valt att fokusera på, men jag tar definitivt med mig att de finns där och har förbättringspotential.</p>
             <h2 id="Diskussion">Diskussion</h2>
             <p><b>Resultaten</b></p>
-            <p>text</p>
+            <p>Att bryta ut och göra metoder mindre gav posetiva resultat, däremot påverkar ju detta inte klassens komplexitet i sig utan det klagar fortfarande mätverktygen på, 
+            det skulle vid det här laget kräva för mycket arbete att lösa. Scrutinizer ger här bra tips på hur det skulle kunna lösas t.ex. att bryta ut metoder till en helt ny klass eller 
+            genom att implementera ett interface. De båda tipsen har givetvis sina meriter och skulle troligen ge ett ännu bättre betyg men jag tycker metoderna passar bra där dom är och ser inte 
+            riktigt hur jag skulle skriva vissa av dom som en egen klass. Ett interface hade varit intressant att ge sig på men det känns något stort i förhållande till uppgiftens storlek och de andra 
+            förbättringar jag gav mig på.</p>
             <p><b>Kan man aktivt jobba med kodkvalitet och “clean code” på detta sättet?</b></p>
             <p>Det tycker jag definitivt att man kan göra, däremot är dess fruktbarhet en annan fråga. Hur många verktyg skall man använda sig av? Hur mycket används detta i arbetslivet? 
             Jag kan tänka mig att det varierar stort beroende på arbetsplats och uppdrag för även om det kan argumenteras att dessa verktyg hjälper oss skriva renare kod som potentiellt är 
