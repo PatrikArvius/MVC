@@ -319,4 +319,72 @@ class TwentyOneTest extends TestCase
         $this->assertEquals(true, $res3);
         $this->assertEquals(16, $res4);
     }
+
+    /**
+     * Tests that getBestPlayerValue returns correct value
+     */
+    public function testGetBestPlayerVal(): void
+    {
+        $card = new Card("clubs", 16);
+        $card2 = new Card("clubs", 4);
+        $card3 = new Card("clubs", 1);
+
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
+        $deck = new DeckOfCards("graphic");
+        $twentyOne = new TwentyOne($player, $dealer, $deck);
+
+        $player->add($card);
+        $twentyOne->setHandValues();
+        $res = $twentyOne->getBestPlayerValue();
+
+        $player->add($card2);
+        $twentyOne->setHandValues();
+        $res2 = $twentyOne->getBestPlayerValue();
+
+        $player->add($card3);
+        $twentyOne->setHandValues();
+        $res3 = $twentyOne->getBestPlayerValue();
+
+        $this->assertEquals(16, $res);
+        $this->assertEquals(20, $res2);
+        $this->assertEquals(21, $res3);
+    }
+
+    /**
+     * Tests  that getBestDealerValue returns correct value
+     */
+    public function testGetBestDealerVal(): void
+    {
+        $card = new Card("clubs", 2);
+        $card2 = new Card("clubs", 4);
+        $card3 = new Card("clubs", 1);
+        $card4 = new Card("clubs", 1);
+
+        $player = new Player(new CardHand());
+        $dealer = new Dealer(new CardHand());
+        $deck = new DeckOfCards("graphic");
+        $twentyOne = new TwentyOne($player, $dealer, $deck);
+
+        $dealer->add($card);
+        $twentyOne->setHandValues();
+        $res = $twentyOne->getBestDealerValue();
+
+        $dealer->add($card2);
+        $twentyOne->setHandValues();
+        $res2 = $twentyOne->getBestDealerValue();
+
+        $dealer->add($card3);
+        $twentyOne->setHandValues();
+        $res3 = $twentyOne->getBestDealerValue();
+
+        $dealer->add($card4);
+        $twentyOne->setHandValues();
+        $res4 = $twentyOne->getBestDealerValue();
+
+        $this->assertEquals(2, $res);
+        $this->assertEquals(6, $res2);
+        $this->assertEquals(20, $res3);
+        $this->assertEquals(21, $res4);
+    }
 }

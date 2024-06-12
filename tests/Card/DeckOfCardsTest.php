@@ -35,6 +35,24 @@ class DeckOfCardsTest extends TestCase
     }
 
     /**
+     * Create a deck object and test that adding cards to it works correctly
+     */
+    public function testAdd(): void
+    {
+        $deck = new DeckOfCards("graphic");
+        $deckArray = $deck->getDeck();
+        $res = count($deckArray);
+        $deck->add("normal", 42);
+        $res2 = $deck->getNumberCards();
+        $values = $deck->getValues();
+        $res3 = $values[count($values) - 1];
+
+        $this->assertEquals($res, 52);
+        $this->assertEquals($res2, 56);
+        $this->assertEquals($res3, 42);
+    }
+
+    /**
     * Create a deck, test that it correctly returns array of suit and value key/value pair array for each card.
     */
     public function testGetSuitAndValue(): void
@@ -113,6 +131,31 @@ class DeckOfCardsTest extends TestCase
         $res2 = $deck->getDeck();
 
         $this->assertNotEquals($res, $res2);
+    }
+
+    /**
+    * Creates a deck, which is not sorted by suit and value by default. Checks that you get an array of arrays of sorted cards by suits
+    */
+    public function testgetSortedBySuit(): void
+    {
+        $deck = new DeckOfCards("graphic");
+        $deck->shuffleDeck();
+        $suitedArray = $deck->getSortedBySuit();
+
+        $res = count($suitedArray[0]);
+        $res2 = $suitedArray[0][2]->getSuit();
+
+        $deck->add("graphic", 2);
+        $suitedArray = $deck->getSortedBySuit();
+        $res3 = count($suitedArray[1]);
+        $res4 = $suitedArray[2][1]->getSuit();
+        $res5 = $suitedArray[2][13]->getSuit();
+
+        $this->assertEquals($res, 13);
+        $this->assertEquals($res2, "spades");
+        $this->assertEquals($res3, 14);
+        $this->assertEquals($res4, "diamonds");
+        $this->assertEquals($res5, "diamonds");
     }
 
     /**
