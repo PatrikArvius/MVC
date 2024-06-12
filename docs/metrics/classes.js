@@ -254,7 +254,7 @@ var classes = [
         "afferentCoupling": 3,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 2,
+        "numberOfUnitTests": 4,
         "violations": {}
     },
     {
@@ -326,7 +326,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
-        "numberOfUnitTests": 0,
+        "numberOfUnitTests": 2,
         "violations": {}
     },
     {
@@ -417,7 +417,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 1,
         "instability": 0.5,
-        "numberOfUnitTests": 1,
+        "numberOfUnitTests": 4,
         "violations": {}
     },
     {
@@ -596,7 +596,7 @@ var classes = [
         "afferentCoupling": 1,
         "efferentCoupling": 3,
         "instability": 0.75,
-        "numberOfUnitTests": 13,
+        "numberOfUnitTests": 15,
         "violations": {}
     },
     {
@@ -686,7 +686,7 @@ var classes = [
         "afferentCoupling": 3,
         "efferentCoupling": 2,
         "instability": 0.4,
-        "numberOfUnitTests": 17,
+        "numberOfUnitTests": 19,
         "violations": {}
     },
     {
@@ -743,7 +743,7 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 1,
         "instability": 0.33,
-        "numberOfUnitTests": 13,
+        "numberOfUnitTests": 15,
         "violations": {}
     },
     {
@@ -961,7 +961,7 @@ var classes = [
         "afferentCoupling": 4,
         "efferentCoupling": 2,
         "instability": 0.33,
-        "numberOfUnitTests": 23,
+        "numberOfUnitTests": 27,
         "violations": {}
     },
     {
@@ -1039,7 +1039,7 @@ var classes = [
         "afferentCoupling": 4,
         "efferentCoupling": 0,
         "instability": 0,
-        "numberOfUnitTests": 23,
+        "numberOfUnitTests": 30,
         "violations": {}
     },
     {
@@ -1123,7 +1123,7 @@ var classes = [
         "afferentCoupling": 2,
         "efferentCoupling": 1,
         "instability": 0.33,
-        "numberOfUnitTests": 36,
+        "numberOfUnitTests": 40,
         "violations": {}
     },
     {
