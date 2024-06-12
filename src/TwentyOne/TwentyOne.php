@@ -119,6 +119,29 @@ class TwentyOne
      */
     public function compareHands(): void
     {
+        // Gets the best player hand value
+        $playerVal = $this->getBestPlayerValue();
+
+        // Gets the best dealer hand value
+        $dealerVal = $this->getBestDealerValue();
+
+        // Checks if the dealer value is valid and if its greater than or equal to the player value, if so sets dealer as winner
+        if ($dealerVal <= 21 && ($dealerVal >= $playerVal)) {
+            $this->winner = "dealer";
+            return;
+        }
+
+        $this->winner = "player";
+    }
+
+    /**
+     * Checks weather the standard player hand value or the alternate value is the best value and returns it
+     * 
+     * @return int $playerVal
+     */
+    public function getBestPlayerValue(): int
+    {
+        // Sets playerVal to current player value, that value counts aces as 1's
         $playerVal = $this->playerHandValue;
 
         //Sets the best valid player hand value
@@ -126,6 +149,17 @@ class TwentyOne
             $playerVal = $this->altPlayerHandValue;
         }
 
+        return $playerVal;
+    }
+
+    /**
+     * Checks weather the standard dealer hand value or the alternate value is the best value and returns it
+     * 
+     * @return int $dealerVal
+     */
+    public function getBestDealerValue(): int
+    {
+        // Sets dealerVal to current player value, that value counts aces as 1's
         $dealerVal = $this->dealerHandValue;
 
         //Sets the best valid dealer hand value
@@ -133,12 +167,7 @@ class TwentyOne
             $dealerVal = $this->altDealerHandValue;
         }
 
-        if ($dealerVal <= 21 && ($dealerVal >= $playerVal)) {
-            $this->winner = "dealer";
-            return;
-        }
-
-        $this->winner = "player";
+        return $dealerVal;
     }
 
     /**
