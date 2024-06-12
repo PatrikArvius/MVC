@@ -66,7 +66,7 @@
             <h2 id="Phpmetrics">Phpmetrics</h2>
             <p>Först och främst så innebar ju körningen av phpmetrics att jag direkt får äta en stor bit "humble pie", jag skulle vilja påstå att jag förhåller mig ödmjuk till mina förmågor att skriva 
             bra kod men att mötas av en vägg av röda bubblor direkt fullkomligen skrek "förbättringspotential". Storleken har att göra med klassens komplexitet och färgen med dess index för hur lätt 
-            den blir att underhålla över tid. Detta index påverkas också av kommentarer i koden och är något jag kommer testa att förbättra.</p>
+            den blir att underhålla över tid. Detta index påverkas också av kommentarer i koden och är något jag kommer testa att förbättra. Jag ska även titta närmre på mina klassers komplexitet.</p>
             <img src="{{ asset('img/phpmetrics.jpg') }}" alt="php metrics">
             <img src="{{ asset('img/classphpmetrics.jpg') }}" alt="class metrics before">
             <p>Här ser vi även att TwentyOne och DeckOfCards är mina mest komplexa klasser, de har en del tester som körs mot dem. Hur kommer det se ut om vi kör fler tester och försöker 
@@ -110,8 +110,19 @@
             <p>Avg LCOM: 1.68, Avg cyclomatic complexity: 4.44, Avg bugs: 0.15, Avg defects: 0.45</p>
             <img src="{{ asset('img/classphpmetrics.jpg') }}" alt="class metrics before">
             <img src="{{ asset('img/scrutbefore.jpg') }}" alt="scrutinizer before improvements">
-            <p>text</p>
             <p><b>Efter:</b></p>
+            <p>Avg LCOM: 1.68, Avg cyclomatic complexity: 4.44, Avg bugs: 0.15, Avg defects: 0.45.</p>
+            <p>Issues tog jag ned från 21 till 3, jag ökade betyget med 0.03 och min coverage med 2 procentenheter. Då jag hade stor täckning av mina klasser sedan tidigare (som inte involverar 
+            controllers) så fanns där inte så mycket täckning att öka. Men som syns nedan på phpmetrics så försökte jag istället göra testerna jag redan hade mer utförliga. Och jag gick från 91 assertions 
+            till 113 assertions i testerna.</p>
+            <img src="{{ asset('img/scrutImprovements.jpg') }}" alt="scrutinizer after improvements">
+            <img src="{{ asset('img/scrutiafter.jpg') }}" alt="scrutinizer after improvements">
+            <p>Att testa otestad kod ger snabbt resultat hos scrutinizer och visualiserar ännu tydligare hur CRAP score är relaterat bla. till tester. Det såg vi under tidigare kursmoment med 
+            phpunit.</p>
+            <img src="{{ asset('img/classmetricsafter.jpg') }}" alt="class metrics after">
+            <p>Enligt phpmetrics ser det ut som om ingenting har förändrats, om något så fick jag 
+            ytterligare en violation, eller varning. Där Scrutinizer tyckte om att jag arbetade med min DeckOfCards-klass så tyckte snarare phpmetrics att den blev lite större och då 
+            mer trolig att innehålla buggar men jag utökade testningen av mina två mest komplexa klasser.</p>
             <p>Det faktum att jag löste dokumentationskonflikten mellan phpstan och scrutinizer gav ingen förbättring av koden ävem om det "löste" 14 issues. Det är ändå rimligt att 
             ett så litet problem inte påverkar betyget på kodbasen nämnvärt, intressant att veta. Inte heller lösningen av andra issues så som "unused code" och "best practice" ökade 
             poängen i scrutinizer, intressant.</p>
@@ -119,15 +130,21 @@
             vilket i sin tur minskade varje metods komplexitet och gav ett bättre betyg.</p>
             <p>Att lägga till fler kommentarer verkade inte påverka phpmetrics i någon större utsträckning, jag försökte både kommentera mindre och större klasser mer utförligt, både med docblock 
             kommentarer och med enklare kommentarer i koden men de verkade inte påverka phpmetrics.</p>
+            <p>Att lägga till fler tester på de mer komplicerade klasserna tycks inte ha någon större effekt på hur phpmetrics bedömmer sannolikheten för buggar. Jag lade till 4 tester till DeckOfCards och 
+            2 till TwentyOne men ingen av de nu mer utförligt testade klasserna gick ned i siffran för hur många buggar som förväntas i koden. Troligtvis har det alltså med klassernas inneboende 
+            komplexitet att göra som leder till att phpmetrics tar fram en siffra för sannolikt antal buggar och därmed också uppmanar en att ha koll på sina tester.</p>
             <p>LCOM bör nog rimligtvis inte gå ned särskillt mycket då mina klasser i sig har bra och låga värden utan problemet när det kommer till coupling ligger i mina controllers 
             och dessa har jag inte valt att fokusera på, men jag tar definitivt med mig att de finns där och har förbättringspotential.</p>
             <h2 id="Diskussion">Diskussion</h2>
             <p><b>Resultaten</b></p>
-            <p>Att bryta ut och göra metoder mindre gav posetiva resultat, däremot påverkar ju detta inte klassens komplexitet i sig utan det klagar fortfarande mätverktygen på, 
+            <p>Av resultaten att dömma så ser det inte ut som om särskillt mycket skett efter detta kursmoment men jag skulle ändå vilja lyfta fram något detta kursmoment verkligen lärt mig, 
+            att siffrorna inte visar hela verkligheten. Nog för att det hade varit fruktbart både för kodens kvalitet och mätresultaten att ha testat mina controllers men även vad som 
+            tycks vara ett blygsamt resultat gav mycket lärdom i vad de olika verktygen letar efter och vikten i att förstå vad de visar dig snarare än att stirra sig blind på siffrorna.</p>
+            <p>Att bryta ut och göra metoder mindre gav positiva resultat, däremot påverkar ju detta inte klassens komplexitet i sig utan det klagar fortfarande mätverktygen på, 
             det skulle vid det här laget kräva för mycket arbete att lösa. Scrutinizer ger här bra tips på hur det skulle kunna lösas t.ex. att bryta ut metoder till en helt ny klass eller 
             genom att implementera ett interface. De båda tipsen har givetvis sina meriter och skulle troligen ge ett ännu bättre betyg men jag tycker metoderna passar bra där dom är och ser inte 
             riktigt hur jag skulle skriva vissa av dom som en egen klass. Ett interface hade varit intressant att ge sig på men det känns något stort i förhållande till uppgiftens storlek och de andra 
-            förbättringar jag gav mig på.</p>
+            förbättringar jag gav mig på. Vidare så ger tester och bredare kodtäckningen både lägre crap-score och kanske till följd också bättre betyg med scrutinizer.</p>
             <p><b>Kan man aktivt jobba med kodkvalitet och “clean code” på detta sättet?</b></p>
             <p>Det tycker jag definitivt att man kan göra, däremot är dess fruktbarhet en annan fråga. Hur många verktyg skall man använda sig av? Hur mycket används detta i arbetslivet? 
             Jag kan tänka mig att det varierar stort beroende på arbetsplats och uppdrag för även om det kan argumenteras att dessa verktyg hjälper oss skriva renare kod som potentiellt är 
@@ -147,9 +164,17 @@
             eller kommentarer för den delen. Visst, det tar tid att skriva kommentarer och rätta fel som inte automatiskt rättas av verktyg som csfix men om vi ser till ett längre perspektiv så tror 
             jag definitivt att det är tid vi tjänar tillbaka med råge i framtiden om vi behöver komma tillbaka till vår kod eller om vi jobbar i ett projekt med andra.</p>
             <p><b>Ser du andra möjligheter att jobba mot “clean code”?</b></p>
-            <p>text</p>
+            <p>Ja det skulle i så fall vara i en mer nedskalad form där man enbart använder sig utav ett verktyg, en annan kombination av verktyg eller inga alls för den delen. Det viktiga blir i 
+            slutändan att det fungerar för alla inblandade, alla är nöjda och koden uppfyller de krav som finns på den. Verktygen är just det, vertyg, och vilka verktyg vi väljer att ta med i vår 
+            verktygslåda varierar med person och projekt.</p>
             <p><b>Maslow's behovshierarki</b></p>
-            <p>Jag kan inte hålla mig ifrån att nämna Maslow, som gammal sociologistudent, när han tas upp på föreläsningen med Mikael.</p>
+            <p>Jag kan inte hålla mig ifrån att nämna Maslow, som gammal sociologistudent, när han tas upp på föreläsningen med Mikael. Likt hur hans behovshierarki appliceras på oss människor och 
+            våra behov, från basala till självförverkligande, så kan de lustigt nog även appliceras på programmering. Men det är inte enbart lustigt utan jag tycker att det är en givande tankeövning också, 
+            vilka är de mest basala behoven när det kommer till min kod? till mitt skolarbete? till projektet på företaget? Kanske är det precis som pyramiden visar och som nämndes i föreläsningen 
+            så att det först och främst gäller att sakerna fungerar och går att utveckla. Och först när vi löst detta och det finns tid och resurser till övers väljer vi att ta ett steg uppåt i pyramiden. 
+            Och ju högre vi kommer desto snyggare, lättunderhållen, vältestad och genomtänkt blir koden. Jag tycker det är en intressant tankeövning och jag tar personligen med mig att det är trevligt 
+            med bra skriven "clean code" som är lätt att underhålla, men framför allt är det nog viktigast att koden gör det den ska. Och om den gör det den ska så behöver jag kanske inte heller hänga 
+            med huvudet över de blygsamma förbättringarna jag lyckades åstadkomma enligt mätverktygen.</p>
         </div>
     </article>
 {% endblock %}
