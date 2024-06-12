@@ -61,7 +61,7 @@ class DiceHandTest extends TestCase
 
         $this->assertEquals(null, $res[0]);
         $this->assertGreaterThan(0, $res2);
-        $this->assertLessThan(6, $res3);
+        $this->assertLessThan(6, $res3[0]);
     }
 
     /**
