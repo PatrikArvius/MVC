@@ -85,6 +85,7 @@ class CardJsonController extends AbstractController
         $cards = [];
         $maxCardDraw = $deck->getNumberCards();
 
+        //Checks if a parameter greater than 0 was given to route and checks that we're not drawing more cards than available
         if ($numCards > 0 && $numCards <= $maxCardDraw) {
             $drawn = $deck->drawCard($numCards);
 
@@ -122,7 +123,9 @@ class CardJsonController extends AbstractController
     public function handlePost(
         Request $request
     ): Response {
+        //Gets the number from form
         $num = $request->request->get('number');
+        //Generates route url with the number we got from the form
         $nextPage = $this->generateUrl('api_deck_draw_num', ['numCards' => $num]);
 
         return $this->redirect($nextPage);

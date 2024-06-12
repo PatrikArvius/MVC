@@ -29,7 +29,7 @@ class DeckOfCards
 
     /**
      * Method that adds a card of specified type based on string parameter with specified integer value
-     * 
+     *
      * @param string $cardType
      * @param int $value
      */
@@ -69,7 +69,7 @@ class DeckOfCards
 
     /**
      * Gets the number of card objects in the deck array
-     * 
+     *
      * @return int
      */
     public function getNumberCards(): int
@@ -106,7 +106,7 @@ class DeckOfCards
     }
 
     /**
-     * Method that sorts the deck of cards, first by putting the cards into arrays based on suit 
+     * Method that sorts the deck of cards, first by putting the cards into arrays based on suit
      * and then sorting each suited array by the card value
      */
     public function sortDeck(): void
@@ -132,7 +132,7 @@ class DeckOfCards
 
     /**
      * Method that sorts cards based on suits and returns an array of suited arrays
-     * 
+     *
      * @return array<int, array<int, Card>>
      */
     public function getSortedBySuit(): array
@@ -167,7 +167,7 @@ class DeckOfCards
 
     /**
      * Method that sorts an array of card objects by their values
-     * 
+     *
      * @param array<int, Card> $suitedDeck
      * @return array<int, Card> $sortedArray
     */

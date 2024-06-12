@@ -136,7 +136,7 @@ class TwentyOne
 
     /**
      * Checks weather the standard player hand value or the alternate value is the best value and returns it
-     * 
+     *
      * @return int $playerVal
      */
     public function getBestPlayerValue(): int
@@ -154,7 +154,7 @@ class TwentyOne
 
     /**
      * Checks weather the standard dealer hand value or the alternate value is the best value and returns it
-     * 
+     *
      * @return int $dealerVal
      */
     public function getBestDealerValue(): int
