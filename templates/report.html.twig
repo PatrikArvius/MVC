@@ -12,6 +12,8 @@
                 <li><a href="#kmom03">Kmom 03</a></li>
                 <li><a href="#kmom04">Kmom 04</a></li>
                 <li><a href="#kmom05">Kmom 05</a></li>
+                <li><a href="#kmom06">Kmom 06</a></li>
+                <li><a href="#kmom10">Kmom 10</a></li>
             </ul>
         </div>
 
@@ -144,6 +146,46 @@
             <p><b>Vilken är din TIL för detta kmom?</b></p>
             <p>Att precis som att små commits är användbara så kan det vara fördelaktigt att testa att sakerna fungerar på studentservern lite mer frekvent än att göra det i slutet av ett kursmoment, 
             i det här fallet besparade det mig mycket huvudbry.</p>
+            <h2 id="kmom06">Kmom 06</h2>
+            <p><b>Hur uppfattade du verktyget phpmetrics och fann du några särskilda bitar mer värdefulla än andra? Var det några särskilda metrics eller bilder du uppskattade?</b></p>
+            <p>Framför allt uppfattade jag phpmetrics som lite mer komplicerat och svårare att ta till sig än andra verktyg vid arbetade med och har arbetat med. Samtidigt så gav det en väldigt 
+            detaljerad bild av min kodbas. Så jag uppskattar verkligen detaljerna med verktyget men det gäller att sätta sig in i vad de pekar ut och hur man skall lösa det. Jag uppskattade nog cirklarna 
+            mest faktiskt, de som visas på "startsidan" som ger en snabb överblick kring hur komplex och stor klassen är, även om det i mitt fall innebar en grafisk representation av ordet förbättringspotential. 
+            Sen vill jag också nämna att jag uppskattade de objektorienterade vyerna som på ett tydligt sätt listade cohesion, coupling samt komplexitet och antal tester som kördes mot respektive klass. 
+            Den vyn gjorde det mycket enklare att snabbt få en överblick kring vilka klasser som kanske behövde poleras som mest.</p>
+            <p><b>Berätta hur det gick att integrera med Scrutinizer och vilken är din första känsla av verktyget och dess badges? Vilken kodtäckning och kodkvalitet fick du efter första bygget?</b></p>
+            <p>Scrutinizer var väldigt trevligt att arbeta med och det var enkelt att integrera. Den stora nackdelen med scrutinizer är nog framför allt den tid det tar att få ett resultat varje gång 
+            vi pushar något till github. Främst blir det irriterande när man inte riktigt vet om man löst ett issue på adekvat sätt enligt scrutinizer och då får man vänta mellan 3-30min varje gång man testar. 
+            Däremot är det ett väldigt intuitivt verktyg för att förstå sin kod genom, och det målar verkligen upp en tydlig bild av vart det enligt verktyget finns saker att förbättra. Min favoritdel av 
+            scrutinizer måste nog vara vyn för "hot spots" som inte bara ger dig en snabb överblick kring vilka klasser som den anser kan förbättras som mest utav även på metod eller funktionsnivå. Det guidade 
+            mig verkligen till vad jag skulle fokusera på när jag satsade på att minska komplexiteten i min kod och ledde dessutom till förbättringar. Däremot vet jag inte riktigt om jag är helt såld på just 
+            badges, visst de ger en extremt snabb överblick av ett projekt men likt det Mikael lyfte på en av föreläsningarna så är inte dessa badges allt som räknas, det finns projekt med mindre bra badges som ändå 
+            är välanvända och som gör det dom ska. Så badges är inte allt, sen är det precis som med kodtäckningen i tidigare moment lätt att vilja ha allt så grönt som möjligt och nå 10.0 och 100% passing men 
+            det är snarare något att sikta mot än ett ändamål i sig. Jag fick 9.79, 29% coverage, passing efter mitt första bygge vilket jag känner mig nöjd med, men det var svårt att höja då de största förbättringarna 
+            troligtvis låg i mina controllers men dom har jag inte lärt mig testa ännu. Däremot lyckades jag ändå öka mina tester, och testa redan täckt kod mer utförligt samt att göra vissa medtoder mindre 
+            komplexa vilket ändå gav resultat.</p>
+            <p><b>Hur är din egen syn på kodkvalitet, berätta lite om den? Tror du man kan man påvisa kodkvalitet i någon viss mån med badges eller vad tror du?</b></p>
+            <p>Min egen syn på kodkvalitet skiftar nog lite men framför allt har momenten fram till och inklusive detta fått mig att uppskatta verktyg till den grad att de är goda källor till tips och analys. 
+            Men viktigast av allt anser jag fortfarande är att koden fungerar och gör det den ska. Dessutom är god kodkvalitet mer än att bara använda sig utav verktygen, det är nog så viktigt att 
+            faktiskt ta in det dom säger till dig och det tar tid och övning bara det. God kodkvalitet är något jag känner kommer med tid, arbete och misstag. Ingenting har varit så lärorikt hittills som när jag 
+            gjort saker på ett sätt som sedan kommit att kosta mig i ett senare skede och då tänker jag mycket på sådana till synes enkla saker som att skriva lätttestad kod eller att ha små metoder/funktioner som gör 
+            en sak, eller att ha klasser som enbart sysslar med sina saker och det som hör till dom så får andra saker skötas av en annan klass eller lösas på annat sätt. Det blev väldigt uppenbart för mig när 
+            vi började testa vår kod, att oj den här metoden som gör väldigt mycket blev väldigt svår att testa. Eller en klass som är uppbyggd på ett visst sätt blev också svår att testa medan en annan klass som 
+            var uppbyggd på ett mer tillmötesgående sätt var lättare att testa och behövde inte ens mockas. Jag tror likt alla dessa verktyg, likt principer från "php the right way" och linters med mera alla har 
+            en sak gemensamt, de är fingervisningar mot mer kvalitativ kod snarare än garanter för det. Visst, är det grönt överallt och inget verktyg hittar några problem så finns där troligtvis ett visst mått av 
+            kvalitet att finna men det är långt ifrån en säkerhet. Likt att en vältäckt kod inte automatiskt betyder en vältestad kod. Dessutom är kodkvalitet till viss mån också subjektivt och det är säkerligen 
+            inte alla som håller med om alla principer eller som tycker att alla verktyg är fruktbara utan det varierar troligtvis från person till person, arbetsplats till arbetsplats och projekt till projekt.</p>
+            <p><b>Vilken är din TIL för detta kmom?</b></p>
+            <p>Att det kan vara lika eller mer viktigt att förstå vad verktygen säger dig än att dess värden är så bra som möjliga.</p>
+            <h2 id="kmom10">Kmom 10</h2>
+            <p><b></b></p>
+            <p></p>
+            <p><b></b></p>
+            <p></p>
+            <p><b></b></p>
+            <p></p>
+            <p><b></b></p>
+            <p></p>
         </div>
     </article>
 {% endblock %}
