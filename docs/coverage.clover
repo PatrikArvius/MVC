@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1718205006">
-  <project timestamp="1718205006">
+<coverage generated="1718286082">
+  <project timestamp="1718286082">
     <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
@@ -953,9 +953,9 @@
       <line num="123" type="stmt" count="4"/>
       <line num="126" type="stmt" count="4"/>
       <line num="129" type="stmt" count="4"/>
-      <line num="130" type="stmt" count="4"/>
-      <line num="131" type="stmt" count="4"/>
-      <line num="134" type="stmt" count="1"/>
+      <line num="130" type="stmt" count="2"/>
+      <line num="131" type="stmt" count="2"/>
+      <line num="134" type="stmt" count="3"/>
       <line num="142" type="method" name="getBestPlayerValue" visibility="public" complexity="3" crap="3" count="5"/>
       <line num="145" type="stmt" count="5"/>
       <line num="148" type="stmt" count="5"/>
@@ -966,8 +966,8 @@
       <line num="166" type="stmt" count="5"/>
       <line num="167" type="stmt" count="2"/>
       <line num="170" type="stmt" count="5"/>
-      <line num="178" type="method" name="setWinner" visibility="public" complexity="1" crap="1" count="4"/>
-      <line num="180" type="stmt" count="4"/>
+      <line num="178" type="method" name="setWinner" visibility="public" complexity="1" crap="1" count="6"/>
+      <line num="180" type="stmt" count="6"/>
       <line num="186" type="method" name="getWinner" visibility="public" complexity="1" crap="1" count="8"/>
       <line num="188" type="stmt" count="8"/>
       <line num="196" type="method" name="isPlayerActive" visibility="public" complexity="1" crap="1" count="1"/>
@@ -996,7 +996,7 @@
       <line num="259" type="stmt" count="4"/>
       <line num="260" type="stmt" count="2"/>
       <line num="262" type="stmt" count="4"/>
-      <line num="263" type="stmt" count="1"/>
+      <line num="263" type="stmt" count="3"/>
       <line num="270" type="method" name="checkGameEnd" visibility="public" complexity="2" crap="2" count="3"/>
       <line num="272" type="stmt" count="3"/>
       <line num="273" type="stmt" count="1"/>
@@ -1011,7 +1011,7 @@
       <line num="297" type="stmt" count="2"/>
       <line num="298" type="stmt" count="2"/>
       <line num="300" type="stmt" count="2"/>
-      <line num="301" type="stmt" count="2"/>
+      <line num="301" type="stmt" count="1"/>
       <metrics loc="305" ncloc="201" classes="1" methods="19" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="76" coveredstatements="76" elements="95" coveredelements="95"/>
     </file>
     <metrics files="25" loc="2379" ncloc="2086" classes="23" methods="140" coveredmethods="58" conditionals="0" coveredconditionals="0" statements="723" coveredstatements="212" elements="863" coveredelements="270"/>
