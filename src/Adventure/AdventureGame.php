@@ -31,7 +31,7 @@ class AdventureGame
         $this->player = $player;
         $this->currentRoom = $rooms[0];
 
-        if ($cheating != null) {
+        if ($cheating !== null) {
             $this->setCheatMode();
             $this->setCheatDescription();
         }
