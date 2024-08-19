@@ -1,0 +1,32 @@
+{% extends "adventurebase.html.twig" %}
+
+{% block title %}Adventure{% endblock %}
+
+{% block body %}
+<article class="art-row">
+<div class="div-col-adv">
+    <h1 class="adv-txt">Time-Lost: Search for a portal home</h1>
+    <div class="adv-img-container">
+        <img src="{{ asset('img/stonehengeportal.png') }}" alt="Picture of a stone henge portal">
+    </div>
+    <div class="adv-txt-container">
+        <p class="adv-txt">Are you brave enough to enter, and do you have the skills required to make it out in one piece? 
+        There is only one way to find out adventurer, step through the portal!</p>
+    </div>
+    <div class="adv-action-container">
+        <div class="act-col-1">
+        </div>
+        <div class="act-col-2">
+            <form class="cardform adv-txt" method="post" action="">
+                <input class="adv-inp adv-inp-start" type="submit" name="do_it" value="Begin your adventure!"
+                onClick="this.form.action='{{ path('adv_init') }}';">
+                <label for="cheats">Cheats?</label>
+                <input type="checkbox" id="cheats" name="cheats" class="adv-inp adv-inp-start" value="yes">
+            </form>
+        </div>
+        <div class="act-col-3">
+        </div>
+    </div>
+</div>
+</article>
+{% endblock %}

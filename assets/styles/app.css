@@ -81,6 +81,10 @@ html {
 overflow-y: scroll;
 background-color: #424242;
 }
+html.adventure {
+    background-color: #251D13;
+}
+
 body {
 color: #333;
 background-color: #fff;
@@ -740,4 +744,199 @@ ul.card li {
 }
 .flash-warning:before {
     content: "⚠";
+}
+
+/**
+* Layout style for the adventure game specific elements
+*/
+
+div.div-col-adv {
+    flex-direction: column;
+    width: 60vw;
+    min-height: 768px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.adv-img-container {
+    width: 100%;
+    min-height: 360px;
+    max-height: 360px;
+    overflow: hidden;
+    background-color: #251D13;
+    filter: brightness(90%);
+}
+
+.adv-img-container img {
+    max-width: 100%;
+    max-height: inherit;
+    object-fit: contain;
+}
+
+.adv-txt-container {
+    height: 180px;
+    background-color: #251D13;
+    filter: brightness(90%);
+}
+
+.adv-act-desc-container {
+    height: 48px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #251D13;
+    filter: brightness(90%);
+}
+
+.inv-space {
+    width: 25vw;
+    height: 100%;
+}
+
+.inv-space-10 {
+    width: 10vw;
+}
+
+.adv-action-container {
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+}
+
+.act-col-1 {
+    width: 25vw;
+    flex-direction: row;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background-color: #251D13;
+    filter: brightness(90%);
+}
+
+.act-col-2 {
+    width: 10vw;
+    background-color: #251D13;
+    filter: brightness(90%);
+}
+
+.act-col-3 {
+    width: 25vw;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: #251D13;
+    filter: brightness(90%);
+}
+
+.inner-wrap-header-adv {
+    display: flex;
+    position: fixed;
+    flex-direction: row;
+    height: 48px;
+    width: 100%;
+}
+
+.adv-nav a{
+    display: flex;
+    padding: 6px;
+}
+
+.adv-nav li {
+    font-size: 24px;
+    box-shadow: none;
+}
+
+.adv li a {
+    color: rgb(233, 220, 178);
+    text-decoration: none;
+}
+
+.adv li a:hover {
+    color: chartreuse;
+    text-decoration: none;
+}
+
+.adv-body {
+    height: 100vh;
+    min-height: 100vh;
+    color: rgb(233, 220, 178);
+    background-color: #251D13;
+    background: radial-gradient(circle, rgba(62,49,32,1) 0%, rgba(37,29,19,1) 85%);
+}
+
+.adv-txt {
+    font-family: "Inknut Antiqua", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-top: 0px;
+}
+
+p.adv-txt {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    margin-bottom: 0;
+}
+
+div.inv-space p.adv-txt {
+    text-align: center;
+}
+
+.outer-wrap-header-adv {
+    height: 48px;
+    width: 100%;
+}
+
+.adv-footer {
+    margin-bottom: 48px;
+}
+
+input.adv-inp {
+    font-weight: bold;
+    width: 30%;
+    height: 30%;
+    background-color: rgb(233, 220, 178);
+    color: #251D13;
+    font-family: "Inknut Antiqua", serif;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+input.adv-inp-start {
+    width: 100%;
+    border-radius: 2em;
+}
+
+input.adv-inp:hover {
+    color: chartreuse;
+    background-color: #251D13;
+    border-color: rgb(233, 220, 178);
+}
+
+input.adv-inv {
+    width: 30%;
+    background-color: #251D13;
+    color: rgb(233, 220, 178);
+    margin: 2px;
+    border-width: 1px;
+    border-radius: 5px;
+    height: 28%;
+    font-size: 12px;
+    font-weight: 200;
+}
+
+input.adv-inv:hover {
+    border: dashed rgb(233, 220, 178);
+    border-width: 1px;
+}
+
+img.inv-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    margin-top: 0;
+    margin-bottom: 0;
 }

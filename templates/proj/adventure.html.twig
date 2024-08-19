@@ -1,0 +1,56 @@
+{% extends "adventurebase.html.twig" %}
+
+{% block title %}Adventure{% endblock %}
+
+{% block body %}
+<article class="art-row">
+
+{% if adventureGame|length != 0 %}
+
+    <div class="div-col-adv">
+        <h1 class="adv-txt">{{ adventureGame.getCurrentRoom.getName }}</h1>
+        <div class="adv-img-container">
+            <img src="/img/{{ adventureGame.getCurrentRoom.getImage }}" alt="{{ adventureGame.getCurrentRoom.getName }}">
+        </div>
+        <div class="adv-txt-container">
+            {% for description in adventureGame.getDescription %}
+                <p class="adv-txt">{{ description }}</p>
+            {% endfor %}
+            {% if adventureGame.isCheating %}
+                <p class="adv-txt">{{ adventureGame.getCheatDescription }}</p>
+            {% endif %}
+        </div>
+        <div class="adv-act-desc-container">
+                <div class="inv-space">
+                    <p class="adv-txt">Actions</p>
+                </div>
+                <div class="inv-space-10"></div>
+                <div class="inv-space">
+                    <p class="adv-txt">Inventory</p>
+                </div>
+        </div>
+        <div class="adv-action-container">
+            <div class="act-col-1">
+                <form class="cardform adv-txt" method="post" action="">
+                    {% for action in adventureGame.getActions() %}
+                        <input class="adv-inp adv-inv" type="submit" name="{{ action }}" value="{{ action }}"
+                        onClick="this.form.action='{{ path('adv_play') }}', this.form.hidden.value=this.value;">
+                    {% endfor %}
+                    <input type="hidden" name="hidden" value="">
+                </form>
+            </div>
+            <div class="act-col-2">
+            </div>
+            <div class="act-col-3">
+                <form class="cardform adv-txt" method="post" action="">
+                    {% for item in adventureGame.getPlayerInventory %}
+                        <input class="adv-inp adv-inv" type="submit" name="{{ item.getName }}" value="{{ item.getName }}">
+                    {% endfor %}
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endif %}
+</article>
+{% endblock %}

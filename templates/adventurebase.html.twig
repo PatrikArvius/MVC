@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html class="adventure">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" href="{{ asset('img/aurora.jpg') }}">
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua&display=swap" rel="stylesheet">
+    </head>
+
+    <header class="outer-wrap-header-adv">
+        <div class="inner-wrap-header-adv">
+        <nav class="adv-nav adv adv-txt">
+            <ul class="adv-nav">
+                <li><a href="{{ path('adventure') }}">Home</a></li>
+                <li><a href="{{ path('advabout') }}">About</a></li>
+            </ul>
+        </nav>
+        </div>
+    </header>
+
+    <body class="adv-body">
+        <main>
+        {% block body %}{% endblock %}
+        </main>
+    </body>
+
+    <footer class="adv-footer">
+        <p>@Patrik Arvius, 2024</p>
+    </footer>
+</html>
