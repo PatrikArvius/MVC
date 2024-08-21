@@ -8,7 +8,6 @@ use App\Adventure\EndRoom;
 use App\Adventure\Player;
 use App\Adventure\Room;
 use App\Adventure\Item;
-use App\Adventure\ItemDice;
 use App\Adventure\MountainVillage;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
