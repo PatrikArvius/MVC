@@ -8,7 +8,7 @@ class AbandonedTrainStation extends Room
     protected string $image = "abandonedtrainstation2.png";
     protected string $description = "You arrive at an abandoned train station, the air is thick of dread. The station has clearly seen better days, its windows are broken and there 
     has been damage to the structure. A faint light is glowing at what used to be the entrance to the tracks. Way further in the distance you spot a mountaintop submerged in a strange 
-    glow that resembles that mysterious glow that covered the portal you so bravely stepped into which got you here in the first place, could that be the way home?";
+    glow that resembles the mysterious glow emitted from the beam you so bravely stepped into which got you here in the first place, could that be the way home?";
 
     /**
      * @param array<int, Item> $items

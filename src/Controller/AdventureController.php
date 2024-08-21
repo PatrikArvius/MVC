@@ -9,6 +9,7 @@ use App\Adventure\Player;
 use App\Adventure\Room;
 use App\Adventure\Item;
 use App\Adventure\ItemDice;
+use App\Adventure\MountainVillage;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -37,12 +38,12 @@ class AdventureController extends AbstractController
         /** @var string|null $cheats */
         $cheats = $request->request->get('cheats');
         $item = new Item("Key", "None", 1);
-        $item2 = new ItemDice("Dice", "None", 2);
         $room1 = new AbandonedTrainStation([$item]);
-        $room2 = new Room("Test church", "No image", "An abandoned church that has seen better days", [$item2], true, $item);
+        $room2 = new Room("Test church", "No image", "An abandoned church that has seen better days", null, true, $item);
+        $room3 = new MountainVillage();
         $endRoom = new EndRoom();
         $player = new Player();
-        $adventureGame = new AdventureGame([$room1, $room2], $endRoom, $player, $cheats);
+        $adventureGame = new AdventureGame([$room1, $room2, $room3], $endRoom, $player, $cheats);
         $session->set("adventure", $adventureGame);
 
         $data = [
@@ -64,11 +65,11 @@ class AdventureController extends AbstractController
         /** @var AdventureGame */
         $adventureGame = $session->get("adventure");
 
-        if ($action !== null) {
+        if ($action != null) {
             $adventureGame->useAction($action);
         }
 
-        if ($itemToUse !== null) {
+        if ($itemToUse != null) {
             $adventureGame->useItem($itemToUse);
         }
 
