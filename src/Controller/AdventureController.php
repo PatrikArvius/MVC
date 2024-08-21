@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Adventure\AbandonedTrainStation;
 use App\Adventure\AdventureGame;
+use App\Adventure\EndRoom;
 use App\Adventure\Player;
 use App\Adventure\Room;
 use App\Adventure\Item;
@@ -38,9 +39,10 @@ class AdventureController extends AbstractController
         $item = new Item("Key", "None", 1);
         $item2 = new ItemDice("Dice", "None", 2);
         $room1 = new AbandonedTrainStation([$item]);
-        $room2 = new Room("Test church", "No image", "An abandoned church that has seen better days", [$item2], True, $item);
+        $room2 = new Room("Test church", "No image", "An abandoned church that has seen better days", [$item2], true, $item);
+        $endRoom = new EndRoom();
         $player = new Player();
-        $adventureGame = new AdventureGame([$room1, $room2], $player, $cheats);
+        $adventureGame = new AdventureGame([$room1, $room2], $endRoom, $player, $cheats);
         $session->set("adventure", $adventureGame);
 
         $data = [
@@ -57,9 +59,20 @@ class AdventureController extends AbstractController
     ): Response {
         /** @var string $action */
         $action = $request->request->get('hidden');
+        /** @var string $itemToUse */
+        $itemToUse = $request->request->get('item');
         /** @var AdventureGame */
         $adventureGame = $session->get("adventure");
-        $adventureGame->useAction($action);
+
+        if ($action !== null) {
+            $adventureGame->useAction($action);
+        }
+
+        if ($itemToUse !== null) {
+            $adventureGame->useItem($itemToUse);
+        }
+
+        $adventureGame->checkGameEnd();
 
         $data = [
             'adventureGame' => $adventureGame,

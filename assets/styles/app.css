@@ -771,7 +771,8 @@ div.div-col-adv {
 .adv-img-container img {
     max-width: 100%;
     max-height: inherit;
-    object-fit: contain;
+    width: 100%;
+    /* object-fit: contain; */
 }
 
 .adv-txt-container {

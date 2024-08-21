@@ -10,6 +10,9 @@ class AdventureGame
     /** @var Room $currentRoom */
     protected object $currentRoom;
 
+    /** @var Room $endRoom */
+    protected object $endRoom;
+
     //** @var Room $previousRoom */
     //protected object $previousRoom;
 
@@ -19,17 +22,22 @@ class AdventureGame
     /** @var Player $player */
     protected object $player;
 
+    /** @var bool $cheatMode */
     protected bool $cheatMode = false;
+
+    /** @var bool $gameOver */
+    protected bool $gameOver = false;
 
     /** @var string|null $cheatDesc */
     protected ?string $cheatDesc = null;
 
     /** @param array<int, Room> $rooms */
-    public function __construct(array $rooms, Player $player, string|null $cheating = null)
+    public function __construct(array $rooms, Room $endRoom, Player $player, string|null $cheating = null)
     {
         $this->rooms = $rooms;
         $this->player = $player;
         $this->currentRoom = $rooms[0];
+        $this->endRoom = $endRoom;
 
         if ($cheating !== null) {
             $this->setCheatMode();
@@ -43,17 +51,29 @@ class AdventureGame
     }
 
     /**
-     * Returns a string with a little victory text
+     * Checks if the game end conditions are met and sets the current room to end screen room
      *
-     * @return string
      */
-    public function gameEnd(): string
+    public function checkGameEnd(): void
     {
-        return "Congratulations, you made it through the adventure and you're back safe and sound!";
+        $rooms = $this->rooms;
+        $numRooms = count($rooms);
+        $unlockedRooms = 0;
+
+        foreach ($rooms as $room) {
+            if (!$room->isLocked()) {
+                $unlockedRooms += 1;
+            }
+        }
+
+        if ($numRooms == $unlockedRooms) {
+            $this->currentRoom = $this->endRoom;
+            $this->gameOver = true;
+        }
     }
 
     /**
-     * Generates connections between all rooms in an array
+     * Generates connections between all rooms in an array, randomized
      *
      * @param array <int, Room> $rooms */
     public function generateRoomConnections(array $rooms): void
@@ -98,6 +118,12 @@ class AdventureGame
     public function setCheatMode(): void
     {
         $this->cheatMode = true;
+    }
+
+    /** @return bool */
+    public function isGameOver(): bool
+    {
+        return $this->gameOver;
     }
 
     /** @return Room */
@@ -157,7 +183,7 @@ class AdventureGame
                 }
             }
         }
-        $this->cheatDesc = "CHEAT: Go to $requiredItemLocation, pick up $requiredItemName, click it in your inventory when you are at $requireingRoom";
+        $this->cheatDesc = "CHEAT: Go to $requiredItemLocation, pick up $requiredItemName, use it at $requireingRoom";
     }
 
     /** @return string|null */
@@ -223,6 +249,15 @@ class AdventureGame
             case "Pick Up":
                 $this->pickUpItem();
                 break;
+        }
+    }
+
+    public function useItem(string $item): void
+    {
+        $reqItem = $this->currentRoom->getRequiredItem();
+
+        if ($reqItem !== null && $reqItem->getName() == $item) {
+            $this->currentRoom->unlockRoom();
         }
     }
 

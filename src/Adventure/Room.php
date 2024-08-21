@@ -9,6 +9,7 @@ class Room
     protected string $description;
     protected bool $explored = false;
     protected bool $visited = false;
+    protected bool $locked = false;
 
     /** @var array<int, Item> $items */
     protected array $items;
@@ -38,6 +39,7 @@ class Room
         if ($requiresItem != false) {
             $this->requiresItem = $requiresItem;
             $this->requiredItem = $requiredItem;
+            $this->locked = true;
         }
     }
 
@@ -197,6 +199,16 @@ class Room
     public function setVisited(): void
     {
         $this->visited = true;
+    }
+
+    public function unlockRoom(): void
+    {
+        $this->locked = false;
+    }
+
+    public function isLocked(): bool
+    {
+        return $this->locked;
     }
 
     /**
