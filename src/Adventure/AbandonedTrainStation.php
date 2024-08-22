@@ -13,7 +13,7 @@ class AbandonedTrainStation extends Room
     /**
      * @param array<int, Item> $items
      */
-    public function __construct(array|null $items = null, true|null $requiresItem = null, Item|null $requiredItem = null)
+    public function __construct(array|null $items = null, bool|null $requiresItem = null, Item|null $requiredItem = null)
     {
         $this->items = [];
 

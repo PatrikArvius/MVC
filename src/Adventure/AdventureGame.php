@@ -93,6 +93,7 @@ class AdventureGame
             }
 
             if ($num === 0) {
+                $room->setFirstRoom();
                 $room->addConnectingRoom($rooms[$num + 1], $directions[$rand]);
                 $counterDirection = $counterDirections[$rand];
                 $num += 1;
@@ -102,6 +103,7 @@ class AdventureGame
             if ($num === $numRooms - 1) {
                 //$room->addConnectingRoom($rooms[$num - 1], $counterDirection);
                 $room->addConnectingRoom($rooms[$num - 1], "Back");
+                $room->setLastRoom();
                 break;
             }
 
@@ -171,7 +173,7 @@ class AdventureGame
 
         foreach ($this->rooms as $room) {
             if ($room->getRequiredItem() != null) {
-                $item =$room->getRequiredItem();
+                $item = $room->getRequiredItem();
                 $itemName = $item->getName();
                 $itemLocation = $item->getLocation();
                 $requireingRoom = $room->getName();

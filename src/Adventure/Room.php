@@ -15,7 +15,8 @@ class Room
     protected array $items;
 
     protected bool $requiresItem = false;
-    protected bool $isLastRoom = false;
+    protected bool $lastRoom = false;
+    protected bool $firstRoom = false;
 
     /** @var Item|null $requiredItem; */
     protected mixed $requiredItem = null;
@@ -25,7 +26,7 @@ class Room
     /**
      * @param array<int, Item> $items
      */
-    public function __construct(string $name, string $image, string $description, array|null $items = null, true|null $requiresItem = null, Item|null $requiredItem = null)
+    public function __construct(string $name, string $image, string $description, array|null $items = null, bool|null $requiresItem = null, Item|null $requiredItem = null)
     {
         $this->name = $name;
         $this->image = $image;
@@ -48,7 +49,7 @@ class Room
      *  @return bool */
     public function isLast(): bool
     {
-        return $this->isLastRoom;
+        return $this->lastRoom;
     }
 
     /**
@@ -56,7 +57,7 @@ class Room
      */
     public function setLastRoom(): void
     {
-        $this->isLastRoom = true;
+        $this->lastRoom = true;
     }
 
     public function setItemLocations(): void
@@ -218,6 +219,16 @@ class Room
     public function isLocked(): bool
     {
         return $this->locked;
+    }
+
+    public function isFirstRoom(): bool
+    {
+        return $this->locked;
+    }
+
+    public function setFirstRoom(): void
+    {
+        $this->firstRoom = true;
     }
 
     /**
