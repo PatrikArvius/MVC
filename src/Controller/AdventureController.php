@@ -37,9 +37,10 @@ class AdventureController extends AbstractController
         /** @var string|null $cheats */
         $cheats = $request->request->get('cheats');
         $item = new Item("Key", "None", 1);
-        $room1 = new AbandonedTrainStation([$item]);
+        $item2 = new Item("Lamp", "None", 2);
+        $room1 = new AbandonedTrainStation([$item], true, $item2);
         $room2 = new Room("Test church", "No image", "An abandoned church that has seen better days", null, true, $item);
-        $room3 = new MountainVillage();
+        $room3 = new MountainVillage([$item2]);
         $endRoom = new EndRoom();
         $player = new Player();
         $adventureGame = new AdventureGame([$room1, $room2, $room3], $endRoom, $player, $cheats);

@@ -49,12 +49,12 @@ class Player
         }
     }
 
-    public function deleteItem(int $itemId): void
+    public function deleteItem(string $itemName): void
     {
         $num = 0;
         if (!empty($this->inventory)) {
             foreach ($this->inventory as $item) {
-                if ($item->getId() === $itemId) {
+                if ($item->getName() === $itemName) {
                     array_splice($this->inventory, $num, 1);
                 }
                 $num += 1;

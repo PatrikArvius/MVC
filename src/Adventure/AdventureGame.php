@@ -98,11 +98,13 @@ class AdventureGame
             }
 
             if ($num === $numRooms - 1) {
-                $room->addConnectingRoom($rooms[$num - 1], $counterDirection);
+                //$room->addConnectingRoom($rooms[$num - 1], $counterDirection);
+                $room->addConnectingRoom($rooms[$num - 1], "Back");
                 break;
             }
 
-            $room->addConnectingRoom($rooms[$num - 1], $counterDirection);
+            //$room->addConnectingRoom($rooms[$num - 1], $counterDirection);
+            $room->addConnectingRoom($rooms[$num - 1], "Back");
             $room->addConnectingRoom($rooms[$num + 1], $directions[$rand]);
             $counterDirection = $counterDirections[$rand];
             $num += 1;
@@ -175,8 +177,9 @@ class AdventureGame
         }
 
         foreach ($this->rooms as $room) {
-            if ($room->getItems()[0] != null) {
-                $itemName = $room->getItems()[0]->getName();
+            $items = $room->getItems();
+            if (!empty($items) && $items[0]) {
+                $itemName = $items[0]->getName();
 
                 if ($itemName == $requiredItemName) {
                     $requiredItemLocation = $room->getName();
@@ -222,6 +225,12 @@ class AdventureGame
             case "Explore":
                 $this->currentRoom->setExplored();
                 break;
+            case "Back":
+                if ($exits["Back"] != null) {
+                    $this->currentRoom->setVisited();
+                    $this->currentRoom = $exits["Back"];
+                }
+                break;
             case "North":
                 if ($exits["North"] != null) {
                     $this->currentRoom->setVisited();
@@ -258,6 +267,7 @@ class AdventureGame
 
         if ($reqItem !== null && $reqItem->getName() == $item) {
             $this->currentRoom->unlockRoom();
+            $this->player->deleteItem($item);
         }
     }
 

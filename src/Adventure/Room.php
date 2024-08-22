@@ -20,7 +20,7 @@ class Room
     /** @var Item|null $requiredItem; */
     protected mixed $requiredItem = null;
     /** @var array<string, null|Room> */
-    protected array $exits = ["North" => null, "East" => null, "South" => null, "West" => null];
+    protected array $exits = ["North" => null, "East" => null, "South" => null, "West" => null, "Back" => null];
 
     /**
      * @param array<int, Item> $items
