@@ -13,7 +13,7 @@ class MountainVillage extends Room
     /**
      * @param array<int, Item> $items
      */
-    public function __construct(array|null $items = null, bool|null $requiresItem = null, Item|null $requiredItem = null)
+    public function __construct(array|null $items = null, true|null $requiresItem = null, Item|null $requiredItem = null)
     {
         $this->items = [];
 
@@ -24,6 +24,7 @@ class MountainVillage extends Room
         if ($requiresItem != false) {
             $this->requiresItem = $requiresItem;
             $this->requiredItem = $requiredItem;
+            $this->locked = true;
         }
     }
 }

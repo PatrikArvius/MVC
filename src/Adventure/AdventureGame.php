@@ -38,14 +38,15 @@ class AdventureGame
         $this->player = $player;
         $this->currentRoom = $rooms[0];
         $this->endRoom = $endRoom;
+        $this->setRoomItemLocations();
+
+        if (count($rooms) > 1) {
+            $this->generateRoomConnections($rooms);
+        }
 
         if ($cheating !== null) {
             $this->setCheatMode();
             $this->setCheatDescription();
-        }
-
-        if (count($rooms) > 1) {
-            $this->generateRoomConnections($rooms);
         }
         //$this->nextRoom = $rooms[1];
     }
@@ -61,7 +62,8 @@ class AdventureGame
         $unlockedRooms = 0;
 
         foreach ($rooms as $room) {
-            if (!$room->isLocked()) {
+            $locked = $room->isLocked();
+            if (!$locked) {
                 $unlockedRooms += 1;
             }
         }
@@ -165,28 +167,26 @@ class AdventureGame
 
     public function setCheatDescription(): void
     {
-        $requiredItemName = null;
-        $requiredItemLocation = null;
-        $requireingRoom = null;
+        $cheatDescription = "";
 
         foreach ($this->rooms as $room) {
             if ($room->getRequiredItem() != null) {
-                $requiredItemName = $room->getRequiredItem()->getName();
+                $item =$room->getRequiredItem();
+                $itemName = $item->getName();
+                $itemLocation = $item->getLocation();
                 $requireingRoom = $room->getName();
+
+                $cheatDescription .= "Go to $itemLocation, pick up $itemName, use at $requireingRoom. ";
             }
         }
+        $this->cheatDesc = $cheatDescription;
+    }
 
+    public function setRoomItemLocations(): void
+    {
         foreach ($this->rooms as $room) {
-            $items = $room->getItems();
-            if (!empty($items) && $items[0]) {
-                $itemName = $items[0]->getName();
-
-                if ($itemName == $requiredItemName) {
-                    $requiredItemLocation = $room->getName();
-                }
-            }
+            $room->setItemLocations();
         }
-        $this->cheatDesc = "CHEAT: Go to $requiredItemLocation, pick up $requiredItemName, use it at $requireingRoom";
     }
 
     /** @return string|null */

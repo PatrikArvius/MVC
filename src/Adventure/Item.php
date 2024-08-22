@@ -7,6 +7,7 @@ class Item
     protected string $image;
     protected string $name;
     protected int $itemId;
+    protected string $location = "";
 
     public function __construct(string $name, string $image, int $itemId)
     {
@@ -36,5 +37,16 @@ class Item
     public function action(): mixed
     {
         return null;
+    }
+
+    public function setLocation(string $location): void
+    {
+        $this->location = $location;
+    }
+
+    /** @return string */
+    public function getLocation(): string
+    {
+        return $this->location;
     }
 }

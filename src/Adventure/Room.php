@@ -25,7 +25,7 @@ class Room
     /**
      * @param array<int, Item> $items
      */
-    public function __construct(string $name, string $image, string $description, array|null $items = null, bool|null $requiresItem = null, Item|null $requiredItem = null)
+    public function __construct(string $name, string $image, string $description, array|null $items = null, true|null $requiresItem = null, Item|null $requiredItem = null)
     {
         $this->name = $name;
         $this->image = $image;
@@ -36,7 +36,7 @@ class Room
             $this->items = $items;
         }
 
-        if ($requiresItem != false) {
+        if ($requiresItem != null) {
             $this->requiresItem = $requiresItem;
             $this->requiredItem = $requiredItem;
             $this->locked = true;
@@ -57,6 +57,15 @@ class Room
     public function setLastRoom(): void
     {
         $this->isLastRoom = true;
+    }
+
+    public function setItemLocations(): void
+    {
+        $items = $this->items;
+        $location = $this->name;
+        foreach ($items as $item) {
+            $item->setLocation($location);
+        }
     }
 
     public function addConnectingRoom(Room $room, string $direction): void
