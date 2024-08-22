@@ -877,7 +877,7 @@ div.div-col-adv {
 p.adv-txt {
     padding-left: 12px;
     padding-right: 12px;
-    padding-top: 12px;
+    padding-top: 0px;
     padding-bottom: 12px;
     margin-bottom: 0;
 }

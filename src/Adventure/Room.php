@@ -223,7 +223,7 @@ class Room
 
     public function isFirstRoom(): bool
     {
-        return $this->locked;
+        return $this->firstRoom;
     }
 
     public function setFirstRoom(): void
@@ -240,6 +240,11 @@ class Room
         $connections = "You spot the following exits:";
         foreach ($this->exits as $key => $value) {
             if ($value != null) {
+                if ($key != "Back" && $this->isLocked()) {
+                    $connections .= " $key (Locked).";
+                    continue;
+                }
+
                 $connections .= " $key.";
             }
         }

@@ -169,7 +169,7 @@ class AdventureGame
 
     public function setCheatDescription(): void
     {
-        $cheatDescription = "";
+        $cheatDescription = "CHEAT: ";
 
         foreach ($this->rooms as $room) {
             if ($room->getRequiredItem() != null) {
@@ -211,9 +211,15 @@ class AdventureGame
             array_push($availableActions, "Pick Up");
         }
 
-        $connections = $this->currentRoom->getConnectionsAsStringArray();
-        foreach ($connections as $connection) {
-            array_push($availableActions, $connection);
+        if ($this->currentRoom->isLocked()) {
+            if (!$this->currentRoom->isFirstRoom()) {
+                array_push($availableActions, "Back");
+            }
+        } else {
+            $connections = $this->currentRoom->getConnectionsAsStringArray();
+            foreach ($connections as $connection) {
+                array_push($availableActions, $connection);
+            }
         }
 
         return $availableActions;
