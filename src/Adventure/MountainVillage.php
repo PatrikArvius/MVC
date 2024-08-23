@@ -6,9 +6,9 @@ class MountainVillage extends Room
 {
     protected string $name = "Mountain Village";
     protected string $image = "pixelmountain2.png";
-    protected string $description = "You arrive at what appears to be a completely ordinary house but... who can ignore that backdrop! There seems to be a familiar beam of light at 
-    the top of the mountain, one that is not too unlike that beam you so recklessly stepped into which got you into this entire mess in the first place. Perhaps there is someone in the 
-    house that could tell you more or if fate has it, help you get home?";
+    protected string $description = "You arrive at what appears to be a small but ordinary village but... who can ignore that backdrop! There seems to be a familiar beam of light at 
+    the top of the mountain, one that is not too unlike that beam you so recklessly stepped into which got you into this entire mess in the first place. There seems to be a lone house 
+    at the top of the mountain near the beam.";
 
     /**
      * @param array<int, Item> $items

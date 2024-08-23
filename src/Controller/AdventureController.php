@@ -9,6 +9,8 @@ use App\Adventure\Player;
 use App\Adventure\Room;
 use App\Adventure\Item;
 use App\Adventure\MountainVillage;
+use App\Adventure\MountainHouse;
+use App\Adventure\TrainTracks;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -36,14 +38,15 @@ class AdventureController extends AbstractController
     ): Response {
         /** @var string|null $cheats */
         $cheats = $request->request->get('cheats');
-        $item = new Item("Key", "None", 1);
-        $item2 = new Item("Lamp", "None", 2);
-        $room1 = new AbandonedTrainStation([$item2], true, $item2);
-        $room2 = new Room("Test church", "No image", "An abandoned church that has seen better days", null, true, $item);
-        $room3 = new MountainVillage([$item]);
+        $itemKey = new Item("Key", "None", "A key, what door does it unlock?",1);
+        $itemLamp = new Item("Lamp", "None", "An old lamp, but it still works", 2);
+        $trainStation = new AbandonedTrainStation([$itemLamp]);
+        $tracks = new TrainTracks([$itemKey], true, $itemLamp);
+        $mountainVillage = new MountainVillage();
+        $topHouse = new MountainHouse(null, true, $itemKey);
         $endRoom = new EndRoom();
         $player = new Player();
-        $adventureGame = new AdventureGame([$room1, $room2, $room3], $endRoom, $player, $cheats);
+        $adventureGame = new AdventureGame([$trainStation, $tracks, $mountainVillage, $topHouse], $endRoom, $player, $cheats);
         $session->set("adventure", $adventureGame);
 
         $data = [
