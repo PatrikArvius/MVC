@@ -5,7 +5,7 @@ namespace App\Adventure;
 class TrainTracks extends Room
 {
     protected string $name = "Train tracks";
-    protected string $image = "pixelmountain2.png";
+    protected string $image = "tracks2.png";
     protected string $description = "You've entered the abandoned train station and end up at what was once a great hall of train tracks. Though there was a lightsource outside, 
     in this hall it is completely dark!";
 
