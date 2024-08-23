@@ -122,11 +122,11 @@ class Room
     public function exploreDescription(): array
     {
         $exits = $this->getAvailableConnectionsAsString();
-        $expText = "You search the surrounding area with fervour and with great care, you come up with the following: ";
+        $expText = "You search the surrounding area with fervour and with great care.";
 
         if (count($this->items) > 0) {
-            $item = $this->items[0]->getName();
-            $expandedText = "You notice a: $item";
+            $item = $this->items[0]->getDescription();
+            $expandedText = "You notice: $item";
 
             return [$expText, $expandedText, $exits];
         }
@@ -140,7 +140,7 @@ class Room
         $expText = "You have been here before, you have explored the area and there is nothing new to find...";
 
         if (count($this->items) > 0) {
-            $item = $this->items[0]->getName();
+            $item = $this->items[0]->getDescription();
             $expandedText = "The following still remains: $item";
 
             return [$expText, $expandedText, $exits];
