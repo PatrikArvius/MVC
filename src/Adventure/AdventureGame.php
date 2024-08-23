@@ -68,7 +68,7 @@ class AdventureGame
             }
         }
 
-        if ($numRooms == $unlockedRooms) {
+        if ($numRooms == $unlockedRooms && $this->isAtLastRoom()) {
             $this->currentRoom = $this->endRoom;
             $this->gameOver = true;
         }
@@ -208,7 +208,8 @@ class AdventureGame
         }
 
         if (count($this->currentRoom->getItems()) > 0) {
-            array_push($availableActions, "Pick Up");
+            $itemName = $this->currentRoom->getItems()[0]->getName();
+            array_push($availableActions, "Pick Up $itemName");
         }
 
         if ($this->currentRoom->isLocked()) {
@@ -263,7 +264,7 @@ class AdventureGame
                     $this->currentRoom = $exits["East"];
                 }
                 break;
-            case "Pick Up":
+            case str_contains($action, "Pick Up"):
                 $this->pickUpItem();
                 break;
         }
