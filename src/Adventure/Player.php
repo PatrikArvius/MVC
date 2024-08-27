@@ -8,17 +8,17 @@ class Player
 {
     /** @var array<int, Item> $inventory */
     protected array $inventory;
-    /** @var Room $location */
-    protected object $location;
+    /** @var Room|null $location */
+    protected ?object $location = null;
 
     /** @param array<int, Item> $inventory */
     public function __construct(array $inventory = null)
     {
-        if ($inventory != null) {
+        $this->inventory = [];
+
+        if ($inventory !== null) {
             $this->inventory = $inventory;
         }
-
-        $this->inventory = [];
     }
 
     /** @return object|null */
@@ -38,17 +38,6 @@ class Player
         return $this->inventory;
     }
 
-    public function useItem(Item $item): void
-    {
-        if (!empty($this->inventory)) {
-            foreach ($this->inventory as $invItem) {
-                if ($invItem->getName() === $item->getName()) {
-                    $item->action();
-                }
-            }
-        }
-    }
-
     public function deleteItem(string $itemName): void
     {
         $num = 0;
@@ -66,4 +55,15 @@ class Player
     {
         array_push($this->inventory, $item);
     }
+
+    /**public function useItem(Item $item): void
+    {
+        if (!empty($this->inventory)) {
+            foreach ($this->inventory as $invItem) {
+                if ($invItem->getName() === $item->getName()) {
+                    $item->action();
+                }
+            }
+        }
+    }*/
 }

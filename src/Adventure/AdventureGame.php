@@ -207,7 +207,7 @@ class AdventureGame
             return $availableActions;
         }
 
-        if (count($this->currentRoom->getItems()) > 0) {
+        if (count($this->currentRoom->getItems()) > 0 && $this->currentRoom->getItems()[0] !== null) {
             $itemName = $this->currentRoom->getItems()[0]->getName();
             array_push($availableActions, "Pick Up $itemName");
         }
