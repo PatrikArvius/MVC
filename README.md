@@ -1,7 +1,8 @@
 # My repository for the course MVC at Blekinge Tekniska Högskola  
 ![PHP Plushie](/assets/images/phpplush.jpg "A little php plushie")
 
-This is my git repo for the course MVC at Blekinge Tekniska Högskola. It contains the content of my me-page and object oriented php using the symfony framework.
+This is my git repo for the course MVC at Blekinge Tekniska Högskola. It contains the content of my me-page and object oriented php using the symfony framework. 
+It also contains my course project adventure game.
 
 ## How to clone this repo  
 
@@ -10,7 +11,13 @@ Through your terminal of choice, go to your target directory where you wish to s
 Type: 
 ```
 git clone https://github.com/PatrikArvius/MVC.git
-```  
+```
+
+Install dependencies:
+```
+composer install
+npm install
+```
 
 ## How to run the webpage on your local machine  
 
