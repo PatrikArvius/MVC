@@ -10,7 +10,7 @@
     <div class="div-col-adv">
         <h1 class="adv-txt">{{ adventureGame.getCurrentRoom.getName }}</h1>
         <div class="adv-img-container">
-            <img src="/img/{{ adventureGame.getCurrentRoom.getImage }}" alt="{{ adventureGame.getCurrentRoom.getName }}">
+            <img src="../img/{{ adventureGame.getCurrentRoom.getImage }}" alt="{{ adventureGame.getCurrentRoom.getName }}">
         </div>
         <div class="adv-txt-container">
             {% for description in adventureGame.getDescription %}
