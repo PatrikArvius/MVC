@@ -1,6 +1,399 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1718286082">
-  <project timestamp="1718286082">
+<coverage generated="1724749730">
+  <project timestamp="1724749730">
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Adventure/AbandonedTrainStation.php">
+      <class name="App\Adventure\AbandonedTrainStation" namespace="global">
+        <metrics complexity="3" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="8" coveredelements="8"/>
+      </class>
+      <line num="16" type="method" name="__construct" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="18" type="stmt" count="2"/>
+      <line num="20" type="stmt" count="2"/>
+      <line num="21" type="stmt" count="2"/>
+      <line num="24" type="stmt" count="2"/>
+      <line num="25" type="stmt" count="1"/>
+      <line num="26" type="stmt" count="1"/>
+      <line num="27" type="stmt" count="1"/>
+      <metrics loc="31" ncloc="28" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="8" coveredelements="8"/>
+    </file>
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Adventure/AdventureGame.php">
+      <class name="App\Adventure\AdventureGame" namespace="global">
+        <metrics complexity="57" methods="19" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="127" coveredstatements="127" elements="146" coveredelements="146"/>
+      </class>
+      <line num="35" type="method" name="__construct" visibility="public" complexity="3" crap="3" count="8"/>
+      <line num="37" type="stmt" count="8"/>
+      <line num="38" type="stmt" count="8"/>
+      <line num="39" type="stmt" count="8"/>
+      <line num="40" type="stmt" count="8"/>
+      <line num="41" type="stmt" count="8"/>
+      <line num="43" type="stmt" count="8"/>
+      <line num="44" type="stmt" count="5"/>
+      <line num="47" type="stmt" count="8"/>
+      <line num="48" type="stmt" count="3"/>
+      <line num="49" type="stmt" count="3"/>
+      <line num="58" type="method" name="checkGameEnd" visibility="public" complexity="5" crap="5" count="1"/>
+      <line num="60" type="stmt" count="1"/>
+      <line num="61" type="stmt" count="1"/>
+      <line num="62" type="stmt" count="1"/>
+      <line num="64" type="stmt" count="1"/>
+      <line num="65" type="stmt" count="1"/>
+      <line num="66" type="stmt" count="1"/>
+      <line num="67" type="stmt" count="1"/>
+      <line num="71" type="stmt" count="1"/>
+      <line num="72" type="stmt" count="1"/>
+      <line num="73" type="stmt" count="1"/>
+      <line num="81" type="method" name="generateRoomConnections" visibility="public" complexity="5" crap="5" count="5"/>
+      <line num="83" type="stmt" count="5"/>
+      <line num="84" type="stmt" count="5"/>
+      <line num="85" type="stmt" count="5"/>
+      <line num="86" type="stmt" count="5"/>
+      <line num="87" type="stmt" count="5"/>
+      <line num="89" type="stmt" count="5"/>
+      <line num="90" type="stmt" count="5"/>
+      <line num="91" type="stmt" count="5"/>
+      <line num="92" type="stmt" count="2"/>
+      <line num="95" type="stmt" count="5"/>
+      <line num="96" type="stmt" count="5"/>
+      <line num="97" type="stmt" count="5"/>
+      <line num="98" type="stmt" count="5"/>
+      <line num="99" type="stmt" count="5"/>
+      <line num="100" type="stmt" count="5"/>
+      <line num="103" type="stmt" count="5"/>
+      <line num="105" type="stmt" count="5"/>
+      <line num="106" type="stmt" count="5"/>
+      <line num="107" type="stmt" count="5"/>
+      <line num="111" type="stmt" count="3"/>
+      <line num="112" type="stmt" count="3"/>
+      <line num="113" type="stmt" count="3"/>
+      <line num="114" type="stmt" count="3"/>
+      <line num="119" type="method" name="isCheating" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="121" type="stmt" count="1"/>
+      <line num="124" type="method" name="setCheatMode" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="126" type="stmt" count="3"/>
+      <line num="130" type="method" name="isGameOver" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="132" type="stmt" count="1"/>
+      <line num="136" type="method" name="getCurrentRoom" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="138" type="stmt" count="3"/>
+      <line num="142" type="method" name="setCurrentRoom" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="144" type="stmt" count="4"/>
+      <line num="148" type="method" name="isAtLastRoom" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="150" type="stmt" count="1"/>
+      <line num="153" type="method" name="explore" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="155" type="stmt" count="2"/>
+      <line num="159" type="method" name="getDescription" visibility="public" complexity="4" crap="4" count="1"/>
+      <line num="161" type="stmt" count="1"/>
+      <line num="162" type="stmt" count="1"/>
+      <line num="164" type="stmt" count="1"/>
+      <line num="165" type="stmt" count="1"/>
+      <line num="167" type="stmt" count="1"/>
+      <line num="170" type="method" name="setCheatDescription" visibility="public" complexity="3" crap="3" count="3"/>
+      <line num="172" type="stmt" count="3"/>
+      <line num="174" type="stmt" count="3"/>
+      <line num="175" type="stmt" count="3"/>
+      <line num="176" type="stmt" count="2"/>
+      <line num="177" type="stmt" count="2"/>
+      <line num="178" type="stmt" count="2"/>
+      <line num="179" type="stmt" count="2"/>
+      <line num="181" type="stmt" count="2"/>
+      <line num="184" type="stmt" count="3"/>
+      <line num="187" type="method" name="setRoomItemLocations" visibility="public" complexity="2" crap="2" count="8"/>
+      <line num="189" type="stmt" count="8"/>
+      <line num="190" type="stmt" count="8"/>
+      <line num="195" type="method" name="getCheatDescription" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="197" type="stmt" count="1"/>
+      <line num="201" type="method" name="getActions" visibility="public" complexity="7" crap="7" count="1"/>
+      <line num="203" type="stmt" count="1"/>
+      <line num="205" type="stmt" count="1"/>
+      <line num="206" type="stmt" count="1"/>
+      <line num="207" type="stmt" count="1"/>
+      <line num="210" type="stmt" count="1"/>
+      <line num="211" type="stmt" count="1"/>
+      <line num="212" type="stmt" count="1"/>
+      <line num="215" type="stmt" count="1"/>
+      <line num="216" type="stmt" count="1"/>
+      <line num="217" type="stmt" count="1"/>
+      <line num="220" type="stmt" count="1"/>
+      <line num="221" type="stmt" count="1"/>
+      <line num="222" type="stmt" count="1"/>
+      <line num="226" type="stmt" count="1"/>
+      <line num="229" type="method" name="useAction" visibility="public" complexity="13" crap="13" count="2"/>
+      <line num="231" type="stmt" count="2"/>
+      <line num="234" type="stmt" count="2"/>
+      <line num="235" type="stmt" count="1"/>
+      <line num="236" type="stmt" count="1"/>
+      <line num="237" type="stmt" count="2"/>
+      <line num="238" type="stmt" count="1"/>
+      <line num="239" type="stmt" count="1"/>
+      <line num="240" type="stmt" count="1"/>
+      <line num="242" type="stmt" count="1"/>
+      <line num="243" type="stmt" count="2"/>
+      <line num="244" type="stmt" count="1"/>
+      <line num="245" type="stmt" count="1"/>
+      <line num="246" type="stmt" count="1"/>
+      <line num="248" type="stmt" count="1"/>
+      <line num="249" type="stmt" count="2"/>
+      <line num="250" type="stmt" count="1"/>
+      <line num="251" type="stmt" count="1"/>
+      <line num="252" type="stmt" count="1"/>
+      <line num="254" type="stmt" count="1"/>
+      <line num="255" type="stmt" count="2"/>
+      <line num="256" type="stmt" count="1"/>
+      <line num="257" type="stmt" count="1"/>
+      <line num="258" type="stmt" count="1"/>
+      <line num="260" type="stmt" count="1"/>
+      <line num="261" type="stmt" count="2"/>
+      <line num="262" type="stmt" count="1"/>
+      <line num="263" type="stmt" count="1"/>
+      <line num="264" type="stmt" count="1"/>
+      <line num="266" type="stmt" count="1"/>
+      <line num="267" type="stmt" count="2"/>
+      <line num="268" type="stmt" count="2"/>
+      <line num="269" type="stmt" count="2"/>
+      <line num="273" type="method" name="useItem" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="275" type="stmt" count="1"/>
+      <line num="277" type="stmt" count="1"/>
+      <line num="278" type="stmt" count="1"/>
+      <line num="279" type="stmt" count="1"/>
+      <line num="283" type="method" name="pickUpItem" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="285" type="stmt" count="2"/>
+      <line num="286" type="stmt" count="2"/>
+      <line num="287" type="stmt" count="2"/>
+      <line num="288" type="stmt" count="2"/>
+      <line num="289" type="stmt" count="2"/>
+      <line num="292" type="stmt" count="2"/>
+      <line num="293" type="stmt" count="2"/>
+      <line num="294" type="stmt" count="2"/>
+      <line num="295" type="stmt" count="2"/>
+      <line num="300" type="method" name="getPlayerInventory" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="302" type="stmt" count="2"/>
+      <metrics loc="388" ncloc="286" classes="1" methods="19" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="127" coveredstatements="127" elements="146" coveredelements="146"/>
+    </file>
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Adventure/EndRoom.php">
+      <class name="App\Adventure\EndRoom" namespace="global">
+        <metrics complexity="3" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+      </class>
+      <line num="15" type="method" name="__construct" visibility="public" complexity="3" crap="3" count="9"/>
+      <line num="17" type="stmt" count="9"/>
+      <line num="19" type="stmt" count="9"/>
+      <line num="20" type="stmt" count="1"/>
+      <line num="23" type="stmt" count="9"/>
+      <line num="24" type="stmt" count="1"/>
+      <line num="25" type="stmt" count="1"/>
+      <metrics loc="29" ncloc="26" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="6" elements="7" coveredelements="7"/>
+    </file>
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Adventure/Item.php">
+      <class name="App\Adventure\Item" namespace="global">
+        <metrics complexity="7" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="17" coveredelements="17"/>
+      </class>
+      <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="18"/>
+      <line num="15" type="stmt" count="18"/>
+      <line num="16" type="stmt" count="18"/>
+      <line num="17" type="stmt" count="18"/>
+      <line num="18" type="stmt" count="18"/>
+      <line num="22" type="method" name="getName" visibility="public" complexity="1" crap="1" count="7"/>
+      <line num="24" type="stmt" count="7"/>
+      <line num="28" type="method" name="getDescription" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="30" type="stmt" count="2"/>
+      <line num="34" type="method" name="getImage" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="36" type="stmt" count="1"/>
+      <line num="40" type="method" name="getId" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="42" type="stmt" count="1"/>
+      <line num="45" type="method" name="setLocation" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="47" type="stmt" count="5"/>
+      <line num="51" type="method" name="getLocation" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="53" type="stmt" count="2"/>
+      <metrics loc="56" ncloc="51" classes="1" methods="7" coveredmethods="7" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="10" elements="17" coveredelements="17"/>
+    </file>
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Adventure/MountainHouse.php">
+      <class name="App\Adventure\MountainHouse" namespace="global">
+        <metrics complexity="3" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="8" coveredelements="8"/>
+      </class>
+      <line num="16" type="method" name="__construct" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="18" type="stmt" count="2"/>
+      <line num="20" type="stmt" count="2"/>
+      <line num="21" type="stmt" count="1"/>
+      <line num="24" type="stmt" count="2"/>
+      <line num="25" type="stmt" count="2"/>
+      <line num="26" type="stmt" count="2"/>
+      <line num="27" type="stmt" count="2"/>
+      <metrics loc="31" ncloc="28" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="8" coveredelements="8"/>
+    </file>
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Adventure/MountainVillage.php">
+      <class name="App\Adventure\MountainVillage" namespace="global">
+        <metrics complexity="3" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="8" coveredelements="8"/>
+      </class>
+      <line num="16" type="method" name="__construct" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="18" type="stmt" count="2"/>
+      <line num="20" type="stmt" count="2"/>
+      <line num="21" type="stmt" count="1"/>
+      <line num="24" type="stmt" count="2"/>
+      <line num="25" type="stmt" count="1"/>
+      <line num="26" type="stmt" count="1"/>
+      <line num="27" type="stmt" count="1"/>
+      <metrics loc="31" ncloc="28" classes="1" methods="1" coveredmethods="1" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="7" elements="8" coveredelements="8"/>
+    </file>
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Adventure/Player.php">
+      <class name="App\Adventure\Player" namespace="global">
+        <metrics complexity="10" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="19" coveredelements="19"/>
+      </class>
+      <line num="15" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="11"/>
+      <line num="17" type="stmt" count="11"/>
+      <line num="19" type="stmt" count="11"/>
+      <line num="20" type="stmt" count="1"/>
+      <line num="25" type="method" name="getLocation" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="27" type="stmt" count="1"/>
+      <line num="30" type="method" name="setLocation" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="32" type="stmt" count="1"/>
+      <line num="36" type="method" name="getInventory" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="38" type="stmt" count="3"/>
+      <line num="41" type="method" name="deleteItem" visibility="public" complexity="4" crap="4" count="1"/>
+      <line num="43" type="stmt" count="1"/>
+      <line num="44" type="stmt" count="1"/>
+      <line num="45" type="stmt" count="1"/>
+      <line num="46" type="stmt" count="1"/>
+      <line num="47" type="stmt" count="1"/>
+      <line num="49" type="stmt" count="1"/>
+      <line num="54" type="method" name="addToInventory" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="56" type="stmt" count="2"/>
+      <metrics loc="70" ncloc="55" classes="1" methods="6" coveredmethods="6" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="13" elements="19" coveredelements="19"/>
+    </file>
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Adventure/Room.php">
+      <class name="App\Adventure\Room" namespace="global">
+        <metrics complexity="44" methods="28" coveredmethods="28" conditionals="0" coveredconditionals="0" statements="81" coveredstatements="81" elements="109" coveredelements="109"/>
+      </class>
+      <line num="29" type="method" name="__construct" visibility="public" complexity="3" crap="3" count="16"/>
+      <line num="31" type="stmt" count="16"/>
+      <line num="32" type="stmt" count="16"/>
+      <line num="33" type="stmt" count="16"/>
+      <line num="34" type="stmt" count="16"/>
+      <line num="36" type="stmt" count="16"/>
+      <line num="37" type="stmt" count="10"/>
+      <line num="40" type="stmt" count="16"/>
+      <line num="41" type="stmt" count="10"/>
+      <line num="42" type="stmt" count="10"/>
+      <line num="43" type="stmt" count="10"/>
+      <line num="50" type="method" name="isLast" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="52" type="stmt" count="1"/>
+      <line num="58" type="method" name="setLastRoom" visibility="public" complexity="1" crap="1" count="6"/>
+      <line num="60" type="stmt" count="6"/>
+      <line num="63" type="method" name="setItemLocations" visibility="public" complexity="2" crap="2" count="8"/>
+      <line num="65" type="stmt" count="8"/>
+      <line num="66" type="stmt" count="8"/>
+      <line num="67" type="stmt" count="8"/>
+      <line num="68" type="stmt" count="5"/>
+      <line num="72" type="method" name="addConnectingRoom" visibility="public" complexity="1" crap="1" count="6"/>
+      <line num="74" type="stmt" count="6"/>
+      <line num="78" type="method" name="getItem" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="80" type="stmt" count="1"/>
+      <line num="81" type="stmt" count="1"/>
+      <line num="84" type="stmt" count="1"/>
+      <line num="85" type="stmt" count="1"/>
+      <line num="86" type="stmt" count="1"/>
+      <line num="87" type="stmt" count="1"/>
+      <line num="89" type="stmt" count="1"/>
+      <line num="99" type="stmt" count="1"/>
+      <line num="103" type="method" name="getDescription" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="105" type="stmt" count="1"/>
+      <line num="109" type="method" name="expandedDescription" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="111" type="stmt" count="1"/>
+      <line num="112" type="stmt" count="1"/>
+      <line num="113" type="stmt" count="1"/>
+      <line num="114" type="stmt" count="1"/>
+      <line num="116" type="stmt" count="1"/>
+      <line num="118" type="stmt" count="1"/>
+      <line num="122" type="method" name="exploreDescription" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="124" type="stmt" count="2"/>
+      <line num="125" type="stmt" count="2"/>
+      <line num="127" type="stmt" count="2"/>
+      <line num="128" type="stmt" count="1"/>
+      <line num="129" type="stmt" count="1"/>
+      <line num="131" type="stmt" count="1"/>
+      <line num="133" type="stmt" count="1"/>
+      <line num="137" type="method" name="visitedDescription" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="139" type="stmt" count="2"/>
+      <line num="140" type="stmt" count="2"/>
+      <line num="142" type="stmt" count="2"/>
+      <line num="143" type="stmt" count="1"/>
+      <line num="144" type="stmt" count="1"/>
+      <line num="146" type="stmt" count="1"/>
+      <line num="148" type="stmt" count="1"/>
+      <line num="151" type="method" name="setExplored" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="153" type="stmt" count="3"/>
+      <line num="157" type="method" name="isExplored" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="159" type="stmt" count="3"/>
+      <line num="163" type="method" name="getImage" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="165" type="stmt" count="1"/>
+      <line num="169" type="method" name="getName" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="171" type="stmt" count="2"/>
+      <line num="175" type="method" name="isItemRequired" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="177" type="stmt" count="1"/>
+      <line num="181" type="method" name="getRequiredItem" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="183" type="stmt" count="4"/>
+      <line num="187" type="method" name="getItems" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="189" type="stmt" count="3"/>
+      <line num="193" type="method" name="setItems" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="195" type="stmt" count="2"/>
+      <line num="199" type="method" name="getExits" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="201" type="stmt" count="2"/>
+      <line num="204" type="method" name="isVisited" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="206" type="stmt" count="2"/>
+      <line num="209" type="method" name="setVisited" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="211" type="stmt" count="2"/>
+      <line num="214" type="method" name="unlockRoom" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="216" type="stmt" count="1"/>
+      <line num="219" type="method" name="isLocked" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="221" type="stmt" count="4"/>
+      <line num="224" type="method" name="isFirstRoom" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="226" type="stmt" count="1"/>
+      <line num="229" type="method" name="setFirstRoom" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="231" type="stmt" count="5"/>
+      <line num="238" type="method" name="getAvailableConnectionsAsString" visibility="public" complexity="5" crap="5" count="4"/>
+      <line num="240" type="stmt" count="4"/>
+      <line num="241" type="stmt" count="4"/>
+      <line num="242" type="stmt" count="4"/>
+      <line num="243" type="stmt" count="1"/>
+      <line num="244" type="stmt" count="1"/>
+      <line num="245" type="stmt" count="1"/>
+      <line num="248" type="stmt" count="1"/>
+      <line num="251" type="stmt" count="4"/>
+      <line num="259" type="method" name="getConnectionsAsStringArray" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="261" type="stmt" count="1"/>
+      <line num="262" type="stmt" count="1"/>
+      <line num="263" type="stmt" count="1"/>
+      <line num="264" type="stmt" count="1"/>
+      <line num="267" type="stmt" count="1"/>
+      <line num="271" type="method" name="getItemsAsString" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="273" type="stmt" count="1"/>
+      <line num="274" type="stmt" count="1"/>
+      <line num="276" type="stmt" count="1"/>
+      <line num="277" type="stmt" count="1"/>
+      <line num="278" type="stmt" count="1"/>
+      <line num="280" type="stmt" count="1"/>
+      <line num="282" type="stmt" count="1"/>
+      <metrics loc="285" ncloc="243" classes="1" methods="28" coveredmethods="28" conditionals="0" coveredconditionals="0" statements="81" coveredstatements="81" elements="109" coveredelements="109"/>
+    </file>
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Adventure/TrainTracks.php">
+      <class name="App\Adventure\TrainTracks" namespace="global">
+        <metrics complexity="5" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="17" coveredelements="17"/>
+      </class>
+      <line num="15" type="method" name="__construct" visibility="public" complexity="3" crap="3" count="2"/>
+      <line num="17" type="stmt" count="2"/>
+      <line num="19" type="stmt" count="2"/>
+      <line num="20" type="stmt" count="2"/>
+      <line num="23" type="stmt" count="2"/>
+      <line num="24" type="stmt" count="1"/>
+      <line num="25" type="stmt" count="1"/>
+      <line num="26" type="stmt" count="1"/>
+      <line num="31" type="method" name="exploreDescription" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="33" type="stmt" count="1"/>
+      <line num="34" type="stmt" count="1"/>
+      <line num="35" type="stmt" count="1"/>
+      <line num="37" type="stmt" count="1"/>
+      <line num="38" type="stmt" count="1"/>
+      <line num="39" type="stmt" count="1"/>
+      <line num="41" type="stmt" count="1"/>
+      <line num="43" type="stmt" count="1"/>
+      <metrics loc="46" ncloc="42" classes="1" methods="2" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="15" elements="17" coveredelements="17"/>
+    </file>
     <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Card/Card.php">
       <class name="App\Card\Card" namespace="global">
         <metrics complexity="4" methods="4" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="5" coveredstatements="5" elements="9" coveredelements="9"/>
@@ -140,6 +533,46 @@
       <line num="216" type="stmt" count="4"/>
       <line num="221" type="stmt" count="4"/>
       <metrics loc="224" ncloc="178" classes="1" methods="13" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="76" coveredstatements="76" elements="89" coveredelements="89"/>
+    </file>
+    <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Controller/AdventureController.php">
+      <class name="App\Controller\AdventureController" namespace="global">
+        <metrics complexity="6" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="0" elements="34" coveredelements="0"/>
+      </class>
+      <line num="22" type="method" name="home" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="28" type="method" name="about" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="34" type="method" name="adventureInit" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="40" type="stmt" count="0"/>
+      <line num="41" type="stmt" count="0"/>
+      <line num="42" type="stmt" count="0"/>
+      <line num="43" type="stmt" count="0"/>
+      <line num="44" type="stmt" count="0"/>
+      <line num="45" type="stmt" count="0"/>
+      <line num="46" type="stmt" count="0"/>
+      <line num="47" type="stmt" count="0"/>
+      <line num="48" type="stmt" count="0"/>
+      <line num="49" type="stmt" count="0"/>
+      <line num="50" type="stmt" count="0"/>
+      <line num="52" type="stmt" count="0"/>
+      <line num="53" type="stmt" count="0"/>
+      <line num="54" type="stmt" count="0"/>
+      <line num="56" type="stmt" count="0"/>
+      <line num="59" type="method" name="adventurePlay" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="65" type="stmt" count="0"/>
+      <line num="67" type="stmt" count="0"/>
+      <line num="69" type="stmt" count="0"/>
+      <line num="71" type="stmt" count="0"/>
+      <line num="72" type="stmt" count="0"/>
+      <line num="75" type="stmt" count="0"/>
+      <line num="76" type="stmt" count="0"/>
+      <line num="79" type="stmt" count="0"/>
+      <line num="81" type="stmt" count="0"/>
+      <line num="82" type="stmt" count="0"/>
+      <line num="83" type="stmt" count="0"/>
+      <line num="84" type="stmt" count="0"/>
+      <line num="86" type="stmt" count="0"/>
+      <metrics loc="89" ncloc="85" classes="1" methods="4" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="0" elements="34" coveredelements="0"/>
     </file>
     <file name="/home/parv/dbwebb-kurser/mvc/me/report/src/Controller/CardGameController.php">
       <class name="App\Controller\CardGameController" namespace="global">
@@ -953,9 +1386,9 @@
       <line num="123" type="stmt" count="4"/>
       <line num="126" type="stmt" count="4"/>
       <line num="129" type="stmt" count="4"/>
-      <line num="130" type="stmt" count="2"/>
-      <line num="131" type="stmt" count="2"/>
-      <line num="134" type="stmt" count="3"/>
+      <line num="130" type="stmt" count="3"/>
+      <line num="131" type="stmt" count="3"/>
+      <line num="134" type="stmt" count="2"/>
       <line num="142" type="method" name="getBestPlayerValue" visibility="public" complexity="3" crap="3" count="5"/>
       <line num="145" type="stmt" count="5"/>
       <line num="148" type="stmt" count="5"/>
@@ -966,8 +1399,8 @@
       <line num="166" type="stmt" count="5"/>
       <line num="167" type="stmt" count="2"/>
       <line num="170" type="stmt" count="5"/>
-      <line num="178" type="method" name="setWinner" visibility="public" complexity="1" crap="1" count="6"/>
-      <line num="180" type="stmt" count="6"/>
+      <line num="178" type="method" name="setWinner" visibility="public" complexity="1" crap="1" count="5"/>
+      <line num="180" type="stmt" count="5"/>
       <line num="186" type="method" name="getWinner" visibility="public" complexity="1" crap="1" count="8"/>
       <line num="188" type="stmt" count="8"/>
       <line num="196" type="method" name="isPlayerActive" visibility="public" complexity="1" crap="1" count="1"/>
@@ -996,7 +1429,7 @@
       <line num="259" type="stmt" count="4"/>
       <line num="260" type="stmt" count="2"/>
       <line num="262" type="stmt" count="4"/>
-      <line num="263" type="stmt" count="3"/>
+      <line num="263" type="stmt" count="2"/>
       <line num="270" type="method" name="checkGameEnd" visibility="public" complexity="2" crap="2" count="3"/>
       <line num="272" type="stmt" count="3"/>
       <line num="273" type="stmt" count="1"/>
@@ -1014,6 +1447,6 @@
       <line num="301" type="stmt" count="1"/>
       <metrics loc="305" ncloc="201" classes="1" methods="19" coveredmethods="19" conditionals="0" coveredconditionals="0" statements="76" coveredstatements="76" elements="95" coveredelements="95"/>
     </file>
-    <metrics files="25" loc="2379" ncloc="2086" classes="23" methods="140" coveredmethods="58" conditionals="0" coveredconditionals="0" statements="723" coveredstatements="212" elements="863" coveredelements="270"/>
+    <metrics files="35" loc="3435" ncloc="2958" classes="33" methods="210" coveredmethods="124" conditionals="0" coveredconditionals="0" statements="1026" coveredstatements="485" elements="1236" coveredelements="609"/>
   </project>
 </coverage>

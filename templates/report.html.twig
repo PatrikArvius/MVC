@@ -177,15 +177,54 @@
             inte alla som håller med om alla principer eller som tycker att alla verktyg är fruktbara utan det varierar troligtvis från person till person, arbetsplats till arbetsplats och projekt till projekt.</p>
             <p><b>Vilken är din TIL för detta kmom?</b></p>
             <p>Att det kan vara lika eller mer viktigt att förstå vad verktygen säger dig än att dess värden är så bra som möjliga.</p>
-            <h2 id="kmom10">Kmom 10</h2>
-            <p><b></b></p>
-            <p></p>
-            <p><b></b></p>
-            <p></p>
-            <p><b></b></p>
-            <p></p>
-            <p><b></b></p>
-            <p></p>
+            <h2 id="kmom10">Kmom 10 / Projekt</h2>
+            <p><b>Krav 1,2,3 baskrav</b></p>
+            <p>Först och främst valde jag att skapa ett retro-esque äventyrsspel. Det kändes som en kul utmaning som var något nytt men det tog mycket tid. Dels för att det inte fanns 
+            lika mycket att bygga vidare på jämfört med exempelvis blackjackuppgiften. Dessutom krävdes det en avsevärd ansträngning för att försöka hålla storleken rimlig, det är 
+            otroligt lätt att flyga iväg med tusen idéer om vad som borde vara möjligt eller hur någonting skulle kunna tänkas fungera.</p>
+            <p>För att få projektet att upplevas som en ny webbplats så valde jag att implementera en ny "bas-template" som alltså var frikopplad från min vanliga template till min 
+            me-sida. Det är möjligt att ta sig till mitt projekt från me-sidan men när man väl är på projektets sida så finns det inga vägar tillbaka utan projektsidan är sin egen 
+            entitet. Utöver det så valde jag att behålla samma css-fil som jag tidigare använt för style och jag valde att istället för att skapa ett nytt style sheet så arbetade jag 
+            med klasser på mina html-element som jag sedan kunde styla från samma style sheet. Jag tyckte delvis att det kändes lättare så och då kunde jag dessutom återanvända mig utav 
+            styling sedan tidigare som var användbar och genom att lägga till ytterligare klasser så kunde de användas utan att projektets sida kändes liknande me-sidan. Jag valde också att 
+            arbeta med andra färger och ett annat typsnitt för att skapa en mer retro känsla.</p>
+            <p>Jag updaterade min readme för mitt repo så det breskrev hur man klonade det samt installerade dependencies samt startar upp en local server för att köra webbplatsen på. Vissa delar 
+            är kvar sedan tidigare men har dubbelkollats, t.ex. så uppdateras mina scrutinizer badges automatiskt men de har testats för att se att de fortfarande leder rätt.</p>
+            <p><b>Allmänt</b></p>
+            <p>Det var en intressant och utmanande uppgift att försöka göra ett äventyrsspel från basen och försöka implementera delar av det vi lärt oss under kursen, jag hade gärna arbetat vidare 
+            med JSON API och ORM som jag hade tankar kring hur jag skulle använda men i mån av tid valde jag att inte göra dessa krav då jag inte vill att de skulle ske på bekostnad av kommande kurser. Det var 
+            i vilket fall en väldigt rolig uppgift att just bygga upp och skapa spelet på ett sådant sätt det var möjligt att lägga till rum och prylar på ett dynamiskt sätt snarare än att hårdkoda det. 
+            Nu blir ju alltid saker i viss mån hårdkodade då jag i min controller bestämmer vilka rum och saker som skall existera men jag antog utmaningen i att programmera spelets klasser på 
+            ett vis som låter mig skapa om spelet på vilket sätt jag vill. Det var mycket givande att sitta och klura på den delen.</p>
+            <p>På det stora hela tycker jag projektet gick bra att genomföra men det var svårt till en början när jag till skillnad från om jag valt blackjack inte hade något att utgå ifrån 
+            så det blev mycket klurande i början kring hur jag ville bygga upp spelet och hur jag skulle lösa det på bästa sätt så det gick ju en hel del tid bara till att konceptualisera. 
+            På det stora hela tycker jag inte projektet var så svårt, det hade inte heller varit svårt att implementera ett ORM eller leverera JSON men det tog mycket tid, beroende på hur stort man 
+            tänker givetvis. Svårast var nog att fundera ut hur jag skulle lösa kopplingarna mellan rummen på bästa sätt, och delvis hanteringen av möjligheten att låsa möjligheten att gå frammåt 
+            i vissa rum beroende på om rätt föremål har lämnats in eller ej. Jag känner mig nog mest nöjd med hur jag löste kopplingarna mellan rummen samt hur rum skapas. Jag valde att göra en basklass 
+            för ett rum som i sitt skapande tar emot vissa parametrar och sedan använde jag mig av arv från den basklassen när jag ville skapa mer specialiserade rum. Nu blev de specialiserade 
+            rummen inte jättekomplexa men på det viset kunde jag skapa rum med namn, beskrivning och bild direkt i controllern om jag ville eller skapa ett specialiserat rum som är sin egen klass som ärver 
+            från basklassen där jag kan ändra på viss funktionalitet eller hårdkoda beskrivning, namn, bild etc. Jag valde att göra så för att inte behöva skapa långa beskrivningar av respektive rum 
+            i min controller utan på det här viset kunde jag fylla på sådant i respektive klass, men möjligheten fanns där om man ville.</p>
+            <p>Jag löste kopplingarna mellan rummen på det sättet att varje rum hade en key-value array som representerade de väderstreck som kan utgå från ett rum, sedan har varje rum en metod där ett rum då kan läggas till som value till en sådan key. Så jag kunde 
+            själv bestämma att från rum nummer tre så finns rum fyra till norr, rum ett till söder etc. Det fungerade bra och kändes som ett dynamiskt sätt att bygga upp kopplingarna mellan rummen, och när spelet bytte 
+            aktivt rum så länkades det rum man kom ifrån till motsatt riktning i det nya rummets kopplingar. Det kändes som en smart lösning men jag märkte att ju fler rum jag skapade desto svårare 
+            var det att hålla koll på vilken av vädersträcken som ledde tillbaka till föregående rum så jag valde att skapa en till riktning som var "Gå tillbaka", på så vis blir det mycket lättare 
+            för spelare att navigera till föregående rum. Sedan valde jag för att det var kul att även vid spelets uppstart att randomisera alla kopplingar mellan rummen, det är fult på ett sätt 
+            då de hårtkodar spelet även om jag byggt spelet så att en dynamisk möjlighet fortfarande finns där men samtidigt var den en kul utmaning och gör det enkelt att skapa spelet i kontrollern. 
+            Jag skickar helt enekelt in en array med rumsobjekt till min överordnade spelklass som sedan randomiserar kopplingarna mellan dessa rum och sedan startar spelet.</p>
+            <p>Svårt? Ganska. Onödigt? Kanske. Roligt? Definitivt. Lärorikt? Absolut.</p>
+            <p>Sedan finns det som alltid massor av utvecklingspotential. Jag lärde mig verkligen värdet av att skapa en plan eller en skiss över hur jag tänkte projektet skulle se ut innan jag 
+            påbörjade själva programmeringen. Sen är jag definitivt inte nöjd med hur komplexa vissa metoder blev eller hur stora mina klasser blev och det är något jag tar med mig. Jag blev 
+            dock nöjd över att jag lyckades hålla mina metoder feta och min controller smal. Och det var lite roligt att gräva sig ned lite mer i vad man kan göra i twig, något som jag använde mig lite av 
+            för att dynamiskt visa vissa saker på spelplanet beroende på hur AdventureGame-objektet såg ut.</p>
+            <p><b>Tankar kring kursen</b></p>
+            <p>Jag skulle vilja nämna att jag har haft förmånen att gå en tidigare version av denna kurs, dock utan att genomföra kmom06 och 10. Jag valde av olika skäl att göra om hela denna 
+            kurs och jag tycker den utvecklats något otroligt. Så stor eloge till Mikael och alla som arbetar med att uppdatera kursen. Den hade ett ännu bättre upplägg, en tydligare röd tråd där 
+            kursmomenten verkligen kompletterade varandra och det var väldigt roligt att testa på ett ramverk i php. Jag är mycket nöjd med kursen och kommer rekommendera den varmt till vänner som 
+            funderar på att testa programmering. Det enda förbättringsförslag jag kan komma på är att det blev lite konstigt under ORM-delen av kursen där jag gärna hade fått mariadb att fungera men det 
+            kändes inte riktigt som att det fanns tid att få det att fungera tillsammans med studentservern. Jag vet inte vart felet låg, troligtvis i min okunskap, men jag hade önskat lite mer vägledning 
+            i det kursmomentet för att få det att fungera. Nu fungerade ju SQLite bra så det var ju ingen katastrof men det var något jag tänkte på. Kursen får 10 av 10 poäng från mig, den har blivit 
+            mycket bättre än tidigare version, stort tack!</p>
         </div>
     </article>
 {% endblock %}
