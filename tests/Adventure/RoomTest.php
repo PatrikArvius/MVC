@@ -12,9 +12,15 @@ class RoomTest extends TestCase
      */
     public function testCreate(): void
     {
+        $lamp = new Item("Lamp", "None", "An ordinary lamp", 1);
+        $itemKey = new Item("Key", "None", "A key", 2);
         $room = new Room("Test Room", "No Image", "A test room");
+        $room2 = new MountainHouse([$lamp], true, $itemKey);
+        $room3 = new EndRoom([$lamp], true, $itemKey);
 
         $this->assertInstanceOf('App\Adventure\Room', $room);
+        $this->assertInstanceOf('App\Adventure\Room', $room2);
+        $this->assertInstanceOf('App\Adventure\Room', $room3);
     }
 
     /**
@@ -23,7 +29,7 @@ class RoomTest extends TestCase
     public function testGetItem(): void
     {
         $lamp = new Item("Lamp", "None", "An ordinary lamp", 1);
-        $room = new Room("Test Room", "No Image", "A test room", [$lamp], true, $lamp);
+        $room = new MountainVillage([$lamp], true, $lamp);
 
         $item = $room->getItem("Lamp");
         $this->assertEquals($lamp, $item[0]);
@@ -35,7 +41,7 @@ class RoomTest extends TestCase
     public function testExpandedDescription(): void
     {
         $lamp = new Item("Lamp", "None", "An ordinary lamp", 1);
-        $room = new Room("Test Room", "No Image", "A test room", [$lamp], true, $lamp);
+        $room = new AbandonedTrainStation([$lamp], true, $lamp);
         $room2 = new Room("Test room 2", "None", "A second test room");
 
         $desc = $room->expandedDescription();
@@ -50,11 +56,21 @@ class RoomTest extends TestCase
      */
     public function testExploreDescription(): void
     {
+        $itemKey = new Item("Key", "None", "A key, what door does it unlock?",1);
         $lamp = new Item("Lamp", "None", "An ordinary lamp", 1);
+        $room2 = new TrainTracks([$itemKey], null, null);
+        $room3 = new TrainTracks();
         $room = new Room("Test Room", "No Image", "A test room", [$lamp], true, $lamp);
 
         $desc = $room->exploreDescription();
         $this->assertEquals($desc[1], "You notice: An ordinary lamp");
+
+        $desc = $room2->exploreDescription();
+        $this->assertEquals($desc[1], "You notice: A key, what door does it unlock?");
+
+        $desc = $room3->exploreDescription();
+        $this->assertEquals($desc[0], "You fumble around in the darkness and feel something small and cool to the touch. You can spot the silhouette of a locomotive but you require more light in order 
+        to operate it.");
     }
 
     /**

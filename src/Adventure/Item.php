@@ -42,11 +42,6 @@ class Item
         return $this->itemId;
     }
 
-    public function action(): mixed
-    {
-        return null;
-    }
-
     public function setLocation(string $location): void
     {
         $this->location = $location;
